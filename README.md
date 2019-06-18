@@ -18,12 +18,17 @@ You can add them to some events, like entity_spawned, entity_killed, or so. Modi
 Modifiers can do stuff on a lot of events, found in the API. Most of the events are triggered on the whole map, not only the hero. For that you have to add the CONSTANT in DeclareFunctions and add the function also to the .lua file.
 
 # Lua Tipps
+-- This is a comment (not Code)
 If you have a function, e.g. function examplemodifier:OnAttackLanded(event), you can read the whole event on the console using:
 for k,v in pairs(event) do print("OnAttackLanded:",k,v) end
+Sometimes events might miss a value (like event.attacker).
 
 Arrays (or tables as they are called in lua) usually start with 1, but some Dota Stuff, like PlayerIDs start with 0, since they originally come from the C++ hardcode of Dota.
+
+If a variable has no value, it is "nil" and is like false. (So you can do "if (test) then..." instead of "if (test~=nil)").
 
 
 
 # Links
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
+(Important Sections: CDOTA_BaseNPC, CDOTA_BaseNPC_Hero, PlayerResource and the very Bottom with the CONSTANTS)
