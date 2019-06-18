@@ -1,64 +1,72 @@
 ListenToGameEvent("dota_player_killed",function(keys)
+	-- for k,v in pairs(keys) do print("dota_player_killed",k,v) end
 	local playerID = keys.PlayerID
 	local heroKill = keys.HeroKill
 	local towerKill = keys.TowerKill
-	-- for k,v in pairs(keys) do print("dota_player_killed",k,v) end
+
+
 end, nil)
 
 ListenToGameEvent("entity_killed", function(keys)
+	-- for k,v in pairs(keys) do	print("entity_killed",k,v) end
 	local attackerUnit = keys.entindex_attacker and EntIndexToHScript(keys.entindex_attacker)
 	local killedUnit = keys.entindex_killed and EntIndexToHScript(keys.entindex_killed)
 	local damagebits = keys.damagebits -- This might always be 0 and therefore useless
-	-- for k,v in pairs(keys) do	print("entity_killed",k,v) end
+
+	if (killedUnit and killedUnit:IsRealHero()) then
+		-- when a hero dies
+	end
+
 end, nil)
 
 ListenToGameEvent("npc_spawned", function(keys)
+	-- for k,v in pairs(keys) do print("npc_spawned",k,v) end
 	local spawnedUnit = keys.entindex and EntIndexToHScript(keys.entindex)
-	-- for k,v in pairs(keys) do	print("npc_spawned",k,v) end
 
 end, nil)
 
 ListenToGameEvent("entity_hurt", function(keys)
+	-- for k,v in pairs(keys) do print("entity_hurt",k,v) end
 	local damage = keys.damage
 	local attackerUnit = keys.entindex_attacker and EntIndexToHScript(keys.entindex_attacker)
 	local victimUnit = keys.entindex_killed and EntIndexToHScript(keys.entindex_killed)
 	local damagebits = keys.damagebits -- This might always be 0 and therefore useless
-	-- for k,v in pairs(keys) do print("entity_hurt",k,v) end
 
 end, nil)
 
 ListenToGameEvent("dota_player_gained_level", function(keys)
+	-- for k,v in pairs(keys) do print("dota_player_gained_level",k,v) end
 	local newLevel = keys.level
 	local playerID = keys.player - 1 -- i guess
-	-- for k,v in pairs(keys) do print("dota_player_gained_level",k,v) end
+	local heroUnit = PlayerResource:GetSelectedHeroEntity(playerID)
 	
 end, nil)
 
 ListenToGameEvent("dota_player_used_ability", function(keys)
+	-- for k,v in pairs(keys) do print("dota_player_used_ability",k,v) end
 	local casterUnit = keys.caster_entindex and EntIndexToHScript(keys.caster_entindex)
 	local abilityname = keys.abilityname
 	local playerID = keys.PlayerID
 	local player = keys.PlayerID and PlayerResource:GetPlayer(keys.PlayerID)
 	-- local ability = casterUnit and casterUnit.FindAbilityByName and casterUnit:FindAbilityByName(abilityname) -- bugs if hero has 2 times the same ability
-	-- for k,v in pairs(keys) do print("dota_player_used_ability",k,v) end
 
 end, nil)
 
 ListenToGameEvent("last_hit", function(keys)
+	-- for k,v in pairs(keys) do print("last_hit",k,v) end
 	local killedUnit = keys.EntKilled and EntIndexToHScript(keys.EntKilled)
 	local playerID = keys.PlayerID
 	local firstBlood = keys.FirstBlood
 	local heroKill = keys.HeroKill
 	local towerKill = keys.TowerKill
-	-- for k,v in pairs(keys) do print("last_hit",k,v) end
 
 end, nil)
 
 ListenToGameEvent("dota_tower_kill", function(keys)
+	-- for k,v in pairs(keys) do print("dota_tower_kill",k,v) end
 	local gold = keys.gold
 	local towerTeam = keys.teamnumber
 	local killer_userid = keys.killer_userid
-	-- for k,v in pairs(keys) do print("dota_tower_kill",k,v) end
 
 end, nil)
 
@@ -79,7 +87,7 @@ ListenToGameEvent("this_is_just_an_example", function(keys)
 		false -- bool canGrowCache
 	)
 
-	for u,neighUnit in pairs(neighbours) do
+	for n,neighUnit in pairs(neighbours) do
 
 		ApplyDamage({
 			victim = neighUnit,
@@ -89,6 +97,8 @@ ListenToGameEvent("this_is_just_an_example", function(keys)
 			damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL,
 			ability = nil
 		})
+
+		LinkLuaModifier("someweirdmodifier","modifiers/someweirdmodifier", 0)
 
 		neighUnit:AddNewModifier(
 			targetUnit, -- handle caster, 

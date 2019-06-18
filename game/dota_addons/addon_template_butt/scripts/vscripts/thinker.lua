@@ -1,11 +1,12 @@
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then
-		GameRules:GetGameModeEntity():SetThink( "VeryOften", GameMode, "Think1", 0 )
-		GameRules:GetGameModeEntity():SetThink( "Often", GameMode, "Think5", 0 )
-		GameRules:GetGameModeEntity():SetThink( "Regular", GameMode, "Think15", 0 )
-		GameRules:GetGameModeEntity():SetThink( "Seldom", GameMode, "Think30", 0 )
-		GameRules:GetGameModeEntity():SetThink( "DontForgetToSubscribe", GameMode, "Delay20", 20*60 )
-		GameRules:GetGameModeEntity():SetThink( "LateGame", GameMode, "Delay30", 30*60 )
+		GameRules:GetGameModeEntity():SetThink( "VeryVeryOften", GameMode, 0 )
+		GameRules:GetGameModeEntity():SetThink( "VeryOften", GameMode, 0 )
+		GameRules:GetGameModeEntity():SetThink( "Often", GameMode, 0 )
+		GameRules:GetGameModeEntity():SetThink( "Regular", GameMode, 0 )
+		GameRules:GetGameModeEntity():SetThink( "Seldom", GameMode, 0 )
+		GameRules:GetGameModeEntity():SetThink( "DontForgetToSubscribe", GameMode, 20*60 )
+		GameRules:GetGameModeEntity():SetThink( "LateGame", GameMode, 30*60 )
 	end
 end, self)
 
@@ -17,6 +18,11 @@ end
 function GameMode:LateGame()
 	-- print("30 minutes")
 	return nil
+end
+
+function GameMode:VeryVeryOften()
+	-- print("every 10 seconds")
+	return 10
 end
 
 function GameMode:VeryOften()

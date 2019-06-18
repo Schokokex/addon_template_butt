@@ -12,20 +12,22 @@ After that you can start the game inside Hammer just by clicking the "Game Contr
 
 # Startitems
 Lets you add free Items, Abilities, Talents or Modifiers, that everyone gets.
+Abilities can start with cooldown, a certain level or can be casted initially and more (as shown in the file).
 
 # Thinker
 Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (hero:SetAbsOrigin(Vector(0,0,120))) every 5 Minutes.
+
+# Filters
+You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed)
 
 # Talents
 If you want to add a new Talents, you have to add it to the game/..../scripts/npc/npc_abilites_custom.txt , and create a file in game/..../scripts/vscripts/talents/ as like the example talent.
 
 To add it to the heroes you put it into startitems or you edit the kv files for each hero.
 
-# Filters
-You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed)
-
 # Abilities
-If you want to add a new Ability, you can give it to every hero in the startitems.lua file or add it to the heroes manually inside the kv files. Abilites must be added into npc_abilities_custom.txt
+If you want to add a new Ability, you can give it to every hero in the startitems.lua file or add it to the heroes manually inside the npc_heroes_custom.txt file. Abilites must be added into npc_abilities_custom.txt, where you put the right path to the lua script file.
+
 
 # Modifiers
 Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont have to edit the KV files, they are only in lua. To use them you have to use LinkLuaModifier(name, filepath, LUA_MODIFIER_MOTION_NONE) and then you can add them to the heroes or so.
@@ -51,7 +53,7 @@ Arrays (or tables as they are called in lua) usually start with 1, but some Dota
 
 A lua table, e.g. "local herovalues = { antimag = 12, centaur = 5 }" can be accessed (or values can be added) with "herovalues.antimag" (=12) or "heorovalues["antimag"]". Numerial entries can be initiated like "local bestfood = { [1]="peppers", [2]="meat" }".
 
-If a variable has no value, it is "nil" and acts like false. (So you can do "if (test) then..." instead of "if (not test\~=nil)").
+If a variable has no value, it is "nil" and acts like false. (So you can do "if (test) then..." instead of "if (test\~=nil)").
 
 If a function gets not enough parameters, it fills up with nil ("asd:whtvr(hero,nil)" equals to "asd:whtvr(hero)").
 
