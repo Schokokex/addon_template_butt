@@ -7,7 +7,7 @@ First of all, after some crashing and so on, i started everything from Scratch a
 Timers, Talents, example Modifier, example Ability, Startitems, Thinker, so basically the files you find inside game/dota_addons/addon_template_butt/scripts/vscripts/.
 
 # Use This Template
-Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content, or you copy the files into every new mod you make.
+Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content (before you create yours), or you copy the files into every new mod you make.
 After that you can start the game inside Hammer just by clicking the "Game Controller Icon" and "Run (Skip Build)".
 
 # Startitems
