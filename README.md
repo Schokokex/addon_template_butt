@@ -16,7 +16,7 @@ Events that trigger at a Timer. Give free Rapiers after 20 Minutes or teleport e
 If you want to add a new Talents, you have to add it to the game/..../scripts/npc/npc_abilites_custom.txt , and create a file in game/..../scripts/vscripts/talents/ as like the example talent.
 
 # Abilities
-If you want to add a new Ability, you can give it to every hero in the 
+If you want to add a new Ability, you can give it to every hero in the startitems.lua file or add it to the heroes manually inside the kv files.
 
 # Modifiers
 Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont have to edit the KV files, they are only in lua. To use them you have to use LinkLuaModifier(name, filepath, LUA_MODIFIER_MOTION_NONE) and then you can add them to the heroes or so.
@@ -45,3 +45,10 @@ This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then
 # Links
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
 (Important Sections: CDOTA_BaseNPC, CDOTA_BaseNPC_Hero, PlayerResource and the very Bottom with the CONSTANTS)
+(I spent a lot of time here, use CTRL+F and type "setgold" or so)
+Modifiers: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names
+(some are broken if used manually)
+Dota Imba: https://github.com/EarthSalamander42/dota_imba/tree/master/game/dota_addons/dota_imba_reborn/scripts/vscripts/components
+How can i code a blademail/ fury swipes/ whatever on my own? Look here (Intermediate level)
+Volvo Recipe for lua Ability/Modifier: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers
+Volvo Recipe for Game Events: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Listening_to_game_events
