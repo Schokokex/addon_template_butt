@@ -46,9 +46,14 @@ This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
 (Important Sections: CDOTA_BaseNPC, CDOTA_BaseNPC_Hero, PlayerResource and the very Bottom with the CONSTANTS)
 (I spent a lot of time here, use CTRL+F and type "setgold" or so)
+
 Modifiers: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names
 (some are broken if used manually)
+
 Dota Imba: https://github.com/EarthSalamander42/dota_imba/tree/master/game/dota_addons/dota_imba_reborn/scripts/vscripts/components
+
 How can i code a blademail/ fury swipes/ whatever on my own? Look here (Intermediate level)
+
 Volvo Recipe for lua Ability/Modifier: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers
+
 Volvo Recipe for Game Events: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Listening_to_game_events
