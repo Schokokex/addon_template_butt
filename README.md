@@ -51,7 +51,7 @@ Arrays (or tables as they are called in lua) usually start with 1, but some Dota
 
 A lua table, e.g. "local herovalues = { antimag = 12, centaur = 5 }" can be accessed (or values can be added) with "herovalues.antimag" (=12) or "heorovalues["antimag"]". Numerial entries can be initiated like "local bestfood = { [1]="peppers", [2]="meat" }".
 
-If a variable has no value, it is "nil" and acts like false. (So you can do "if (test) then..." instead of "if (test~=nil)").
+If a variable has no value, it is "nil" and acts like false. (So you can do "if (test) then..." instead of "if (not test\~=nil)").
 
 If a function gets not enough parameters, it fills up with nil ("asd:whtvr(hero,nil)" equals to "asd:whtvr(hero)").
 
