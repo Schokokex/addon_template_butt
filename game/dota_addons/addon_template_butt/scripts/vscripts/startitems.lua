@@ -9,17 +9,18 @@ local bonusmodifier = {
 	-- examplemodifier = {},
 }
 local talents = {
-	l4 = "special_bonus_exampletalent",	r4 = "special_bonus_exampletalent",
-	l3 = "special_bonus_exampletalent",	r3 = "special_bonus_exampletalent",
-	l2 = "special_bonus_exampletalent",	r2 = "special_bonus_exampletalent",
-	l1 = "special_bonus_exampletalent",	r1 = "special_bonus_exampletalent",
+	[8] = "",	[7] = "",
+	[6] = "",	[5] = "",
+	[4] = "",	[3] = "",
+	[2] = "",	[1] = "",
+	-- [2] = "special_bonus_exampletalent",	[1] = "special_bonus_cooldown_reduction_65",
 }
 
-LinkLuaModifier("examplemodifier", "modifiers/examplemodifier", LUA_MODIFIER_MOTION_NONE)
-
 ListenToGameEvent("dota_player_pick_hero",function(kv)
-	print("picked")
 	local hero = EntIndexToHScript(kv.heroindex)
+	
+	-- Items
+
 	for i,item in pairs(startitems) do
 		if hero:HasRoomForItem(item, true, true) then
 			local asd = CreateItem(item, hero, hero)
@@ -28,28 +29,33 @@ ListenToGameEvent("dota_player_pick_hero",function(kv)
 		end
 	end
 
+	-- Abilities
+
 	for a,abil in pairs(bonusabilities) do
 		hero:AddAbility(abil)
 	end
 
+	-- Modifiers
+
 	for name,data in pairs(bonusmodifier) do
+		LinkLuaModifier(name, "modifiers/"..name, LUA_MODIFIER_MOTION_NONE)
 		hero:AddNewModifier(hero, nil, name, data)
 	end
 
-	local tal = {
-		l4 = 7, r4 = 8,
-		l3 = 5, r3 = 6,
-		l2 = 3, r2 = 4,
-		l1 = 1, r1 = 2,
-	}
+	-- Talents
 
 	local heroTalents = hero:GetAllTalents() -- with abilitynumber
 
-	-- for k,i in pairs(heroTalents) do
-	-- 	if talents[k] then
-	-- 		heroTalents[i]:Destroy()
-	-- 		hero:SetAbilityByIndex(hero:AddAbility(talents[k]),i)
-	-- 	end
-	-- end
-	
+	local ind = {}
+	for i,_ in pairs(heroTalents) do
+		table.insert(ind,i)
+	end
+
+	for i,name in pairs(talents) do
+		if (name~="") then
+			heroTalents[ind[i]]:Destroy()
+			hero:SetAbilityByIndex(hero:AddAbility(name),ind[i])
+		end
+	end
+
 end, self)

@@ -1,0 +1,53 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	"exampleability"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/exampleability"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"17.0 16.0 15.0 14.0"
+		"AbilityManaCost"				"100"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"ls_start"					"100 200 300 400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"self_damage"				"100 200 300 400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_radius"				"450"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"10"
+			}
+		}
+	}
+
+	"special_bonus_exampletalent"
+	{
+		"BaseClass"					"special_bonus_undefined"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"90"
+			}
+		}
+	}
+	
+}
