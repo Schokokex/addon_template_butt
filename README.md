@@ -28,7 +28,7 @@ Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont hav
 
 You can add them to some events, like entity_spawned, entity_killed, or so. Modifiers have a little odd thing, that they technically exist twice, once on the players computer and once on the server, thats maybe good to keep in mind.
 
-Modifiers can do stuff on a lot of events, found in the API. Most of the events are triggered on the whole map, not only the hero. For that you have to add the CONSTANT in DeclareFunctions and add the function also to the .lua file.
+Modifiers can do stuff on a lot of events, found in the API. For that you have to add the CONSTANT in DeclareFunctions and add the function also to the .lua file. Most of the events are triggered on the whole map, not only the hero.
 
 # Settings
 The Loadscreen settings. Feel free to balance your game here.
@@ -49,15 +49,14 @@ If a variable has no value, it is "nil" and is like false. (So you can do "if (t
 
 This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then test = hero:GetLevel()" can be used to ensure this function exists.
 
-Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and become 
+Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and become teleported to the spawn after.
 
 # Links
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
 
 (Important Sections: CDOTA_BaseNPC, CDOTA_BaseNPC_Hero, PlayerResource and the very Bottom with the CONSTANTS)
 (I spent a lot of time here, use CTRL+F and type "setgold" or so)
-
-Modifiers: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names
+Built-In Modifiers: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names
 (some are broken if used manually)
 
 Dota Imba: https://github.com/EarthSalamander42/dota_imba/tree/master/game/dota_addons/dota_imba_reborn/scripts/vscripts/components
