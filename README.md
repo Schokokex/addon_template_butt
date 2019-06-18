@@ -15,6 +15,11 @@ Events that trigger at a Timer. Give free Rapiers after 20 Minutes or teleport e
 # Talents
 If you want to add a new Talents, you have to add it to the game/..../scripts/npc/npc_abilites_custom.txt , and create a file in game/..../scripts/vscripts/talents/ as like the example talent.
 
+To add it to the heroes you put it into startitems or you edit the kv files for each hero.
+
+# Filters
+You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed)
+
 # Abilities
 If you want to add a new Ability, you can give it to every hero in the startitems.lua file or add it to the heroes manually inside the kv files.
 
@@ -43,6 +48,8 @@ Arrays (or tables as they are called in lua) usually start with 1, but some Dota
 If a variable has no value, it is "nil" and is like false. (So you can do "if (test) then..." instead of "if (test~=nil)").
 
 This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then test = hero:GetLevel()" can be used to ensure this function exists.
+
+Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and become 
 
 # Links
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
