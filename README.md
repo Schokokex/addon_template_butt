@@ -6,6 +6,10 @@ Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me
 First of all, after some crashing and so on, i started everything from Scratch again. New stuff is:
 Timers, Talents, example Modifier, example Ability, Startitems, Thinker, so basically the files you find inside game/dota_addons/addon_template_butt/scripts/vscripts/.
 
+# Use This Template
+Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content, or you copy the files into every new mod you make.
+After that you can start the game inside Hammer just by clicking the "Game Controller Icon" and "Run (Skip Build)".
+
 # Startitems
 Lets you add free Items, Abilities, Talents or Modifiers, that everyone gets.
 
@@ -66,3 +70,6 @@ How can i code a blademail/ fury swipes/ whatever on my own? Look here (Intermed
 Volvo Recipe for lua Ability/Modifier: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers
 
 Volvo Recipe for Game Events: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Listening_to_game_events
+
+# Map Editing
+Being done from Hammer,
