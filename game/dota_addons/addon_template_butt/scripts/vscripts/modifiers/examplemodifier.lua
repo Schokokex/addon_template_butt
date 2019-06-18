@@ -24,7 +24,7 @@ end
 function examplemodifier:OnDeath(event)
 	-- for k,v in pairs(event) do print("OnDeath",k,v) end -- find out what event.__ to use
 	if IsClient() then return end
-	if event.unit~=self:GetParent() then return end
+	if event.unit~=self:GetParent() then return end -- only affect the own hero
 	-- space for some fancy stuff
 end
 

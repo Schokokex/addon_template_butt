@@ -58,6 +58,7 @@ function cheatStart()
 	GameRules:GetGameModeEntity():SetThink(
 		(function()
 			local hero = PlayerResource:GetSelectedHeroEntity(0)
+			if (not hero) then return 0.3 end
 			hero:GetAbilityByIndex(0):SetLevel(1)
 			hero:GetAbilityByIndex(1):SetLevel(1)
 			hero:GetAbilityByIndex(2):SetLevel(1)
@@ -65,6 +66,6 @@ function cheatStart()
 			hero:SetAbilityPoints(-3)
 			hero:AddItemByName("item_courier"):CastAbility()
 			return nil
-		end), 1.5
+		end), 0
 	)
 end

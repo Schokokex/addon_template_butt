@@ -226,7 +226,10 @@ end
 function CDOTA_BaseNPC:GetAllAbilities()
 	local out = {}
 	for i=0,29 do
-		out[i] = self:GetAbilityByIndex(i)
+		local abil = self:GetAbilityByIndex(i)
+		if abil then
+			out[abil:GetAbilityIndex()] = abil
+		end
 	end
 	return out
 end

@@ -55,6 +55,6 @@ end
 function exampleabilitymodifier:OnAttackLanded(event)
 	if self:GetParent()~=event.attacker then return end
 	self:GetParent():Heal(self.lifesteal, self:GetAbility())
-	self:GetParent():particleeffect(BUTT_PARTICLE_LIFESTEAL)
+	self:GetParent():newParticleEffect(BUTT_PARTICLE_LIFESTEAL)
 	self.lifesteal = self.lifesteal / 2
 end

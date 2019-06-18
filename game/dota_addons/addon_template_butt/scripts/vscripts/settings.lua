@@ -33,7 +33,7 @@ BUTTINGS = {
 
 }
 
-function SETMAXLEVEL(level)
+function BUTTINGS.ALTERNATIVE_XP_TABLE()
 	local ALTERNATIVE_XP_TABLE = {
 		0,
 		240,
@@ -60,14 +60,8 @@ function SETMAXLEVEL(level)
 		22605,
 		25105,
 		27800,
-	} for i = #ALTERNATIVE_XP_TABLE + 1, level do ALTERNATIVE_XP_TABLE[i] = ALTERNATIVE_XP_TABLE[i - 1] + (300 * ( i - 15 )) end
-	local USE_CUSTOM_HERO_LEVELS = (level~=25)					
-	local USE_CUSTOM_XP_VALUES = (level~=25)
-	
-	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( ALTERNATIVE_XP_TABLE )
-	GameRules:GetGameModeEntity():SetUseCustomHeroLevels(USE_CUSTOM_HERO_LEVELS)
-	GameRules:SetUseCustomHeroXPValues(USE_CUSTOM_XP_VALUES)
-	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(MAX_LEVEL)
+	} for i = #ALTERNATIVE_XP_TABLE + 1, BUTTINGS.MAX_LEVEL do ALTERNATIVE_XP_TABLE[i] = ALTERNATIVE_XP_TABLE[i - 1] + (300 * ( i - 15 )) end
+	return ALTERNATIVE_XP_TABLE
 end
 
 BUTTINGS_DEFAULT = table.copy(BUTTINGS)

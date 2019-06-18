@@ -66,6 +66,7 @@ Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripti
 (I spent a lot of time here, use CTRL+F and type "setgold" or so)
 Built-In Modifiers: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names
 (some are broken if used manually)
+Built-In Abilities: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Ability_Names
 
 Dota Imba: https://github.com/EarthSalamander42/dota_imba/tree/master/game/dota_addons/dota_imba_reborn/scripts/vscripts/components
 
