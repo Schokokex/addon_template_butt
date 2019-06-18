@@ -20,7 +20,9 @@ If you want to add a new Ability, you can give it to every hero in the startitem
 
 # Modifiers
 Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont have to edit the KV files, they are only in lua. To use them you have to use LinkLuaModifier(name, filepath, LUA_MODIFIER_MOTION_NONE) and then you can add them to the heroes or so.
+
 You can add them to some events, like entity_spawned, entity_killed, or so. Modifiers have a little odd thing, that they technically exist twice, once on the players computer and once on the server, thats maybe good to keep in mind.
+
 Modifiers can do stuff on a lot of events, found in the API. Most of the events are triggered on the whole map, not only the hero. For that you have to add the CONSTANT in DeclareFunctions and add the function also to the .lua file.
 
 # Settings
@@ -44,6 +46,7 @@ This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then
 
 # Links
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
+
 (Important Sections: CDOTA_BaseNPC, CDOTA_BaseNPC_Hero, PlayerResource and the very Bottom with the CONSTANTS)
 (I spent a lot of time here, use CTRL+F and type "setgold" or so)
 
