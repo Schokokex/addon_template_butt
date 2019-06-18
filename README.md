@@ -48,8 +48,9 @@ Sometimes events might miss a value (like event.attacker).
 The console can be opened in Dota (depending on your key assignment) or from asset browser. Filter for "VScript".
 
 Arrays (or tables as they are called in lua) usually start with 1, but some Dota Stuff, like PlayerIDs start with 0, since they originally come from the C++ hardcode of Dota.
+A lua table, e.g. "local herovalues = { antimag = 12, centaur = 5 }" can be accessed (or values can be added) with "herovalues.antimag" (=12) or "heorovalues["antimag"]". Numerial Tables can be initiated like "local bestfood = { [1]="peppers", [2]="meat" }".
 
-If a variable has no value, it is "nil" and is like false. (So you can do "if (test) then..." instead of "if (test~=nil)").
+If a variable has no value, it is "nil" and acts like false. (So you can do "if (test) then..." instead of "if (test~=nil)").
 
 This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then test = hero:GetLevel()" can be used to ensure this function exists.
 
