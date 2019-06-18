@@ -21,7 +21,7 @@ To add it to the heroes you put it into startitems or you edit the kv files for 
 You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed)
 
 # Abilities
-If you want to add a new Ability, you can give it to every hero in the startitems.lua file or add it to the heroes manually inside the kv files.
+If you want to add a new Ability, you can give it to every hero in the startitems.lua file or add it to the heroes manually inside the kv files. Abilites must be added into npc_abilities_custom.txt
 
 # Modifiers
 Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont have to edit the KV files, they are only in lua. To use them you have to use LinkLuaModifier(name, filepath, LUA_MODIFIER_MOTION_NONE) and then you can add them to the heroes or so.
