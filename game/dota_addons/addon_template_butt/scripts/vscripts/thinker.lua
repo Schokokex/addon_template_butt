@@ -20,12 +20,12 @@ function GameMode:LateGame()
 end
 
 function GameMode:VeryOften()
-	print("every minute")
+	-- print("every minute")
 	return 1*60
 end
 
 function GameMode:Often()
-	print("every 5 minutes")
+	-- print("every 5 minutes")
 	return 5*60
 end
 

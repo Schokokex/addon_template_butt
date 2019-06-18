@@ -3,18 +3,18 @@ Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me
 
 
 # Whats new
-First of all, after some crashing and so on, i started everything from Scratch again. New stuff is:
+First of all, after some crashing and so on, i started everything from scratch again. New stuff is:
 Timers, Talents, example Modifier, example Ability, Startitems, Thinker, so basically the files you find inside game/dota_addons/addon_template_butt/scripts/vscripts/.
 
 # Use This Template
-Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content, or you copy the files into every new mod you make.
+Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content (before you create yours), or you copy the files into every new mod you make.
 After that you can start the game inside Hammer just by clicking the "Game Controller Icon" and "Run (Skip Build)".
 
 # Startitems
 Lets you add free Items, Abilities, Talents or Modifiers, that everyone gets.
 
 # Thinker
-Events that trigger at a Timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (hero:SetAbsOrigin(Vector(0,0,120))) every 5 Minutes.
+Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (hero:SetAbsOrigin(Vector(0,0,120))) every 5 Minutes.
 
 # Talents
 If you want to add a new Talents, you have to add it to the game/..../scripts/npc/npc_abilites_custom.txt , and create a file in game/..../scripts/vscripts/talents/ as like the example talent.
@@ -48,10 +48,11 @@ Sometimes events might miss a value (like event.attacker).
 The console can be opened in Dota (depending on your key assignment) or from asset browser. Filter for "VScript".
 
 Arrays (or tables as they are called in lua) usually start with 1, but some Dota Stuff, like PlayerIDs start with 0, since they originally come from the C++ hardcode of Dota.
+A lua table, e.g. "local herovalues = { antimag = 12, centaur = 5 }" can be accessed (or values can be added) with "herovalues.antimag" (=12) or "heorovalues["antimag"]". Numerial entries can be initiated like "local bestfood = { [1]="peppers", [2]="meat" }".
 
-If a variable has no value, it is "nil" and is like false. (So you can do "if (test) then..." instead of "if (test~=nil)").
+If a variable has no value, it is "nil" and acts like false. (So you can do "if (test) then..." instead of "if (test~=nil)").
 
-This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then test = hero:GetLevel()" can be used to ensure this function exists.
+This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then test = hero:GetLevel() end" can be used to ensure this function exists.
 
 Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and become teleported to the spawn after.
 

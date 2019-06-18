@@ -1,8 +1,12 @@
-BUTT_PARTICLE_LIFESTEAL = 0
-BUTT_PARTICLE_COINS = 1
+BUTT_PARTICLE_LIFESTEAL = "generic_lifesteal"
+BUTT_PARTICLE_COINS = "lasthit_coins_local"
+BUTT_PARTICLE_MANABURN = "generic_manaburn"
 
 function CDOTA_BaseNPC:particleeffect(i)
-	if (i==BUTT_PARTICLE_LIFESTEAL) then
+	if ("string"==type(i)) then
+		local nFXIndex = ParticleManager:CreateParticle( ("particles/generic_gameplay/"..i..".vpcf"), PATTACH_ABSORIGIN_FOLLOW, self )
+		ParticleManager:ReleaseParticleIndex( nFXIndex )
+	elseif (i==BUTT_PARTICLE_LIFESTEAL) then
 		local nFXIndex = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self )
 		ParticleManager:ReleaseParticleIndex( nFXIndex )
 	elseif (i==BUTT_PARTICLE_COINS) then

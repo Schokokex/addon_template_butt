@@ -20,16 +20,16 @@ ListenToGameEvent("game_rules_state_change", function()
 	end
 end, nil)
 
-if (1==BUTTINGS.ALT_WINNING) then
-	ListenToGameEvent("dota_player_killed",function(kv)
-		-- local unit = PlayerResource:GetSelectedHeroEntity(kv.PlayerID)
-		for _,t in ipairs(TeamList:GetPlayableTeams()) do
-			if (PlayerResource:GetTeamKills(t)>=BUTTINGS.ALT_KILL_LIMIT) then
-				GameRules:SetGameWinner(t)
-			end
-		end
-	end, nil)
-end
+-- if (1==BUTTINGS.ALT_WINNING) then
+-- 	ListenToGameEvent("dota_player_killed",function(kv)
+-- 		-- local unit = PlayerResource:GetSelectedHeroEntity(kv.PlayerID)
+-- 		for _,t in ipairs(TeamList:GetPlayableTeams()) do
+-- 			if (PlayerResource:GetTeamKills(t)>=BUTTINGS.ALT_KILL_LIMIT) then
+-- 				GameRules:SetGameWinner(t)
+-- 			end
+-- 		end
+-- 	end, nil)
+-- end
 
 if (1==BUTTINGS.TOMBSTONE) then
 	ListenToGameEvent("entity_killed", function(keys)
