@@ -8,14 +8,14 @@ local bonusabilities = {
 }
 local bonusmodifier = {
 	-- examplemodifier = {duration = 30},
-	examplemodifier = {},
+	-- examplemodifier = {},
 }
 local talents = {
 	[8] = "",	[7] = "",
 	[6] = "",	[5] = "",
 	[4] = "",	[3] = "",
-	[2] = "",	[1] = "",
-	-- [2] = "special_bonus_exampletalent",	[1] = "special_bonus_cooldown_reduction_65",
+	-- [2] = "",	[1] = "",
+	[2] = "special_bonus_exampletalent",	[1] = "special_bonus_armor_10",
 }
 
 ListenToGameEvent("dota_player_pick_hero",function(kv)
@@ -53,15 +53,21 @@ ListenToGameEvent("dota_player_pick_hero",function(kv)
 
 	local heroTalents = hero:GetAllTalents() -- with abilitynumber
 
+
+	for k,v in pairs(heroTalents) do
+		print(k,v,v:GetName())
+	end
+
 	local ind = {}
 	for i,_ in pairs(heroTalents) do
 		table.insert(ind,i)
 	end
 
 	for i,name in pairs(talents) do
-		if (name~="") then
-			heroTalents[ind[i]]:Destroy()
-			hero:SetAbilityByIndex(hero:AddAbility(name),ind[i])
+		if (name~="") and (not hero:FindAbilityByName(name)) then
+			local pos = ind[i]
+			hero:RemoveAbility(heroTalents[pos]:GetName())
+			hero:AddAbility(name):SetAbilityIndex(pos)
 		end
 	end
 

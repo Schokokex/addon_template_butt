@@ -1,4 +1,4 @@
-examplemodifier = class({})
+examplemodifier = examplemodifier or class({})
 
 -- check out https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
 

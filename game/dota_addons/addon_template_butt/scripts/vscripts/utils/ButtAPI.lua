@@ -239,7 +239,7 @@ function CDOTA_BaseNPC:GetAllTalents()
 	for i=0,29 do
 		local abil = self:GetAbilityByIndex(i)
 		if (abil) and (abil:GetName():find("special_bonus_") == 1) then
-			out[i] = abil
+			out[abil:GetAbilityIndex()] = abil
 		end
 	end
 	return out

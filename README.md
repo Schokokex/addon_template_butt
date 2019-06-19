@@ -22,6 +22,7 @@ You can modify some values like Damage, Heal, Gold or Experience. Keep the retur
 
 # Talents
 If you want to add a new Talents, you have to add it to the game/..../scripts/npc/npc_abilites_custom.txt , and create a file in game/..../scripts/vscripts/talents/ as like the example talent.
+Make sure to start the name in npc_abilites_custom.txt with "special_bonus_" and the modifier file name with "modifier_special_bonus_".
 
 To add it to the heroes you put it into startitems or you edit the kv files for each hero.
 

@@ -29,6 +29,10 @@ ListenToGameEvent("player_chat", function(keys)
 			if (iter:GetName()~="") then print("Entities:",iter:GetName()) end
 			iter = Entities:Next(iter)
 		end
+	elseif ("-abils"==text) and (playerID) then
+		for k,v in pairs(hero:GetAllAbilities()) do
+			print(k,v,v:GetName())
+		end
 	elseif ("-entmods"==text) and (playerID) then
 		for _,ent in pairs(Entities:FindAllInSphere(hero:GetAbsOrigin(),800)) do
 			if ent.FindAllModifiers then
