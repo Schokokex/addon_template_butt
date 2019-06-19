@@ -14,8 +14,8 @@ local talents = {
 	[8] = "",	[7] = "",
 	[6] = "",	[5] = "",
 	[4] = "",	[3] = "",
-	-- [2] = "",	[1] = "",
-	[2] = "special_bonus_exampletalent",	[1] = "special_bonus_armor_10",
+	[2] = "",	[1] = "",
+	-- [2] = "",	[1] = "special_bonus_exampletalent",
 }
 
 ListenToGameEvent("dota_player_pick_hero",function(kv)
