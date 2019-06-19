@@ -1,3 +1,7 @@
+-----------------------
+-- extend PlayerList --
+-----------------------
+
 PlayerList = class({})
 
 function PlayerList:GetAllPlayers()
@@ -24,13 +28,24 @@ function PlayerList:GetValidTeamPlayers()
 	return out
 end
 
-function PlayerList:GetFriendlyPlayers(teamID) -- returns playerID and player
+function PlayerList:GetPlayersInTeam(teamID) -- returns playerID and player
 	local out = {}
 	for p=0,DOTA_MAX_PLAYERS do
 		if (PlayerResource:IsValidPlayer(p)) and (PlayerResource:GetTeam(p)==teamID) then
 			out[p] = PlayerResource:GetPlayer(p)
 		else
 			out[p] = nil
+		end
+	end
+	return out
+end
+
+function PlayerList:GetFirstPlayers() -- get one player per team
+	local out = {}
+	for p=0,DOTA_MAX_PLAYERS do
+		local team = PlayerResource:GetTeam(p)
+		if (not out[team]) then
+			out[team] = PlayerResource:GetPlayer(p)
 		end
 	end
 	return out
@@ -149,16 +164,6 @@ function TeamList:GetPlayableTeams()
 	return out
 end
 
-function TeamList:GetFirstPlayers()
-	local out = {}
-	for p=0,DOTA_MAX_PLAYERS do
-		local team = PlayerResource:GetTeam(p)
-		if (not out[team]) then
-			out[team] = PlayerResource:GetPlayer(p)
-		end
-	end
-	return out
-end
 
 function TeamList:GetFreeCouriers()
 	for t,hero in pairs(HeroListButt:GetOneHeroPerTeam()) do
@@ -243,4 +248,12 @@ function CDOTA_BaseNPC:GetAllTalents()
 		end
 	end
 	return out
+end
+
+function CDOTA_BaseNPC:AddNewModifierButt(caster, optionalSourceAbility, modifierName, modifierData)
+	local file = "modifiers/"..modifierName
+	if pcall(require,file) then
+		LinkLuaModifier(modifierName, file, LUA_MODIFIER_MOTION_NONE)
+	end
+	self:AddNewModifier(caster, optionalSourceAbility, modifierName, modifierData)
 end

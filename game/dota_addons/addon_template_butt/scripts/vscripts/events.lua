@@ -98,9 +98,7 @@ ListenToGameEvent("this_is_just_an_example", function(keys)
 			ability = nil
 		})
 
-		LinkLuaModifier("someweirdmodifier","modifiers/someweirdmodifier", 0)
-
-		neighUnit:AddNewModifier(
+		neighUnit:AddNewModifierButt(
 			targetUnit, -- handle caster, 
 			nil, -- handle optionalSourceAbility, 
 			"someweirdmodifier", -- string modifierName, 

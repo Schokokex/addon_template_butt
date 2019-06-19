@@ -14,7 +14,7 @@ function examplemodifier:IsDebuff() return false end
 function examplemodifier:GetAttributes()
 	return 0
 		+ MODIFIER_ATTRIBUTE_MULTIPLE
-		+ MODIFIER_ATTRIBUTE_PERMANENT
+		-- + MODIFIER_ATTRIBUTE_PERMANENT
 end
 
 function examplemodifier:DeclareFunctions()
@@ -34,12 +34,12 @@ end
 
 function examplemodifier:OnRefresh(event)
 	for k,v in pairs(event) do print("examplemodifier refreshed",k,v,(IsServer() and "on Server" or "on Client")) end
-	-- called when the modifier is created
+	-- called when the modifier is refreshed
 end
 
 
 function examplemodifier:OnDeath(event)
-	for k,v in pairs(event) do print("OnDeath",k,v) end -- find out what event.__ to use
+	-- for k,v in pairs(event) do print("OnDeath",k,v) end -- find out what event.__ to use
 	if IsClient() then return end
 	if event.unit~=self:GetParent() then return end -- only affect the own hero
 	-- space for some fancy stuff

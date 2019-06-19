@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_special_bonus_exampletalent", "talents/modifier_special_bonus_exampletalent", LUA_MODIFIER_MOTION_NONE)
-
 require("talents/modifier_special_bonus_base")
 modifier_special_bonus_exampletalent = class(modifier_special_bonus_base)
 

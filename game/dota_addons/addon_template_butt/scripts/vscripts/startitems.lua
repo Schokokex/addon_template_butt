@@ -7,15 +7,15 @@ local bonusabilities = {
 	-- roshan_spell_block = { lvl = 4, nokey = true },
 }
 local bonusmodifier = {
-	-- examplemodifier = {duration = 30},
+	examplemodifier = {duration = 30},
 	-- examplemodifier = {},
 }
 local talents = {
 	[8] = "",	[7] = "",
 	[6] = "",	[5] = "",
 	[4] = "",	[3] = "",
-	[2] = "",	[1] = "",
-	-- [2] = "",	[1] = "special_bonus_exampletalent",
+	-- [2] = "",	[1] = "",
+	[2] = "",	[1] = "special_bonus_exampletalent",
 }
 
 ListenToGameEvent("dota_player_pick_hero",function(kv)
@@ -45,19 +45,13 @@ ListenToGameEvent("dota_player_pick_hero",function(kv)
 	-- Modifiers
 
 	for name,data in pairs(bonusmodifier) do
-		LinkLuaModifier(name, "modifiers/"..name, LUA_MODIFIER_MOTION_NONE)
-		hero:AddNewModifier(hero, nil, name, data)
+		hero:AddNewModifierButt(hero, nil, name, data)
 	end
 
 	-- Talents
 
 	local heroTalents = hero:GetAllTalents() -- with abilitynumber
-
-
-	for k,v in pairs(heroTalents) do
-		print(k,v,v:GetName())
-	end
-
+	
 	local ind = {}
 	for i,_ in pairs(heroTalents) do
 		table.insert(ind,i)

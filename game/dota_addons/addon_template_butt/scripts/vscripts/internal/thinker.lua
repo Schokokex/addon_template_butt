@@ -33,7 +33,7 @@ function GameMode:ComebackGold()
 			amt = gold
 		end
 	end
-	for p,player in pairs(PlayerList:GetFriendlyPlayers(team)) do
+	for p,player in pairs(PlayerList:GetPlayersInTeam(team)) do
 		PlayerResource:ModifyGold(p, 1, false, DOTA_ModifyGold_GameTick) 
 	end
 	return 60/BUTTINGS.COMEBACK_GPM
