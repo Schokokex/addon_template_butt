@@ -7,15 +7,15 @@ local bonusabilities = {
 	-- roshan_spell_block = { lvl = 4, nokey = true },
 }
 local bonusmodifier = {
-	examplemodifier = {duration = 30},
+	examplemodifier = {duration = 10},
 	-- examplemodifier = {},
 }
 local talents = {
 	[8] = "",	[7] = "",
 	[6] = "",	[5] = "",
 	[4] = "",	[3] = "",
-	-- [2] = "",	[1] = "",
-	[2] = "",	[1] = "special_bonus_exampletalent",
+	[2] = "",	[1] = "",
+	-- [2] = "",	[1] = "special_bonus_exampletalent",
 }
 
 ListenToGameEvent("dota_player_pick_hero",function(kv)
