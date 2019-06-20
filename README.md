@@ -10,6 +10,9 @@ Timers, Talents, example Modifier, example Ability, Startitems, Thinker, so basi
 Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content (before you create yours), or you copy the files into every new mod you make.
 After that you can start the game inside Hammer just by clicking the "Game Controller Icon" and "Run (Skip Build)".
 
+# KV Files
+The KV files are the files inside game/.../scripts/npc/. To modify a hero, an ability or so, copy the whole bracket section into the custom file. It works also if you delete the values, that you dont change.
+
 # Startitems
 Lets you add free Items, Abilities, Talents or Modifiers, that everyone gets.
 Abilities can start with cooldown, a certain level or can be casted initially and more (as shown in the file).
@@ -24,7 +27,7 @@ You can modify some values like Damage, Heal, Gold or Experience. Keep the retur
 If you want to add a new Talents, you have to add it to the game/..../scripts/npc/npc_abilites_custom.txt , and create a file in game/..../scripts/vscripts/talents/ as like the example talent.
 Make sure to start the name in npc_abilites_custom.txt with "special_bonus_" and the modifier file name with "modifier_special_bonus_".
 
-To add it to the heroes you put it into startitems or you edit the kv files for each hero.
+To add it to the heroes you put it into startitems or you edit the npc_heroes_custom.txt file for the hero. Talents are at Ability10 to Ability17 (10 is bottom right, 11 bottom left and so on).
 
 # Abilities
 If you want to add a new Ability, you can give it to every hero in the startitems.lua file or add it to the heroes manually inside the npc_heroes_custom.txt file. Abilites must be added into npc_abilities_custom.txt, where you put the right path to the lua script file.
