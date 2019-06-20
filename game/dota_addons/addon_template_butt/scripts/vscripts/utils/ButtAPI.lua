@@ -100,7 +100,7 @@ end
 
 HeroListButt = class({})
 
-function HeroListButt:GetFriendlyHeroes(teamID)
+function HeroListButt:GetHeroesInTeam(teamID) -- filters team
 	local out = HeroList:GetAllHeroes()
 	for h,hero in pairs(out) do
 		if (hero:GetTeam()==teamID) then
@@ -111,25 +111,23 @@ function HeroListButt:GetFriendlyHeroes(teamID)
 	return out
 end
 
-function HeroListButt:GetMainHeroes()
-	local out = {}
-	for p=0,DOTA_MAX_PLAYERS do
-		if (PlayerResource:HasSelectedHero(p)) then
-			out[p] = PlayerResource:GetSelectedHeroEntity(p)
+function HeroListButt:GetMainHeroes() -- filters main Heroes
+	local out = HeroList:GetAllHeroes()
+	for h,hero in pairs(out) do
+		if (hero==hero:GetPlayerOwner():GetAssignedHero()) then
 		else
-			out[p] = nil
+			out[h] = nil
 		end
 	end
 	return out
 end
 
-function HeroListButt:GetMainFriendlyHeroes(teamID)
-	local out = {}
-	for p=0,DOTA_MAX_PLAYERS do
-		if (PlayerResource:GetSelectedHeroEntity(p)) and (PlayerResource:GetTeam(p)==teamID) then
-			out[p] = PlayerResource:GetSelectedHeroEntity(p)
+function HeroListButt:GetMainHeroesInTeam(teamID) -- filters main Heroes and team
+	local out = HeroList:GetAllHeroes()
+	for h,hero in pairs(out) do
+		if (hero==hero:GetPlayerOwner():GetAssignedHero()) and (hero:GetTeam()==teamID) then
 		else
-			out[p] = nil
+			out[h] = nil
 		end
 	end
 	return out
@@ -220,7 +218,7 @@ function TeamResource:GetTotalEarnedXP(teamID)
 	return out
 end
 
-function TeamResource:GetTeamKills(teamID)
+function TeamResource:GetKills(teamID)
 	return PlayerResource:GetTeamKills(teamID)
 end
 
@@ -228,7 +226,7 @@ end
 -- extend CDOTA_BaseNPC --
 --------------------------
 
-function CDOTA_BaseNPC:GetAllAbilities()
+function CDOTA_BaseNPC:GetAllAbilities() -- returns Abilitynumber and Ability (handle)
 	local out = {}
 	for i=0,29 do
 		local abil = self:GetAbilityByIndex(i)
@@ -239,7 +237,7 @@ function CDOTA_BaseNPC:GetAllAbilities()
 	return out
 end
 
-function CDOTA_BaseNPC:GetAllTalents()
+function CDOTA_BaseNPC:GetAllTalents() -- returns Abilitynumber and Talent (handle)
 	local out = {}
 	for i=0,29 do
 		local abil = self:GetAbilityByIndex(i)

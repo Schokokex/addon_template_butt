@@ -18,7 +18,8 @@ require("internal/XPModifier")
 
 require("events")
 require("filters")
-require("settings")
+require("settings_butt")
+require("settings_misc")
 require("startitems")
 require("thinker")
 

@@ -1,4 +1,4 @@
-require("settings")
+require("settings_butt")
 
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then
@@ -18,7 +18,7 @@ function GameMode:ComebackXP()
 			amt = xp
 		end
 	end
-	for h,hero in pairs(HeroListButt:GetMainFriendlyHeroes(team)) do
+	for h,hero in pairs(HeroListButt:GetMainHeroesInTeam(team)) do
 		hero:AddExperience(1, DOTA_ModifyXP_Unspecified, false, true)
 	end
 	return 60/BUTTINGS.COMEBACK_XPPM

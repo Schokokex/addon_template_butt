@@ -1,4 +1,4 @@
-require("settings")
+require("settings_butt")
 
 function GameMode:LoadFilters()
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter( Dynamic_Wrap( GameMode, "AbilityTuningValueFilter" ), self )

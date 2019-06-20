@@ -41,9 +41,12 @@ Modifiers can do stuff on a lot of events, found in the API. For that you have t
 The Loadscreen settings. Feel free to balance your game here.
 
 # Lua Tipps
--- This is a comment (not Code)
+-- This is a comment. This means everything in the line after -- will get ignored in the code
 
-If you have a typo in a file, the whole file turns useless.
+If you have a typo in a file, the whole file may turn useless (you will see when you get red errors inside the game).
+
+Using Sublime or Notepad++ makes it much easier.
+
 
 If you have a function, e.g. function examplemodifier:OnAttackLanded(event), you can read the whole event on the console using:
 "for k,v in pairs(event) do print("OnAttackLanded:",k,v) end"

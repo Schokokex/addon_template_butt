@@ -1,4 +1,4 @@
-require("settings")
+require("settings_butt")
 
 CustomNetTables:SetTableValue("butt_settings", "default", BUTTINGS)
 

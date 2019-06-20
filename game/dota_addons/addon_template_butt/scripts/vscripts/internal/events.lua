@@ -1,4 +1,4 @@
-require("settings")
+require("settings_butt")
 
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_HERO_SELECTION) then

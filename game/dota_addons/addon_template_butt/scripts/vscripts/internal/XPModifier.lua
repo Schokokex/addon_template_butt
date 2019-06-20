@@ -13,7 +13,7 @@ function XPModifier:IsHidden() return true end
 
 if (IsClient()) then return end
 
-require("settings")
+require("settings_butt")
 
 function XPModifier:GetAttributes() 
 	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
