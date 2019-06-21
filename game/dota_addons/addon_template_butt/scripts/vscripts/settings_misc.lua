@@ -2,7 +2,7 @@ function init()
 	local gameModeEnt = GameRules:GetGameModeEntity()
 	if (not gameModeEnt) then return Timers:CreateTimer({ useGameTime = false, endTime = 0.1, callback = init }) end
 
-	GameRules:SetFirstBloodActive( true )						-- Sets whether First Blood has been triggered. 
+	GameRules:SetFirstBloodActive( true )						-- Sets whether First Blood should give bonus gold. 
 	GameRules:SetHeroRespawnEnabled( true )						-- Control if the normal DOTA hero respawn rules apply. 
 	GameRules:SetHeroSelectionTime( 90 )						-- Sets the amount of time players have to pick their hero. 
 	GameRules:SetHideKillMessageHeaders( false )				-- Sets whether or not the kill banners should be hidden 
