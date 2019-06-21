@@ -3,38 +3,38 @@ BUTTINGS = {
 
 	GAME_TITLE = "Dota 2 but...",	-- change me! :) :)
 
-	GAME_MODE = "AR", -- "AR" "AP" 
-	ALLOW_SAME_HERO_SELECTION = 0,
-	HERO_BANNING = 1,
+	GAME_MODE = "AR",					-- "AR" "AP" 
+	ALLOW_SAME_HERO_SELECTION = 0,		-- 0 = everyone must pick a different hero, 1 = can pick same
+	HERO_BANNING = 1,					-- 0 = no banning, 1 = banning phase
 	USE_BOTS = 0, -- TODO
-	MAX_LEVEL = 25,
+	MAX_LEVEL = 25,						-- (default = 25)
 
-	UNIVERSAL_SHOP_MODE = 1,
-	COOLDOWN_PERCENTAGE = 100,
-	GOLD_GAIN_PERCENTAGE = 150,
-	GOLD_PER_MINUTE = 90,
-	RESPAWN_TIME_PERCENTAGE = 60,
-	XP_GAIN_PERCENTAGE = 150,
+	UNIVERSAL_SHOP_MODE = 1,			-- 0 = normal, 1 = you can buy every item in every shop.
+	COOLDOWN_PERCENTAGE = 100,			-- (default = 100) factor for cooldowns
+	GOLD_GAIN_PERCENTAGE = 100,			-- (default = 100) factor for gold income
+	GOLD_PER_MINUTE = 90,				-- (default =  90) passive gold
+	RESPAWN_TIME_PERCENTAGE = 100,		-- (default = 100) factor for respawn time
+	XP_GAIN_PERCENTAGE = 100,			-- (default = 100) factor for xp income
 
-	TOMBSTONE = 1,
-	CLASSIC_ARMOR = 1,
-	NO_UPHILL_MISS = 1,
-	FREE_COURIER = 1,
-	XP_PER_MINUTE = 90,
-	COMEBACK_TIMER = 30,
-	COMEBACK_GPM = 50,
-	COMEBACK_XPPM = 50,
-	SHARED_GOLD_PERCENTAGE = 15,
-	SHARED_XP_PERCENTAGE = 15,
+	TOMBSTONE = 1,						-- 0 = normal, 1 = You spawn a tombstone when you die. Teammates can ressurect you by channeling it.
+	CLASSIC_ARMOR = 1,					-- 0 = normal, 1 = Old armor formula (pre 7.20)
+	NO_UPHILL_MISS = 1,					-- 0 = normal, 1 = 0% uphill muss chance
+	FREE_COURIER = 1,					-- 0 = normal, 1 = everyone starts with a free courier
+	XP_PER_MINUTE = 0,					-- (normal dota = 0) everyone gets passive experience (like the passive gold)
+	COMEBACK_TIMER = 30,				-- timer (minutes) to start comeback XP / gold 
+	COMEBACK_GPM = 500,					-- passive gold for the poorest team
+	COMEBACK_XPPM = 500,					-- passive experience for the lowest team
+	SHARED_GOLD_PERCENTAGE = 0,			-- all gold (except passive) is shared with teammates
+	SHARED_XP_PERCENTAGE = 0,			-- all experience (except passive) is shared with teammates
 
-	ALT_WINNING = 1,
-	ALT_KILL_LIMIT = 100,
-	ALT_TIME_LIMIT = 60,
+	ALT_WINNING = 0,					-- 0 = normal, 1 = use these alternative winning conditions
+	ALT_KILL_LIMIT = 100,				-- Kills for alternative winnning
+	ALT_TIME_LIMIT = 60,				-- Timer for alternative winning
 
 }
 
-function BUTTINGS.ALTERNATIVE_XP_TABLE()
-	local ALTERNATIVE_XP_TABLE = {
+function BUTTINGS.ALTERNATIVE_XP_TABLE()	-- xp values if MAX_LEVEL is different than 25
+	local ALTERNATIVE_XP_TABLE = {		
 		0,
 		240,
 		600,
