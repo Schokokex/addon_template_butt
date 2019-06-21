@@ -5,7 +5,7 @@ if GameMode == nil then
 end
 
 require("utils/particles")
-require("utils/ButtAPI")
+require("utils/butt_api")
 require("utils/timers")
 require("utils/util")
 require("utils/shortcuts")
