@@ -3,7 +3,7 @@ BUTTINGS = {
 
 	GAME_TITLE = "Dota 2 but...",	-- change me! :) :)
 
-	GAME_MODE = "AR",					-- "AR" "AP" 
+	GAME_MODE = "AP",					-- "AR" "AP" All Random/ All Pick
 	ALLOW_SAME_HERO_SELECTION = 0,		-- 0 = everyone must pick a different hero, 1 = can pick same
 	HERO_BANNING = 1,					-- 0 = no banning, 1 = banning phase
 	USE_BOTS = 0, -- TODO
@@ -16,14 +16,14 @@ BUTTINGS = {
 	RESPAWN_TIME_PERCENTAGE = 100,		-- (default = 100) factor for respawn time
 	XP_GAIN_PERCENTAGE = 100,			-- (default = 100) factor for xp income
 
-	TOMBSTONE = 1,						-- 0 = normal, 1 = You spawn a tombstone when you die. Teammates can ressurect you by channeling it.
-	CLASSIC_ARMOR = 1,					-- 0 = normal, 1 = Old armor formula (pre 7.20)
-	NO_UPHILL_MISS = 1,					-- 0 = normal, 1 = 0% uphill muss chance
+	TOMBSTONE = 0,						-- 0 = normal, 1 = You spawn a tombstone when you die. Teammates can ressurect you by channeling it.
+	CLASSIC_ARMOR = 0,					-- 0 = normal, 1 = Old armor formula (pre 7.20)
+	NO_UPHILL_MISS = 0,					-- 0 = normal, 1 = 0% uphill muss chance
 	FREE_COURIER = 1,					-- 0 = normal, 1 = everyone starts with a free courier
 	XP_PER_MINUTE = 0,					-- (normal dota = 0) everyone gets passive experience (like the passive gold)
 	COMEBACK_TIMER = 30,				-- timer (minutes) to start comeback XP / gold 
-	COMEBACK_GPM = 500,					-- passive gold for the poorest team
-	COMEBACK_XPPM = 500,					-- passive experience for the lowest team
+	COMEBACK_GPM = 60,					-- passive gold for the poorest team
+	COMEBACK_XPPM = 120,				-- passive experience for the lowest team
 	SHARED_GOLD_PERCENTAGE = 0,			-- all gold (except passive) is shared with teammates
 	SHARED_XP_PERCENTAGE = 0,			-- all experience (except passive) is shared with teammates
 

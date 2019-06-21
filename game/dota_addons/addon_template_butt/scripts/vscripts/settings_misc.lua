@@ -7,7 +7,7 @@ function init()
 	GameRules:SetHeroSelectionTime( 90 )						-- Sets the amount of time players have to pick their hero. 
 	GameRules:SetHideKillMessageHeaders( false )				-- Sets whether or not the kill banners should be hidden 
 	GameRules:SetPostGameTime( 180 )							-- Sets the amount of time players have between the game ending and the server disconnecting them. 
-	GameRules:SetPreGameTime( 30 )								-- Sets the amount of time players have between picking their hero and game start. 
+	GameRules:SetPreGameTime( 90 )								-- Sets the amount of time players have between picking their hero and game start. 
 	GameRules:SetRuneSpawnTime( 120 )							-- Sets the amount of time between rune spawns. 
 	GameRules:SetTreeRegrowTime( 300 )							-- Sets the tree regrow time in seconds. 
 	GameRules:SetUseBaseGoldBountyOnHeroes( true )				-- Heroes will use the basic NPC functionality for determining their bounty, rather than DOTA specific formulas. 
