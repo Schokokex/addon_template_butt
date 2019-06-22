@@ -19,7 +19,7 @@ Abilities can start with cooldown, a certain level or can be casted initially an
 
 # Thinker
 Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (hero:SetAbsOrigin(Vector(0,0,120))) every 5 Minutes.
-<sub><b>TP everyone to the midlane</b></sub><br/>
+<br/><sub><b>TP everyone to the midlane</b></sub><br/>
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/5minTP.png" />
 
 # Filters
