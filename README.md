@@ -97,9 +97,7 @@ Built-In Modifiers: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Too
 
 Built-In Abilities: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Ability_Names
 
-Dota Imba: https://github.com/EarthSalamander42/dota_imba/tree/master/game/dota_addons/dota_imba_reborn/scripts/vscripts/components
-
-How can i code a blademail/ fury swipes/ whatever on my own? Look here (Intermediate level)
+How can i code a blademail/ fury swipes/ whatever on my own? Look here (Intermediate level): Dota Imba: https://github.com/EarthSalamander42/dota_imba/tree/master/game/dota_addons/dota_imba_reborn/scripts/vscripts/components
 
 Volvo Recipe for lua Ability/Modifier: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers
 
