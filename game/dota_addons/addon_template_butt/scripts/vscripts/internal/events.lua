@@ -37,10 +37,18 @@ if (1==BUTTINGS.ALT_WINNING) then
 	end, nil)
 end
 
-if (1==BUTTINGS.TOMBSTONE) then
-	ListenToGameEvent("entity_killed", function(keys)
-		local killedUnit = EntIndexToHScript(keys.entindex_killed)
-		if killedUnit:IsRealHero() and not killedUnit:IsTempestDouble() and not killedUnit:IsReincarnating() then
+ListenToGameEvent("entity_killed", function(keys)
+	local killedUnit = EntIndexToHScript(keys.entindex_killed)
+	if killedUnit:IsRealHero() and not killedUnit:IsTempestDouble() and not killedUnit:IsReincarnating() then
+
+		-- fix respawn lvl>25
+		if (killedUnit:GetLevel()>25) then
+			print(killedUnit,killedUnit:GetName(),4*killedUnit:GetLevel())
+			killedUnit:SetTimeUntilRespawn(4*killedUnit:GetLevel())
+		end
+
+		-- tombstone
+		if (1==BUTTINGS.TOMBSTONE) then
 			local tombstoneItem = CreateItem("item_tombstone", killedUnit, killedUnit)
 			if (tombstoneItem) then
 				local tombstone = SpawnEntityFromTableSynchronous("dota_item_tombstone_drop", {})
@@ -49,5 +57,6 @@ if (1==BUTTINGS.TOMBSTONE) then
 				FindClearSpaceForUnit(tombstone, killedUnit:GetAbsOrigin(), true)
 			end
 		end
-	end, nil)
-end
+
+	end
+end, nil)
