@@ -1,25 +1,25 @@
-LinkLuaModifier("xp_modifier","internal/xp_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("XPModifier","internal/xp_modifier", LUA_MODIFIER_MOTION_NONE)
 
 ListenToGameEvent("npc_spawned",function(event)
 	local npc = EntIndexToHScript(event.entindex)
 	if npc and npc.AddNewModifier then
-		npc:AddNewModifier(npc, nil, "xp_modifier", nil)
+		npc:AddNewModifier(npc, nil, "XPModifier", nil)
 	end
 end, self)
 
-xp_modifier = class({})
+XPModifier = class({})
 
-function xp_modifier:IsHidden() return true end
+function XPModifier:IsHidden() return true end
 
 if (IsClient()) then return end
 
 require("settings_butt")
 
-function xp_modifier:GetAttributes() 
+function XPModifier:GetAttributes() 
 	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function xp_modifier:DeclareFunctions() --we want to use these functions in this item
+function XPModifier:DeclareFunctions() --we want to use these functions in this item
 	local funcs = {
 		-- MODIFIER_PROPERTY_EXP_RATE_BOOST, -- deprecated
 		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
@@ -31,29 +31,29 @@ function xp_modifier:DeclareFunctions() --we want to use these functions in this
 	return funcs
 end
 
--- function xp_modifier:GetModifierPercentageExpRateBoost()
+-- function XPModifier:GetModifierPercentageExpRateBoost()
 -- 	return BUTTINGS.BONUS_XP_PERCENTAGE
 -- end
 
-function xp_modifier:GetModifierPercentageRespawnTime()
+function XPModifier:GetModifierPercentageRespawnTime()
 	return 1 - BUTTINGS.RESPAWN_TIME_PERCENTAGE * 0.01
 end
 
 
-function xp_modifier:IsPermanent() 
+function XPModifier:IsPermanent() 
 	return true
 end
 
-function xp_modifier:IsPurgable()
+function XPModifier:IsPurgable()
 	return false
 end
 
 
-function xp_modifier:GetModifierPercentageCooldown()
+function XPModifier:GetModifierPercentageCooldown()
 	return 100 - BUTTINGS.COOLDOWN_PERCENTAGE
 end
 
-function xp_modifier:OnAttackFail( event )
+function XPModifier:OnAttackFail( event )
 	if event.attacker ~= self:GetParent() then return end
 	if (event.fail_type==1) and (BUTTINGS.NO_UPHILL_MISS) then
 		event.attacker:PerformAttack(event.target, false, event.process_procs, true, event.ignore_invis, false, false, false)
@@ -63,7 +63,7 @@ end
 
 -- Only run on server so client still shows unmodified armor values
 if IsServer() then
-	function xp_modifier:GetModifierPhysicalArmorBonus()
+	function XPModifier:GetModifierPhysicalArmorBonus()
 		if (not BUTTINGS.CLASSIC_ARMOR) then
 			return 0
 		end
@@ -83,7 +83,7 @@ if IsServer() then
 end
 
 
-function xp_modifier:CheckState()
+function XPModifier:CheckState()
 	return {
 		-- [MODIFIER_STATE_CANNOT_MISS] =  false,
 		-- [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY ] =  false,

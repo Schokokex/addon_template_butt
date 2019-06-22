@@ -114,7 +114,7 @@ end
 function HeroListButt:GetMainHeroes() -- filters main Heroes
 	local out = HeroList:GetAllHeroes()
 	for h,hero in pairs(out) do
-		if (hero==hero:GetPlayerOwner():GetAssignedHero()) then
+		if (hero:GetPlayerOwner()) and (hero==hero:GetPlayerOwner():GetAssignedHero()) then
 		else
 			out[h] = nil
 		end
@@ -125,7 +125,7 @@ end
 function HeroListButt:GetMainHeroesInTeam(teamID) -- filters main Heroes and team
 	local out = HeroList:GetAllHeroes()
 	for h,hero in pairs(out) do
-		if (hero==hero:GetPlayerOwner():GetAssignedHero()) and (hero:GetTeam()==teamID) then
+		if (hero:GetPlayerOwner()) and (hero==hero:GetPlayerOwner():GetAssignedHero()) and (hero:GetTeam()==teamID) then
 		else
 			out[h] = nil
 		end
