@@ -255,3 +255,13 @@ function CDOTA_BaseNPC:AddNewModifierButt(caster, optionalSourceAbility, modifie
 	end
 	self:AddNewModifier(caster, optionalSourceAbility, modifierName, modifierData)
 end
+
+function CDOTA_BaseNPC:RemoveItemByName( itemName )
+	for i=1,10 do
+		local item = self:GetItemInSlot(i)
+		if (item) and (item:GetName()==itemName) then
+			self:RemoveItem(item)
+			break
+		end
+	end
+end

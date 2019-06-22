@@ -26,6 +26,16 @@ ListenToGameEvent("game_rules_state_change", function()
 	end
 end, nil)
 
+if (1==BUTTINGS.FREE_COURIER) then
+	ListenToGameEvent("npc_spawned", function(keys)
+		local unit = EntIndexToHScript(keys.entindex)
+		local alreadyHasCourier = PlayerResource:GetNthCourierForTeam(0, unit:GetTeam())
+		if (unit:GetName()=="npc_dota_courier") and (alreadyHasCourier) and (unit~=alreadyHasCourier) then
+			unit:Destroy()
+		end
+	end, nil)
+end
+
 if (1==BUTTINGS.ALT_WINNING) then
 	ListenToGameEvent("dota_player_killed",function(kv)
 		-- local unit = PlayerResource:GetSelectedHeroEntity(kv.PlayerID)
