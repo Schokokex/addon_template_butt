@@ -14,7 +14,7 @@ require("internal/panorama")
 require("internal/events")
 require("internal/talents")
 require("internal/thinker")
-require("internal/XPModifier")
+require("internal/xp_modifier")
 
 require("events")
 require("filters")
