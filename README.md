@@ -39,7 +39,12 @@ Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont hav
 You can add them to some events, like entity_spawned, entity_killed, or so. Modifiers have a little odd thing, that they technically exist twice, once on the players computer and once on the server, thats maybe good to keep in mind (If you check Dota Imba in Github from EarthSalamander42, you might often see IsServer(), thats because of the duality).
 
 Modifiers can do stuff on a lot of events, found in the API. For that you have to add the CONSTANT in DeclareFunctions and add the function also to the .lua file. Most of the events are triggered on the whole map, not only the hero.
-[<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/DeclareFuncs.png" width="100px;"/><br /><sub><b>DeclareFunctions is great</b></sub>]
+<sub><b>DeclareFunctions is great</b></sub><br/>
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/DeclareFuncs.png" /><br/>
+<sub><b>Can be used to call event functions</b></sub><br/>
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/UseFuncs1.png" /><br/>
+<sub><b>Or to give bonus stats</b></sub><br/>
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/UseFuncs2.png" />
 
 # Settings
 The Loadscreen settings. Feel free to balance your game here.
