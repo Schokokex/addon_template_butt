@@ -34,14 +34,18 @@ If you want to add a new Ability, you can give it to every hero in the startitem
 
 
 # Modifiers
-Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont have to edit the KV files, they are only in lua. To use them you have to use LinkLuaModifier(name, filepath, LUA_MODIFIER_MOTION_NONE) and then you can add them to the heroes or so.
+Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont have to edit the KV files, they are only in lua. If you want to use delayed stuff, they become necessary, because they have StartIntervalThink and OnIntervalThink. To use them you can use unit:AddNewModifierButt(unit, nil, modifiername, {}), which automatically looks for it in the modifier folder. The Valve provided unit:AddNewModifier(unit, nil, modifiername, {}) can only use modifiers that are already added to the game (with LinkLuaModifier(modifiername, path, 0)).
 
-You can add them to some events, like entity_spawned, entity_killed, or so. Modifiers have a little odd thing, that they technically exist twice, once on the players computer and once on the server, thats maybe good to keep in mind.
+You can add them to some events, like entity_spawned, entity_killed, or so. Modifiers have a little odd thing, that they technically exist twice, once on the players computer and once on the server, thats maybe good to keep in mind (If you check Dota Imba in Github from EarthSalamander42, you might often see IsServer(), thats because of the duality).
 
 Modifiers can do stuff on a lot of events, found in the API. For that you have to add the CONSTANT in DeclareFunctions and add the function also to the .lua file. Most of the events are triggered on the whole map, not only the hero.
 
 # Settings
 The Loadscreen settings. Feel free to balance your game here.
+
+# Events
+Events are the main point for making Dota Mods fun. You can add a modifier on any kind of thing, for example you could cut all nearby trees every time a lasthit is made. Or you give a heal for every kill that a player makes.
+At the bottom of the file you can find an example, on how to do stuff with nearby units and on how to deal Damage to a unit, here all nearby units.
 
 # Lua Tipps
 -- This is a comment. This means everything in the line after -- will get ignored in the code
@@ -65,6 +69,8 @@ If a variable has no value, it is "nil" and acts like false. (So you can do "if 
 If a function gets not enough parameters, it fills up with nil ("asd:whtvr(hero,nil)" equals to "asd:whtvr(hero)").
 
 This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then test = hero:GetLevel() end" can be used to ensure this function exists.
+
+If you get errors inside a modifier function, try to set "if IsClient() then return end" as the first line inside the function.
 
 Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and become teleported to the spawn after.
 
