@@ -5,7 +5,7 @@ if GameMode == nil then
 end
 
 require("utils/particles")
-require("utils/ButtAPI")
+require("utils/butt_api")
 require("utils/timers")
 require("utils/util")
 require("utils/shortcuts")
@@ -14,7 +14,7 @@ require("internal/panorama")
 require("internal/events")
 require("internal/talents")
 require("internal/thinker")
-require("internal/XPModifier")
+require("internal/xp_modifier")
 
 require("events")
 require("filters")

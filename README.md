@@ -21,7 +21,7 @@ Abilities can start with cooldown, a certain level or can be casted initially an
 Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (hero:SetAbsOrigin(Vector(0,0,120))) every 5 Minutes.
 
 # Filters
-You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed)
+You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed). If you want to modify the values, for example the gold, you have change the "event.gold" value (r.g. "event.gold = event.gold / 2").
 
 # Talents
 If you want to add a new Talents, you have to add it to the game/..../scripts/npc/npc_abilites_custom.txt , and create a file in game/..../scripts/vscripts/talents/ as like the example talent.

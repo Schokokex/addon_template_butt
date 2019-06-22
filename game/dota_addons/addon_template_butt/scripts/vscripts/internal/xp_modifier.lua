@@ -1,4 +1,4 @@
-LinkLuaModifier("XPModifier","internal/XPModifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("XPModifier","internal/xp_modifier", LUA_MODIFIER_MOTION_NONE)
 
 ListenToGameEvent("npc_spawned",function(event)
 	local npc = EntIndexToHScript(event.entindex)
