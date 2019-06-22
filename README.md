@@ -20,7 +20,7 @@ Abilities can start with cooldown, a certain level or can be casted initially an
 # Thinker
 Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (hero:SetAbsOrigin(Vector(0,0,120))) every 5 Minutes.
 <sub><b>TP everyone to the midlane</b></sub><br/>
-<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/UseFuncs2.png" />
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/5minTP.png" />
 
 # Filters
 You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed). If you want to modify the values, for example the gold, you have change the "event.gold" value (r.g. "event.gold = event.gold / 2").
