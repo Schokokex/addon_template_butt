@@ -222,6 +222,14 @@ function TeamResource:GetKills(teamID)
 	return PlayerResource:GetTeamKills(teamID)
 end
 
+function TeamResource:GetFountain(teamID)
+	local fountain = Entities:FindByClassname(nil, "ent_dota_fountain")
+	while fountain and  fountain:GetTeamNumber() ~= teamID do
+		fountain = Entities:FindByClassname(fountain, "ent_dota_fountain")
+	end
+	return fountain
+end
+
 --------------------------
 -- extend CDOTA_BaseNPC --
 --------------------------
