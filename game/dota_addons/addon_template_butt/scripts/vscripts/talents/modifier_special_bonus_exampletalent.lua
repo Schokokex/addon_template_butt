@@ -5,6 +5,7 @@ function modifier_special_bonus_exampletalent:DeclareFunctions()
 	return {
 			MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
 			MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+			-- https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API#modifierfunction
 		}
 end
 

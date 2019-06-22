@@ -11,8 +11,8 @@
 		"AbilityCooldown"				"17.0 16.0 15.0 14.0"
 		"AbilityManaCost"				"100"
 		"AbilityTextureName"			"techies_focused_detonate"	// steal the icon from this ability
-		"MaxLevel"						"1"
-		"AbilitySpecial"
+		"MaxLevel"						"1"							// Maximum skillable level
+		"AbilitySpecial"											// filling in some values with some names, makes it easier to find them
 		{
 			"01"
 			{
@@ -37,7 +37,7 @@
 		}
 	}
 
-	"special_bonus_exampletalent"
+	"special_bonus_exampletalent"			// start talent names with special_bonus_
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
