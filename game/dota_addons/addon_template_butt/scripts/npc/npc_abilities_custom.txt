@@ -10,6 +10,8 @@
 		"AbilityCastPoint"				"0"
 		"AbilityCooldown"				"17.0 16.0 15.0 14.0"
 		"AbilityManaCost"				"100"
+		"AbilityTextureName"			"techies_focused_detonate"	// steal the icon from this ability
+		"MaxLevel"						"1"
 		"AbilitySpecial"
 		{
 			"01"
