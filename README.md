@@ -24,6 +24,8 @@ Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport 
 
 # Filters
 You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed). If you want to modify the values, for example the gold, you have change the "event.gold" value (r.g. "event.gold = event.gold / 2").
+<br/><sub><b>More RNG in Abilites</b></sub><br/>
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/Filter1.png" />
 
 # Talents
 If you want to add a new Talents, you have to add it to the game/..../scripts/npc/npc_abilites_custom.txt , and create a file in game/..../scripts/vscripts/talents/ as like the example talent.
@@ -54,6 +56,8 @@ The Loadscreen settings. Feel free to balance your game here.
 # Events
 Events are the main point for making Dota Mods fun. You can add a modifier on any kind of thing, for example you could cut all nearby trees every time a lasthit is made. Or you give a heal for every kill that a player makes.
 At the bottom of the file you can find an example, on how to do stuff with nearby units and on how to deal Damage to a unit, here all nearby units.
+<br/><sub><b>Dead Heroes drop Feaareiy Fires</b></sub><br/>
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/Events1.png" />
 
 # Lua Tipps
 -- This is a comment. This means everything in the line after -- will get ignored in the code
