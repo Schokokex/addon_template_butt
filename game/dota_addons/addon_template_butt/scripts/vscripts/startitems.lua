@@ -23,7 +23,7 @@ ListenToGameEvent("dota_player_pick_hero",function(kv)
 	
 	-- Items
 
-	for i,item in pairs(startitems) do
+	for item,data in pairs(startitems) do
 		if hero:HasRoomForItem(item, true, true) then
 			local asd = CreateItem(item, hero, hero)
 			asd:SetPurchaseTime(0)
