@@ -68,12 +68,12 @@ At the bottom of the file you can find an example, on how to do stuff with nearb
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/Events1.png" />
 
 # Cheats
-Cheats are for offline testing and dont work online.
--start : Starts the game with pocket money and a hero.
--mods : prints out all your modifiers to the console
--entmods : prints nearby Entities with their modifiers to the console
--abils : prints out all your abilities to the console
--entities : prints out all the Entities in the game
+Cheats are for offline testing and dont work online.<br/>
+-start : Starts the game with pocket money and a hero.<br/>
+-mods : prints out all your modifiers to the console<br/>
+-entmods : prints nearby Entities with their modifiers to the console<br/>
+-abils : prints out all your abilities to the console<br/>
+-entities : prints out all the Entities in the game<br/>
 
 # Lua Tipps
 -- This is a comment. This means everything in the line after -- will get ignored in the code
