@@ -55,7 +55,7 @@ end
 
 function XPModifier:OnAttackFail( event )
 	if event.attacker ~= self:GetParent() then return end
-	if (event.fail_type==1) and (BUTTINGS.NO_UPHILL_MISS) then
+	if (1==event.fail_type) and (1==BUTTINGS.NO_UPHILL_MISS) then
 		event.attacker:PerformAttack(event.target, false, event.process_procs, true, event.ignore_invis, false, false, false)
 		event.fail_type = 0
 	end
@@ -64,13 +64,10 @@ end
 -- Only run on server so client still shows unmodified armor values
 if IsServer() then
 	function XPModifier:GetModifierPhysicalArmorBonus()
-		if (not BUTTINGS.CLASSIC_ARMOR) then
+		if (not 1==BUTTINGS.CLASSIC_ARMOR) then
 			return 0
 		end
 		local unit = self:GetParent()
-		if (not unit:IsRealHero()) and ((not unit:IsConsideredHero()) or unit:IsIllusion()) then
-			return 0
-		end
 		if (self.checkArmor) then
 			return 0
 		else
