@@ -23,11 +23,18 @@ function examplemodifier:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_ATTACK_LANDED, -- OnAttackLanded
 		MODIFIER_EVENT_ON_DEATH, -- OnDeath
+		MODIFIER_PROPERTY_TOOLTIP, -- OnTooltip
 		-- these functions are usually called with everyone on the map
 		-- check the link for more
 		-- https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API#modifierfunction
 	}
 	return funcs
+end
+
+-- passing a number to the Tooltip in resource/addon_english.txt 
+-- with %dMODIFIER_PROPERTY_TOOLTIP%
+function examplemodifier:OnTooltip(event)
+	return 123
 end
 
 function examplemodifier:OnCreated(event)

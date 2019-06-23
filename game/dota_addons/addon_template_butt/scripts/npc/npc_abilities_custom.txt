@@ -12,8 +12,10 @@
 		"AbilityManaCost"				"100"
 		"AbilityTextureName"			"techies_focused_detonate"	// steal the icon from this ability
 		"MaxLevel"						"1"							// Maximum skillable level
-		"AbilitySpecial"											// filling in some values with some names, makes it easier to find them
+		"AbilitySpecial"											
 		{
+			// filling in some values with some names
+			// the values can be shown inside the Tooltip if you edit game/resource/addon_english.txt
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
