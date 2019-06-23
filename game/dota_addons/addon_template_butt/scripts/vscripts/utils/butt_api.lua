@@ -273,3 +273,15 @@ function CDOTA_BaseNPC:RemoveItemByName( itemName )
 		end
 	end
 end
+
+------------
+-- Global --
+------------
+
+function CreateModifierThinkerButt( hCaster, hAbility, modifierName, paramTable, vOrigin, nTeamNumber, bPhantomBlocker )
+	local file = "modifiers/"..modifierName
+	if pcall(require,file) then
+		LinkLuaModifier(modifierName, file, LUA_MODIFIER_MOTION_NONE)
+	end
+	CreateModifierThinker( hCaster, hAbility, modifierName, paramTable, vOrigin, nTeamNumber, bPhantomBlocker )
+end
