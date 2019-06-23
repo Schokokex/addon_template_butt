@@ -14,8 +14,10 @@ After that you can start the game inside Hammer just by clicking the "Game Contr
 The KV files are the files inside game/.../scripts/npc/. To modify a hero, an ability or so, copy the whole bracket section into the custom file. It works also if you delete the values, that you dont change.
 
 # Startitems
-Lets you add free Items, Abilities, Talents or Modifiers, that everyone gets.
+Lets you add free Items, Abilities, Talents or Modifiers, that everyone gets. This is easier than adding it to everyone in the kv file.
 Abilities can start with cooldown, a certain level or can be casted initially and more (as shown in the file).
+<br/><sub><b>Everyone gets Infest when the game starts, and cooldown is activated for 120seconds</b></sub><br/>
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/StartitemAbility.png" />
 
 # Thinker
 Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (hero:SetAbsOrigin(Vector(0,0,120))) every 5 Minutes.
