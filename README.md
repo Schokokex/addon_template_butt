@@ -35,6 +35,7 @@ To add it to the heroes you put it into startitems or you edit the npc_heroes_cu
 
 # Abilities
 If you want to add a new Ability, you can give it to every hero in the startitems.lua file or add it to the heroes manually inside the npc_heroes_custom.txt file. Abilites must be added into npc_abilities_custom.txt, where you put the right path to the lua script file.
+
 Abilites can be added to the heroes inside the startitems file.
 <br/><sub><b>Everyone gets Infest when the game starts, and cooldown is activated for 120seconds</b></sub><br/>
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/StartitemAbility.png" />
