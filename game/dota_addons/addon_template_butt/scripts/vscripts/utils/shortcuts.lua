@@ -13,7 +13,7 @@ ListenToGameEvent("player_chat", function(keys)
 	local playerID = vUserIds[userID] and vUserIds[userID]:GetPlayerID() -- attempt to index a nil value
 	local hero = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 	local text = keys.text
-	if ("-buffs"==text) and (playerID) then
+	if ("-mods"==text) and (playerID) then
 		if (hero) then
 			for m,mod in pairs(hero:FindAllModifiers()) do
 				print(mod:GetName())
@@ -26,7 +26,7 @@ ListenToGameEvent("player_chat", function(keys)
 	elseif ("-entities"==text) and (playerID) then
 		local iter = Entities:First()
 		while(iter) do
-			if (iter:GetName()~="") then print("Entities:",iter:GetName()) end
+			if (iter:GetName()~="") then print("Entities:",iter:GetName(),iter:entindex()) end
 			iter = Entities:Next(iter)
 		end
 	elseif ("-abils"==text) and (playerID) then
