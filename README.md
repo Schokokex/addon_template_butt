@@ -5,10 +5,12 @@ Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me
 # Whats new
 First of all, after some crashing and so on, i started everything from scratch again. New stuff is:
 Timers, Talents, example Modifier, example Ability, Startitems, Thinker, so basically the files you find inside game/dota_addons/addon_template_butt/scripts/vscripts/.
+Also we have cheats.
 
 # Use This Template
 Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content (before you create yours), or you copy the files into every new mod you make.
 After that you can start the game inside Hammer just by clicking the "Game Controller Icon" and "Run (Skip Build)".
+
 
 # KV Files
 The KV files are the files inside game/.../scripts/npc/. To modify a hero, an ability or so, copy the whole bracket section into the custom file. It works also if you delete the values, that you dont change.
@@ -64,6 +66,14 @@ Events are the main point for making Dota Mods fun. You can add a modifier on an
 At the bottom of the file you can find an example, on how to do stuff with nearby units and on how to deal Damage to a unit, here all nearby units.
 <br/><sub><b>Dead Heroes drop Feaareiy Fires</b></sub><br/>
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/Events1.png" />
+
+# Cheats
+Cheats are for offline testing and dont work online.<br/>
+-start : Starts the game with pocket money and a hero.<br/>
+-mods : prints out all your modifiers to the console<br/>
+-entmods : prints nearby Entities with their modifiers to the console<br/>
+-abils : prints out all your abilities to the console<br/>
+-entities : prints out all the Entities in the game<br/>
 
 # Lua Tipps
 -- This is a comment. This means everything in the line after -- will get ignored in the code
