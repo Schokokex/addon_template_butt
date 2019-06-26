@@ -38,7 +38,7 @@ function examplemodifier:OnTooltip(event)
 end
 
 function examplemodifier:OnCreated(event)
-	for k,v in pairs(event) do print("examplemodifier created",k,v,(IsServer() and "on Server" or "on Client")) end
+	-- for k,v in pairs(event) do print("examplemodifier created",k,v,(IsServer() and "on Server" or "on Client")) end
 	-- called when the modifier is created
 end
 
