@@ -10,7 +10,7 @@ end, nil)
 
 local l1 = 0
 local l2 = 0
-function fireGME()
+local function fireGME()
 	local gME = GameRules:GetGameModeEntity()
 	if (gME) then 									-- comes with the first Buildings
 		FireGameEvent("created_game_mode_entity", {gameModeEntity = gME})

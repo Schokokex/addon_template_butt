@@ -1,5 +1,5 @@
 local startitems = {
-	-- item_travel_boots = {},
+	-- item_shivas_guard = { amt = 2, cast = true, cd = 10 },
 	-- item_travel_boots = {},
 }
 local bonusabilities = {
@@ -18,9 +18,9 @@ local talents = {
 	-- [2] = "",	[1] = "special_bonus_exampletalent",
 }
 
-ListenToGameEvent("dota_player_pick_hero",function(kv)
-	local hero = EntIndexToHScript(kv.heroindex)
-	
+ListenToGameEvent("npc_first_spawn",function(kv)
+	local hero = EntIndexToHScript(kv.entindex)
+	if (not hero:IsRealHero()) then return end
 	-- Items
 
 	for item,data in pairs(startitems) do

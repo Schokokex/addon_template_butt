@@ -1,12 +1,15 @@
 if (not IsInToolsMode()) then return end
 
 local vUserIds = {}
+local cheatStart
+
 ListenToGameEvent("player_connect_full", function(keys)
 	local entIndex = keys.index + 1
 	local ply = EntIndexToHScript(keys.index + 1)
 	local userID = keys.userid
 	vUserIds[userID] = EntIndexToHScript(keys.index + 1)
 end, nil)
+
 ListenToGameEvent("player_chat", function(keys)
 	local teamonly = keys.teamonly
 	local userID = keys.userid
