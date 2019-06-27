@@ -64,7 +64,7 @@ end
 -- Only run on server so client still shows unmodified armor values
 if IsServer() then
 	function XPModifier:GetModifierPhysicalArmorBonus()
-		if (not 1==BUTTINGS.CLASSIC_ARMOR) then
+		if (1~=BUTTINGS.CLASSIC_ARMOR) then
 			return 0
 		end
 		local unit = self:GetParent()
