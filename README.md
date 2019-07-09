@@ -22,12 +22,12 @@ Abilities can start with cooldown, a certain level or can be casted initially an
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/StartitemAbility.png" />
 
 # Thinker
-Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (hero:SetAbsOrigin(Vector(0,0,120))) every 5 Minutes.
+Events that triggers at a timer. Give free Rapiers after 20 Minutes or teleport everyone to the midlane (`hero:SetAbsOrigin(Vector(0,0,120))`) every 5 Minutes.
 <br/><sub><b>TP everyone to the midlane</b></sub><br/>
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/5minTP.png" />
 
 # Filters
-You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed). If you want to modify the values, for example the gold, you have change the "event.gold" value (r.g. "event.gold = event.gold / 2").
+You can modify some values like Damage, Heal, Gold or Experience. Keep the return true or the event will cancel (e.g. No Damage will be harmed). If you want to modify the values, for example the gold, you have change the "event.gold" value (e.g. `event.gold = event.gold / 2`).
 <br/><sub><b>More RNG in Abilites</b></sub><br/>
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/Filter1.png" />
 
@@ -46,9 +46,9 @@ Abilites can be added to the heroes inside the startitems file.
 
 
 # Modifiers
-Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont have to edit the KV files, they are only in lua. If you want to use delayed stuff, they become necessary, because they have StartIntervalThink and OnIntervalThink. To use them you can use unit:AddNewModifierButt(unit, nil, modifiername, {}), which automatically looks for it in the modifier folder. The Valve provided unit:AddNewModifier(unit, nil, modifiername, {}) can only use modifiers that are already added to the game (with LinkLuaModifier(modifiername, path, 0)).
+Modifiers are Buffs or Debuffs. The advantage of Modifiers is, that you dont have to edit the KV files, they are only in lua. If you want to use delayed stuff, they become necessary, because they have StartIntervalThink and OnIntervalThink. To use them you can use `unit:AddNewModifierButt(unit, nil, modifiername, {})`, which automatically looks for it in the modifier folder. The Valve provided `unit:AddNewModifier(unit, nil, modifiername, {})` can only use modifiers that are already added to the game (with `LinkLuaModifier(modifiername, path, 0)`).
 
-You can add them to some events, like entity_spawned, entity_killed, or so. Modifiers have a little odd thing, that they technically exist twice, once on the players computer and once on the server, thats maybe good to keep in mind (If you check Dota Imba in Github from EarthSalamander42, you might often see IsServer(), thats because of the duality).
+You can add them to some events, like entity_spawned, entity_killed, or so. Modifiers have a little odd thing, that they technically exist twice, once on the players computer and once on the server, thats maybe good to keep in mind (If you check Dota Imba in Github from EarthSalamander42, you might often see `IsServer()`, thats because of the duality).
 
 Modifiers can do stuff on a lot of events, found in the API. For that you have to add the CONSTANT in DeclareFunctions and add the function also to the .lua file. Most of the events are triggered on the whole map, not only the hero.
 <sub><b>DeclareFunctions is great</b></sub><br/>
@@ -69,36 +69,36 @@ At the bottom of the file you can find an example, on how to do stuff with nearb
 
 # Cheats
 Cheats are for offline testing and dont work online.<br/>
--start : Starts the game with pocket money and a hero.<br/>
--mods : prints out all your modifiers to the console<br/>
--entmods : prints nearby Entities with their modifiers to the console<br/>
--abils : prints out all your abilities to the console<br/>
--entities : prints out all the Entities in the game<br/>
+**-start** : Starts the game with pocket money and a hero.<br/>
+**-mods** : prints out all your modifiers to the console<br/>
+**-entmods** : prints nearby Entities with their modifiers to the console<br/>
+**-abils** : prints out all your abilities to the console<br/>
+**-entities** : prints out all the Entities in the game<br/>
 
 # Lua Tipps
--- This is a comment. This means everything in the line after -- will get ignored in the code
+`-- This is a comment. This means everything in the line after -- will get ignored in the code`
 
 If you have a typo in a file, the whole file may turn useless (you will see when you get red errors inside the game).
 
 Using Sublime or Notepad++ makes it much easier.
 
 
-If you have a function, e.g. function examplemodifier:OnAttackLanded(event), you can read the whole event on the console using:
-"for k,v in pairs(event) do print("OnAttackLanded:",k,v) end"
-Sometimes events might miss a value (like event.attacker).
+If you have a function, e.g. `function examplemodifier:OnAttackLanded(event)`, you can read the whole event on the console using:
+`for k,v in pairs(event) do print("OnAttackLanded:",k,v) end`
+Sometimes events might miss a value (like `event.attacker`).
 The console can be opened in Dota (depending on your key assignment) or from asset browser. Filter for "VScript".
 
 Arrays (or tables as they are called in lua) usually start with 1, but some Dota Stuff, like PlayerIDs start with 0, since they originally come from the C++ hardcode of Dota.
 
-A lua table, e.g. "local herovalues = { antimag = 12, centaur = 5 }" can be accessed (or values can be added) with "herovalues.antimag" (=12) or "heorovalues["antimag"]". Numerial entries can be initiated like "local bestfood = { [1]="peppers", [2]="meat" }".
+A lua table, e.g. `local herovalues = { antimag = 12, centaur = 5 }` can be accessed (or values can be added) with `herovalues.antimag` (=12) or `heorovalues["antimag"]`. This means if you have a variable (`local playerID = 5`), using the brackets will dissolve the variable (`herovalues[playerID]` equals `herovalues[5]`). Numerial entries can be initiated like `local bestfood = { [1]="peppers", [2]="meat" }`.
 
-If a variable has no value, it is "nil" and acts like false. (So you can do "if (test) then..." instead of "if (test\~=nil)").
+If a variable has no value, it is `nil` and acts like false. (So you can do `if (test) then`... instead of `if (test\~=nil)`).
 
-If a function gets not enough parameters, it fills up with nil ("asd:whtvr(hero,nil)" equals to "asd:whtvr(hero)").
+If a function gets not enough parameters, it fills up with nil (`asd:whtvr(hero,nil)` equals to `asd:whtvr(hero)`).
 
-This "hero:GetLevel()" equals to "hero.GetLevel(hero)". "if (hero.GetLevel) then test = hero:GetLevel() end" can be used to ensure this function exists.
+This `hero:GetLevel()` equals to `hero.GetLevel(hero)`. `if (hero.GetLevel) then test = hero:GetLevel() end` can be used to ensure this function exists.
 
-If you get errors inside a modifier function, try to set "if IsClient() then return end" as the first line inside the function.
+If you get errors inside a modifier function, try to set `if IsClient() then return end` as the first line inside the function.
 
 Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and become teleported to the spawn after.
 
