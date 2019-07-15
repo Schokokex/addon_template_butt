@@ -9,6 +9,7 @@ require("utils/custom_gameevents")
 require("utils/particles")
 require("utils/timers")
 require("utils/util")
+-- require("utils/notifications") -- will test it tomorrow
 
 require("internal/events")
 require("internal/panorama")
