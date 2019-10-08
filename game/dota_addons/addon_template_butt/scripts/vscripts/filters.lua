@@ -57,7 +57,7 @@ function GameMode:ExecuteOrderFilter(event)
 	-- PrintTable(event)
 	local ability = EntIndexToHScript(event.entindex_ability)
 	local targetUnit = EntIndexToHScript(event.entindex_target)
-	local playerID = EntIndexToHScript(event.issuer_player_id_const)
+	local playerID = event.issuer_player_id_const
 	local orderType = event.order_type
 	local pos = Vector(event.position_x,event.position_y,event.position_z)
 	local queue = event.queue
