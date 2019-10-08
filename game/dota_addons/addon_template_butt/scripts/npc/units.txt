@@ -12,7 +12,6 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_base"	// Class of entity of link to.
 		"Model"						"models/development/invisiblebox.vmdl"	// Model.
 		"SoundSet"					"0"					// Name of sound set.
 		"Level"						"1"
@@ -6159,7 +6158,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"20"		// Experience earn.
+		"BountyXP"					"19"		// Experience earn.
 		"BountyGoldMin"				"6"			// Gold earned min.
 		"BountyGoldMax"				"8"			// Gold earned max.
 
@@ -6232,7 +6231,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"20"		// Experience earn.
+		"BountyXP"					"19"		// Experience earn.
 		"BountyGoldMin"				"14"		// Gold earned min.
 		"BountyGoldMax"				"18"		// Gold earned max.
 
@@ -6305,7 +6304,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"33"		// Experience earn.
+		"BountyXP"					"31"		// Experience earn.
 		"BountyGoldMin"				"20"		// Gold earned min.
 		"BountyGoldMax"				"25"		// Gold earned max.
 
@@ -6378,7 +6377,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"33"		// Experience earn.
+		"BountyXP"					"31"		// Experience earn.
 		"BountyGoldMin"				"16"		// Gold earned min.
 		"BountyGoldMax"				"19"		// Gold earned max.
 
@@ -6451,7 +6450,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"95"		// Experience earn.
+		"BountyXP"					"90"		// Experience earn.
 		"BountyGoldMin"				"53"		// Gold earned min.
 		"BountyGoldMax"				"62"		// Gold earned max.
 
@@ -6524,7 +6523,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"33"		// Experience earn.
+		"BountyXP"					"31"		// Experience earn.
 		"BountyGoldMin"				"17"		// Gold earned min.
 		"BountyGoldMax"				"20"		// Gold earned max.
 
@@ -6597,7 +6596,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"70"		// Experience earn.
+		"BountyXP"					"66"		// Experience earn.
 		"BountyGoldMin"				"36"		// Gold earned min.
 		"BountyGoldMax"				"44"		// Gold earned max.
 
@@ -6670,7 +6669,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"95"		// Experience earn.
+		"BountyXP"					"90"		// Experience earn.
 		"BountyGoldMin"				"61"		// Gold earned min.
 		"BountyGoldMax"				"70"		// Gold earned max.
 
@@ -6744,7 +6743,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"34"		// Experience earn.
+		"BountyXP"					"32"		// Experience earn.
 		"BountyGoldMin"				"24"		// Gold earned min.
 		"BountyGoldMax"				"27"		// Gold earned max.
 
@@ -6818,7 +6817,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"18"		// Experience earn.
+		"BountyXP"					"17"		// Experience earn.
 		"BountyGoldMin"				"8"		// Gold earned min.
 		"BountyGoldMax"				"13"		// Gold earned max.
 
@@ -6857,7 +6856,6 @@
 		"Model"						"models/heroes/doom/doom.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creep_neutral"
 		"SoundSet"					"Hero_DoomBringer"													// Name of sound set.
-		"IdleSoundLoop"				"Hero_DoomBringer.IdleLoop"
 		"Level"						"4"
 		"ModelScale" 					"0.7"
 		"IsNeutralUnitType"			"1"
@@ -6893,7 +6891,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"18"		// Experience earn.
+		"BountyXP"					"17"		// Experience earn.
 		"BountyGoldMin"				"8"		// Gold earned min.
 		"BountyGoldMax"				"13"		// Gold earned max.
 
@@ -6966,7 +6964,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"33"		// Experience earn.
+		"BountyXP"					"31"		// Experience earn.
 		"BountyGoldMin"				"18"		// Gold earned min.
 		"BountyGoldMax"				"38"		// Gold earned max.
 
@@ -7039,7 +7037,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// Experience earn.
+		"BountyXP"					"47"		// Experience earn.
 		"BountyGoldMin"				"28"		// Gold earned min.
 		"BountyGoldMax"				"36"		// Gold earned max.
 
@@ -7112,7 +7110,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// Experience earn.
+		"BountyXP"					"47"		// Experience earn.
 		"BountyGoldMin"				"18"		// Gold earned min.
 		"BountyGoldMax"				"21"		// Gold earned max.
 
@@ -7185,7 +7183,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"70"		// Experience earn.
+		"BountyXP"					"66"		// Experience earn.
 		"BountyGoldMin"				"30"		// Gold earned min.
 		"BountyGoldMax"				"36"		// Gold earned max.
 
@@ -7258,7 +7256,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"20"		// Experience earn.
+		"BountyXP"					"19"		// Experience earn.
 		"BountyGoldMin"				"12"		// Gold earned min.
 		"BountyGoldMax"				"16"		// Gold earned max.
 
@@ -7331,7 +7329,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"95"		// Experience earn.
+		"BountyXP"					"90"		// Experience earn.
 		"BountyGoldMin"				"54"		// Gold earned min.
 		"BountyGoldMax"				"70"		// Gold earned max.
 
@@ -7404,7 +7402,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// Experience earn.
+		"BountyXP"					"47"		// Experience earn.
 		"BountyGoldMin"				"22"		// Gold earned min.
 		"BountyGoldMax"				"26"		// Gold earned max.
 
@@ -7477,7 +7475,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"95"		// Experience earn.
+		"BountyXP"					"90"		// Experience earn.
 		"BountyGoldMin"				"62"		// Gold earned min.
 		"BountyGoldMax"				"73"		// Gold earned max.
 
@@ -8148,7 +8146,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"33"		// Experience earn.
+		"BountyXP"					"31"		// Experience earn.
 		"BountyGoldMin"				"20"		// Gold earned min.
 		"BountyGoldMax"				"24"		// Gold earned max.
 
@@ -8221,7 +8219,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// Experience earn.
+		"BountyXP"					"47"		// Experience earn.
 		"BountyGoldMin"				"28"		// Gold earned min.
 		"BountyGoldMax"				"34"		// Gold earned max.
 
@@ -8294,7 +8292,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"15"		// Experience earn.
+		"BountyXP"					"14"		// Experience earn.
 		"BountyGoldMin"				"16"		// Gold earned min.
 		"BountyGoldMax"				"17"		// Gold earned max.
 
@@ -8367,7 +8365,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// Experience earn.
+		"BountyXP"					"47"		// Experience earn.
 		"BountyGoldMin"				"21"		// Gold earned min.
 		"BountyGoldMax"				"26"		// Gold earned max.
 
@@ -8440,7 +8438,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"95"		// Experience earn.
+		"BountyXP"					"90"		// Experience earn.
 		"BountyGoldMin"				"43"		// Gold earned min.
 		"BountyGoldMax"				"50"		// Gold earned max.
 
@@ -8513,7 +8511,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"33"		// Experience earn.
+		"BountyXP"					"31"		// Experience earn.
 		"BountyGoldMin"				"12"		// Gold earned min.
 		"BountyGoldMax"				"14"		// Gold earned max.
 
@@ -8586,7 +8584,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"33"		// Experience earn.
+		"BountyXP"					"31"		// Experience earn.
 		"BountyGoldMin"				"20"		// Gold earned min.
 		"BountyGoldMax"				"23"		// Gold earned max.
 
@@ -8659,7 +8657,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"31"		// Experience earn.
+		"BountyXP"					"29"		// Experience earn.
 		"BountyGoldMin"				"19"		// Gold earned min.
 		"BountyGoldMax"				"22"		// Gold earned max.
 
@@ -8732,7 +8730,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"33"		// Experience earn.
+		"BountyXP"					"31"		// Experience earn.
 		"BountyGoldMin"				"21"		// Gold earned min.
 		"BountyGoldMax"				"24"		// Gold earned max.
 
@@ -8805,7 +8803,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"		// Experience earn.
+		"BountyXP"					"47"		// Experience earn.
 		"BountyGoldMin"				"29"		// Gold earned min.
 		"BountyGoldMax"				"33"		// Gold earned max.
 
@@ -9668,6 +9666,8 @@
 		"Ability10"					"courier_go_to_enemy_secretshop"
 		"Ability11"					"courier_go_to_sideshop"
 		"Ability12"					"courier_go_to_sideshop2"
+		"Ability13"					"courier_queue_pickup_from_stash"
+		"Ability14"					"courier_dequeue_pickup_from_stash"
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -10110,6 +10110,7 @@
 		"ModelScale" 				"0.8"
 		"SelectionGroup"			"Venomancer_Wards"
 		"UnitLabel"			"plaguewards"
+		"wearable"				"684"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -10130,7 +10131,7 @@
 		"AttackDamageMin"			"12"			// Damage range min.
 		"AttackDamageMax"			"14"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackRate"				"1.4"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
 		"AttackRange"				"600"		// Range within a target can be attacked.
@@ -10188,6 +10189,7 @@
 		"ModelScale" 				"0.8"
 		"SelectionGroup"			"Venomancer_Wards"
 		"UnitLabel"			"plaguewards"
+		"wearable"				"684"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -10208,7 +10210,7 @@
 		"AttackDamageMin"			"21"		// Damage range min.
 		"AttackDamageMax"			"23"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackRate"				"1.4"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
 		"AttackRange"				"600"		// Range within a target can be attacked.
@@ -10266,6 +10268,7 @@
 		"ModelScale" 				"0.8"
 		"SelectionGroup"			"Venomancer_Wards"
 		"UnitLabel"			"plaguewards"
+ 		"wearable"				"684"
 
 
 		// Abilities
@@ -10287,7 +10290,7 @@
 		"AttackDamageMin"			"30"		// Damage range min.
 		"AttackDamageMax"			"32"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackRate"				"1.4"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
 		"AttackRange"				"600"		// Range within a target can be attacked.
@@ -10345,7 +10348,7 @@
 		"ModelScale" 				"0.8"
 		"SelectionGroup"			"Venomancer_Wards"
 		"UnitLabel"			"plaguewards"
-
+		"wearable"				"684"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -10366,7 +10369,7 @@
 		"AttackDamageMin"			"39"		// Damage range min.
 		"AttackDamageMax"			"41"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackRate"				"1.4"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
 		"AttackRange"				"600"		// Range within a target can be attacked.
@@ -11521,7 +11524,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"250"		// Base health.
+		"StatusHealth"				"175"		// Base health.
 		"StatusHealthRegen"			"0.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12013,6 +12016,7 @@
 		"IsSummoned"				"1"
 		"IsAncient"					"1"
 		"ModelScale"					".90"
+		"LoadoutScale"					"1.19"
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
@@ -15790,8 +15794,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"10"		// Experience earn.
-		"BountyGoldMin"				"20"		// Gold earned min.
-		"BountyGoldMax"				"20"		// Gold earned max.
+		"BountyGoldMin"				"15"		// Gold earned min.
+		"BountyGoldMax"				"15"		// Gold earned max.
 
 		// Movement
 		//----------------------------------------------------------------
