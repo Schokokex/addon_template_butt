@@ -119,5 +119,7 @@ Volvo Recipe for lua Ability/Modifier: https://developer.valvesoftware.com/wiki/
 
 Volvo Recipe for Game Events: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Listening_to_game_events
 
+Volvo Recipe for Thinker: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/ThinkerFunctions
+
 # Map Editing
 Being done from Hammer, you can add and delete stuff (trees), alter the heights inside the map, move the spawnpoints or waypoints of creeps. If you edit the object properties you also can add trigger events, for example on a Roshan kill or so.
