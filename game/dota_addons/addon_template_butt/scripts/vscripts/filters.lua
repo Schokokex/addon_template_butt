@@ -63,7 +63,7 @@ function GameMode:ExecuteOrderFilter(event)
 	local queue = event.queue
 	local seqNum = event.sequence_number_const
 	local units = event.units
-	local unit = units and units[0]
+	local unit = units and units["0"] and EntIndexToHScript(units["0"])
 
 	-- your stuff
 
@@ -171,8 +171,8 @@ end
 function GameMode:TrackingProjectileFilter(event)
 	-- PrintTable(event)
 	local dodgeable = event.dodgeable
-	local casterUnit = EntIndexToHScript(event.entindex_ability_const)
-	local source = EntIndexToHScript(event.entindex_source_const)
+	local ability = EntIndexToHScript(event.entindex_ability_const)
+	local attackerUnit = EntIndexToHScript(event.entindex_source_const)
 	local targetUnit = EntIndexToHScript(event.entindex_target_const)
 	local expireTime = event.expire_time
 	local isAttack = (1==event.is_attack)
