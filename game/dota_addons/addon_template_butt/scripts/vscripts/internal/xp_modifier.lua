@@ -23,7 +23,7 @@ function XPModifier:DeclareFunctions() --we want to use these functions in this 
 	local funcs = {
 		-- MODIFIER_PROPERTY_EXP_RATE_BOOST, -- deprecated
 		MODIFIER_PROPERTY_RESPAWNTIME_PERCENTAGE,
-		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,
 		MODIFIER_EVENT_ON_ATTACK_FAIL,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
@@ -49,7 +49,7 @@ function XPModifier:IsPurgable()
 end
 
 
-function XPModifier:GetModifierPercentageCooldown()
+function XPModifier:GetModifierPercentageCooldownStacking()
 	return 100 - BUTTINGS.COOLDOWN_PERCENTAGE
 end
 
