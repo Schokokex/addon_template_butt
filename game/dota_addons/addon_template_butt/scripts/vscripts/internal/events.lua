@@ -1,4 +1,5 @@
 require("settings_butt")
+require("utils/butt_api")
 
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_HERO_SELECTION) then
@@ -21,20 +22,28 @@ ListenToGameEvent("game_rules_state_change", function()
 				end
 			end, time)
 		end
-	elseif (GameRules:State_Get()==DOTA_GAMERULES_STATE_PRE_GAME) then
-		if (1==BUTTINGS.FREE_COURIER) then TeamList:GetFreeCouriers() end
+	elseif (GameRules:State_Get()>=DOTA_GAMERULES_STATE_PRE_GAME) then
+		GameRules:GetGameModeEntity():SetThink( function(asd)
+			if (1==BUTTINGS.FREE_COURIER) then TeamList:GetFreeCouriers() end
+		end, 5 )
 	end
 end, nil)
 
-if (1==BUTTINGS.FREE_COURIER) then
-	ListenToGameEvent("npc_spawned", function(keys)
+local l1 = ListenToGameEvent("npc_spawned", function(keys)
+	if (1==BUTTINGS.FREE_COURIER) then
 		local unit = EntIndexToHScript(keys.entindex)
 		local alreadyHasCourier = PlayerResource:GetNthCourierForTeam(0, unit:GetTeam())
 		if (unit:GetName()=="npc_dota_courier") and (alreadyHasCourier) and (unit~=alreadyHasCourier) then
 			unit:Destroy()
 		end
-	end, nil)
-end
+	elseif (GameRules:State_Get()>=DOTA_GAMERULES_STATE_PRE_GAME) then
+		StopListeningToGameEvent(l1)
+	end
+end, nil)
+
+
+ListenToGameEvent("dota_player_pick_hero", function(keys)
+end, self)
 
 if (1==BUTTINGS.ALT_WINNING) then
 	ListenToGameEvent("dota_player_killed",function(kv)
