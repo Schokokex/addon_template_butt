@@ -1,6 +1,6 @@
 local startitems = {
 	-- item_shivas_guard = { amt = 2, cast = true, cd = 10 },
-	item_travel_boots = {amt=20, cd= 100},
+	-- item_travel_boots = {amt=20, cd= 100},
 }
 local bonusabilities = {
 	-- exampleability = { lvl = 1, cd = 120 , nokey = true, hidden = true, cast = true },
