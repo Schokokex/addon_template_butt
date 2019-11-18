@@ -1,6 +1,6 @@
 local startitems = {
 	-- item_shivas_guard = { amt = 2, cast = true, cd = 10 },
-	-- item_travel_boots = {},
+	item_travel_boots = {amt=20, cd= 100},
 }
 local bonusabilities = {
 	-- exampleability = { lvl = 1, cd = 120 , nokey = true, hidden = true, cast = true },
@@ -23,13 +23,16 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 	if (not hero:IsRealHero()) then return end
 	-- Items
 
-	for item,data in pairs(startitems) do
-		if hero:HasRoomForItem(item, true, true) then
-			local asd = CreateItem(item, hero, hero)
-			asd:SetPurchaseTime(0)
-			hero:AddItem(asd)
+	GameRules:GetGameModeEntity():SetThink( function()
+		for item,data in pairs(startitems) do
+			local amt = data.amt or data.amount or 1
+			for i=1,amt do
+				local item = hero:AddItemByName(item)
+				if (data.cast) then item:CastAbility() end
+				if (data.cd) then item:StartCooldown(data.cd) end
+			end
 		end
-	end
+	end, 0.5)
 
 	-- Abilities
 
