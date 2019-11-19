@@ -1,0 +1,9 @@
+*
+!.gitignore
+!game
+!game/
+!game/dota_addons
+!game/dota_addons/
+!game/dota_addons/addon_template_butt
+!game/dota_addons/addon_template_butt/
+!*.png
