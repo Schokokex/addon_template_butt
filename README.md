@@ -2,10 +2,13 @@
 Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me know (on Github or Steam).
 
 
-# Whats new
-First of all, after some crashing and so on, i started everything from scratch again. New stuff is:
-Timers, Talents, example Modifier, example Ability, Startitems, Thinker, so basically the files you find inside game/dota_addons/addon_template_butt/scripts/vscripts/.
-Also we have cheats.
+## RECENT STEAM UPDATE
+
+Since the Steam interface recently changed, the Workshop Tools are harder to find. Open Dota Settings-> DLCs.
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/Properties.png" />
+<br/><sub><b>Finding the necessary Dota Workhop DLC</b></sub><br/>
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/DLC.png" />
+
 
 # Use This Template
 Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content (before you create yours), or you copy the files into every new mod you make.
