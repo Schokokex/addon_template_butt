@@ -21,7 +21,7 @@ HOWEVER, if you auto-generate a mod, you still have to manually copy `addoninfo.
 
 To make it readonly you have to copy the `readonly_tools_asset_info.bin` file from `game/addon_template` to `game/addon_template_butt`.
 
-<br/><sub><b>Using the template just by doubleclicking (made readonly)</b></sub><br/>
+<br/><sub><b>Using the template just by doubleclicking (when its readonly)</b></sub><br/>
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/CreateNewAddon.png" />
 
 # KV Files
