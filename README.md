@@ -11,6 +11,15 @@ Also we have cheats.
 Either you make this the default template by copying everything from addon_template_butt into addon_template of game and content (before you create yours), or you copy the files into every new mod you make.
 After that you can start the game inside Hammer just by clicking the "Game Controller Icon" and "Run (Skip Build)".
 
+## Use it Automatically
+If you paste the template into the steam/dota folder, you can automatically create templates by clicking "Create New Addon From Existing Addon".
+
+HOWEVER, if you auto-generate a mod, you still have to manually copy `addoninfo.txt` (or add the line `"maps" "dota"` into the curly braces).
+
+To make it readonly you have to copy the `readonly_tools_asset_info.bin` file from `game/addon_template` to `game/addon_template_butt`.
+
+<br/><sub><b>Using the template just by doubleclicking (made readonly)</b></sub><br/>
+<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/CreateNewAddon.png" />
 
 # KV Files
 The KV files are the files inside game/.../scripts/npc/. To modify a hero, an ability or so, copy the whole bracket section into the custom file. It works also if you delete the values, that you dont change.
