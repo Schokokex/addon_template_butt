@@ -26,6 +26,7 @@ function XPModifier:DeclareFunctions() --we want to use these functions in this 
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,
 		MODIFIER_EVENT_ON_ATTACK_FAIL,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_EVENT_ON_DEATH,
 	}
 
 	return funcs
@@ -34,6 +35,21 @@ end
 -- function XPModifier:GetModifierPercentageExpRateBoost()
 -- 	return BUTTINGS.BONUS_XP_PERCENTAGE
 -- end
+
+function XPModifier:OnDeath(event)
+	local unit = event.unit
+	local level = unit and unit.GetLevel and unit:GetLevel()
+
+	-- fix for > lvl 25 cuz volvo
+	if self:GetParent()==unit and level>25 and IsServer() then
+		-- print("#### OnDeath xp_modifier")
+		-- PrintTable(event)
+		GameRules:GetGameModeEntity():SetThink(function ( ... )
+			unit:SetTimeUntilRespawn( level * 4 * BUTTINGS.RESPAWN_TIME_PERCENTAGE * 0.01 )
+		end, 0)
+	end
+
+end
 
 function XPModifier:GetModifierPercentageRespawnTime()
 	return 1 - BUTTINGS.RESPAWN_TIME_PERCENTAGE * 0.01
