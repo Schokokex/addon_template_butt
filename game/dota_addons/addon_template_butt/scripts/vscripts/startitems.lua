@@ -4,7 +4,7 @@ local startitems = {
 }
 local bonusabilities = {
 	-- exampleability = { lvl = 1, cd = 120 , nokey = true, hidden = true, cast = true },
-	-- roshan_spell_block = { lvl = 4, nokey = true },
+	roshan_spell_block = { lvl = 4, nokey = true },
 }
 local bonusmodifier = {
 	examplemodifier = {duration = 10},
@@ -20,7 +20,23 @@ local talents = {
 
 ListenToGameEvent("npc_first_spawn",function(kv)
 	local hero = EntIndexToHScript(kv.entindex)
+
+
+	if (not hero:IsHero()) then return end
+
+	-- Abilities
+
+	for abil,kv in pairs(bonusabilities) do
+		if (not kv.nokey) then hero:RemoveAbility("generic_hidden") end
+		local a = hero:AddAbility(abil)
+		a:SetLevel(kv.level or kv.lvl or 0)
+		if (kv.cast) then a:CastAbility() end
+		a:SetHidden(kv.hidden or false)
+		a:StartCooldown(kv.cooldown or kv.cd or 0)
+	end
+
 	if (not hero:IsRealHero()) then return end
+	
 	-- Items
 
 	GameRules:GetGameModeEntity():SetThink( function()
@@ -33,17 +49,6 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 			end
 		end
 	end, 0.5)
-
-	-- Abilities
-
-	for abil,kv in pairs(bonusabilities) do
-		if (not kv.nokey) then hero:RemoveAbility("generic_hidden") end
-		local a = hero:AddAbility(abil)
-		a:SetLevel(kv.level or kv.lvl or 0)
-		if (kv.cast) then a:CastAbility() end
-		a:SetHidden(kv.hidden or false)
-		a:StartCooldown(kv.cooldown or kv.cd or 0)
-	end
 
 	-- Modifiers
 
