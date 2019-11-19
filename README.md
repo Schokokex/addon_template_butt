@@ -104,15 +104,15 @@ Arrays (or tables as they are called in lua) usually start with 1, but some Dota
 
 A lua table, e.g. `local herovalues = { antimag = 12, centaur = 5 }` can be accessed (or values can be added) with `herovalues.antimag` (=12) or `heorovalues["antimag"]`. This means if you have a variable (`local playerID = 5`), using the brackets will dissolve the variable (`herovalues[playerID]` equals `herovalues[5]`). Numerial entries can be initiated like `local bestfood = { [1]="peppers", [2]="meat" }`.
 
-If a variable has no value, it is `nil` and acts like false. (So you can do `if (test) then`... instead of `if (test\~=nil)`).
+If a variable has no value, it is `nil` and acts like false. (So you can do `if (test) then`... instead of `if (test~=nil)`).
 
 If a function gets not enough parameters, it fills up with nil (`asd:whtvr(hero,nil)` equals to `asd:whtvr(hero)`).
 
-This `hero:GetLevel()` equals to `hero.GetLevel(hero)`. `if (hero.GetLevel) then test = hero:GetLevel() end` can be used to ensure this function exists.
+This `hero:GetLevel()` equals to `hero.GetLevel(hero)`. `if (hero.GetLevel) then test = hero:GetLevel() end` or shorter: `test = hero.GetLevel and hero:GetLevel() or test` end can be used to ensure this function exists.
 
 If you get errors inside a modifier function, try to set `if IsClient() then return end` as the first line inside the function.
 
-Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and become teleported to the spawn after.
+Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and get teleported to the spawn after.
 
 # Links
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
