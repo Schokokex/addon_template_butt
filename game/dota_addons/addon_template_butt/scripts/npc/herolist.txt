@@ -1,4 +1,4 @@
-"whitelist"
+"whitelist" // lala
 {
 	"npc_dota_hero_ancient_apparition" "1"
 	"npc_dota_hero_antimage" "1"
