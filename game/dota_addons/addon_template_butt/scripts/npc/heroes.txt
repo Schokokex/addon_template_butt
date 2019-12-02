@@ -1,4 +1,4 @@
-// Dota Heroes File asd
+// Dota Heroes File
 "DOTAHeroes"
 {
 	"Version"		"1"

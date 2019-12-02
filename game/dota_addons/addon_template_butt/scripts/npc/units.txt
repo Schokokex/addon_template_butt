@@ -1,4 +1,4 @@
-// Dota Units File asd
+// Dota Units File
 "DOTAUnits"
 {
 	"Version"	"1"	

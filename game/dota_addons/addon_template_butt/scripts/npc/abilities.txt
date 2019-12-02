@@ -1,4 +1,4 @@
-// asd
+
 // Dota Heroes File
 "DOTAAbilities"
 {
