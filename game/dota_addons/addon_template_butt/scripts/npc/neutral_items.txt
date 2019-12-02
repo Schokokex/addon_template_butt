@@ -1,4 +1,4 @@
-"neutral_items" test
+"neutral_items"
 {
 	"1"
 	{
