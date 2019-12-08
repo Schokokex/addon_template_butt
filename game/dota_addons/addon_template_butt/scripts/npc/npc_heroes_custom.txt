@@ -3,11 +3,11 @@
 // the specified key-value combinations.  Use override_hero <hero_to_override> for this.
 "DOTAHeroes"
 {
-	"npc_dota_hero_testhero"
-	{
-	//	"override_hero"				"npc_dota_hero_furion"						// Hero to override
-		"override_hero"				""											// I dont change a hero now
-		"Ability1"					"exampleability"							// Ability 1 on this hero gets replaced
-		"Ability10"					"special_bonus_exampletalent"				// Talent 1 on this hero gets replaced
-	}
+	//	"testhero"
+	//	{
+	//	//	"override_hero"				"npc_dota_hero_furion"						// Hero to override
+	//		"override_hero"				""											// I dont change a hero now
+	//		"Ability1"					"exampleability"							// Ability 1 on this hero gets replaced
+	//		"Ability10"					"special_bonus_exampletalent"				// Talent 1 on this hero gets replaced
+	//	}
 }
