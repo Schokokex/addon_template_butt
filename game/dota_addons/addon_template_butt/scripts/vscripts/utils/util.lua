@@ -81,7 +81,6 @@ function globalsToString()
 	return out
 end
 
->>>>>>> 55e97ec... Setting screen title miracle
 function length(t)
 	if (type(t) == "table") then
 		local len = 0
