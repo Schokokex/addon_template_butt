@@ -1,3 +1,87 @@
+function say(...)
+	local str = ""
+	for i,v in ipairs({...}) do
+		str = str..tostring(v).." "
+	end
+	Say(nil,str,true)
+end
+
+function table.merge(weak, strong)
+	if (type(weak) ~= "table") then error("1st argument of table.merge() is not a table") end
+	if (type(strong) == "table") then
+		for k,v in pairs(strong) do
+			if type(v)=="table" then
+				if (type(weak[k])~="table") then weak[k] = {} end
+				table.merge(weak[k],v)
+				if next(weak[k])==nil then weak[k] = nil end
+			else
+				weak[k] = v
+			end
+		end
+	end
+	return weak
+end
+
+function strToFile(str, filename)
+	local file = io.open(filename,"w")
+	file:write(str)
+	io.close(file)
+end
+
+function kvToFile(kv, filename)
+	strToFile(kvToString(kv,""),filename)
+end
+
+function fileToString(filename)
+	local file = io.open(filename, "r")
+	local out = file:read("*all")
+	io.close(file)
+	return out
+end
+
+function kvToString(kv,prefix)
+	local out = ""
+	if type(kv)=="table" then
+		for k,v in opairs(kv) do
+			if type(v)=="table" then
+				out = ("%s%s\"%s\"\n%s{\n%s%s}\n"):format(out,prefix,k,prefix,kvToString(v,prefix.."\t"),prefix)
+				-- out = out .. prefix .. "\"" .. k .. "\" " .. "\n".. prefix .."{\n" .. kvToString(v,prefix.."\t") .. prefix .. "}\n"
+			else
+				local val = (type(v)=="string" or type(v)=="number") and v or "ERR"
+				out = ("%s%s\"%-32s \"%s\"\n"):format(out,prefix,(k .. "\""),val)
+			end
+		end
+	end
+	return out
+end
+
+function fileToTable(filename)
+	return fixParsedTable(LoadKeyValues(filename))
+end
+
+function fixParsedTable( tabl )
+	if "table"~=type(tabl) then return tabl end
+	for k,v in pairs(tabl) do
+		if "number"==type(v) then
+			tabl[k] = 0.001 * math.floor(v*1000+0.5)
+		else tabl[k] = fixParsedTable(tabl[k]) end
+	end
+	return tabl
+end
+
+function globalsToString()
+	local out = ""
+	for k,v in pairs(_G) do
+		if type(v)=="function" then v = "f()" end
+		if type(v)=="table" then v = "{}" end
+		if type(v)=="userdata" then v = "udat" end
+		if type(v)=="boolean" then v = V and "true" or "false" end
+		out = out .. k .. ": " .. v .. "\n"
+	end
+	return out
+end
+
+>>>>>>> 55e97ec... Setting screen title miracle
 function length(t)
 	if (type(t) == "table") then
 		local len = 0

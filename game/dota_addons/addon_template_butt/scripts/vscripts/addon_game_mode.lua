@@ -1,8 +1,8 @@
--- Generated from template
+_G.ADDON_FOLDER = debug.getinfo(1,"S").source:sub(2,-37)
+_G.PUBLISH_DATA = LoadKeyValues(ADDON_FOLDER:sub(5,-16).."publish_data.txt")
+_G.WORKSHOP_TITLE = PUBLISH_DATA.title -- LoadKeyValues(debug.getinfo(1,"S").source:sub(7,-53).."publish_data.txt").title 
 
-if GameMode == nil then
-	_G.GameMode = class({})
-end
+_G.GameMode = _G.GameMode or class({})
 
 require("utils/butt_api")
 require("utils/custom_gameevents")
