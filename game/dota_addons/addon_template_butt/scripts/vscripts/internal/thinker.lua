@@ -1,15 +1,19 @@
 require("settings_butt")
+require("utils/butt_api")
+
+_Thinker = class({})
 
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then
-		GameRules:GetGameModeEntity():SetThink( "ComebackXP", GameMode, BUTTINGS.COMEBACK_TIMER*60 )
-		GameRules:GetGameModeEntity():SetThink( "ComebackGold", GameMode, BUTTINGS.COMEBACK_TIMER*60 )
-		GameRules:GetGameModeEntity():SetThink( "XPThinker", GameMode, 0 )
-		GameRules:GetGameModeEntity():SetThink( "WinThinker", GameMode, BUTTINGS.ALT_TIME_LIMIT*60 )
+		GameRules:GetGameModeEntity():SetThink( "ComebackXP", _Thinker, BUTTINGS.COMEBACK_TIMER*60 )
+		GameRules:GetGameModeEntity():SetThink( "ComebackGold", _Thinker, BUTTINGS.COMEBACK_TIMER*60 )
+		GameRules:GetGameModeEntity():SetThink( "XPThinker", _Thinker, 0 )
+		GameRules:GetGameModeEntity():SetThink( "Outpost", _Thinker, 0 )
+		GameRules:GetGameModeEntity():SetThink( "WinThinker", _Thinker, BUTTINGS.ALT_TIME_LIMIT*60 )
 	end
 end, self)
 
-function GameMode:ComebackXP()
+function _Thinker:ComebackXP()
 	local team = 0
 	local amt = nil
 	for t,xp in pairs(TeamList:GetTotalEarnedXP()) do
@@ -24,7 +28,7 @@ function GameMode:ComebackXP()
 	return 60/BUTTINGS.COMEBACK_XPPM
 end
 
-function GameMode:ComebackGold()
+function _Thinker:ComebackGold()
 	local team = 0
 	local amt = nil
 	for t,gold in pairs(TeamList:GetTotalEarnedGold()) do
@@ -39,14 +43,14 @@ function GameMode:ComebackGold()
 	return 60/BUTTINGS.COMEBACK_GPM
 end
 
-function GameMode:XPThinker()
+function _Thinker:XPThinker()
 	for h,hero in pairs(HeroListButt:GetMainHeroes()) do
 		hero:AddExperience(1, DOTA_ModifyXP_Unspecified, false, true)
 	end
 	return 60/BUTTINGS.XP_PER_MINUTE
 end
 
-function GameMode:WinThinker()
+function _Thinker:WinThinker()
 	if (1==BUTTINGS.ALT_WINNING) then
 		local team = DOTA_TEAM_NOTEAM 
 		local kills = 0
@@ -58,4 +62,10 @@ function GameMode:WinThinker()
 		end
 			GameRules:SetGameWinner(team)
 	end
+end
+
+function _Thinker:Outpost()
+	-- local delay = units.npc_dota_watch_tower and units.npc_dota_watch_tower.StartingTime or 600
+	Butt:ProtectAllOutposts() -- protects all Outposts until 10:00
+	-- refresh at 10:00 or new modifier
 end

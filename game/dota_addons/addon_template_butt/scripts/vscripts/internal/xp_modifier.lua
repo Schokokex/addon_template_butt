@@ -10,6 +10,7 @@ end, self)
 XPModifier = class({})
 
 function XPModifier:IsHidden() return true end
+function XPModifier:AllowIllusionDuplicate() return true end
 
 if (IsClient()) then return end
 

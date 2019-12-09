@@ -1,0 +1,8 @@
+<root>
+	<Panel>
+		<CustomUIElement type="GameSetup"	layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
+		<CustomUIElement type="GameSetup"	layoutfile="file://{resources}/layout/custom_game/team_select_butt.xml" />
+		<CustomUIElement type="GameInfo"	layoutfile="file://{resources}/layout/custom_game/game_info.xml" />
+		<CustomUIElement type="EndScreen"	layoutfile="file://{resources}/layout/custom_game/multiteam_end_screen.xml" />
+	</Panel>
+</root>

@@ -6,14 +6,17 @@ end
 
 _G.GameMode = _G.GameMode or class({})
 
+require("utils/util")
+require("internal/init")
+
 require("utils/butt_api")
 require("utils/custom_gameevents")
 require("utils/particles")
 require("utils/timers")
-require("utils/util")
 -- require("utils/notifications") -- will test it tomorrow
 
 require("internal/events")
+require("internal/filters")
 require("internal/panorama")
 require("internal/shortcuts")
 require("internal/talents")
@@ -43,11 +46,12 @@ function Activate()
 	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(true)
 	GameRules:SetShowcaseTime(0)
 	
-	GameRules.AddonTemplate = GameMode()
-	GameRules.AddonTemplate:InitGameMode()
+	GameRules.GameMode = GameMode()
+	-- GameRules.AddonTemplate:InitGameMode()
+	FireGameEvent("init_game_mode",{})
 end
 
-function GameMode:InitGameMode()
+ListenToGameEvent("init_game_mode",function()
 	print( "Template addon is loaded." )
-	GameMode:LoadFilters()
-end
+	-- GameRules:GetGameModeEntity():SetThink(escapeInitFile, 1)
+end, GameRules.GameMode)

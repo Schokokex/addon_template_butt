@@ -1,5 +1,7 @@
 if (not IsInToolsMode()) then return end
 
+require("utils/butt_api")
+
 local vUserIds = {}
 local cheatStart
 
@@ -41,9 +43,14 @@ ListenToGameEvent("player_chat", function(keys)
 			if ent.FindAllModifiers then
 				for _,mod in pairs(ent:FindAllModifiers()) do
 					print(ent:GetName(),mod:GetName())
+					PrintTable(mod)
 				end
 			end
 		end
+	elseif ("-outpost 1"==text) and (playerID) then
+		Butt:ProtectAllOutposts()
+	elseif ("-outpost 0"==text) and (playerID) then
+		Butt:UnProtectAllOutposts()
 	end
 end, nil)
 

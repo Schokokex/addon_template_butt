@@ -2,13 +2,15 @@
 
 !README.md
 !.gitignore
+!togglereadonly.bat
 !game/
 !content/
 !*/dota_addons/
 !*/dota_addons/addon_template_butt/
-!*/dota_addons/addon_template_butt/*
+!*/dota_addons/addon_template_butt/**
 
 */dota_addons/addon_template_butt/*.bin
 game/dota_addons/addon_template_butt/panorama_debugger.cfg
-content/dota_addons/addon_template_butt/panorama/
-content/dota_addons/addon_template_butt/panorama/*
+
+game/dota_addons/addon_template_butt/scripts/npc/**
+game/dota_addons/addon_template_butt/scripts/npc/*custom.txt

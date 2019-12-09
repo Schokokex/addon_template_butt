@@ -1,46 +1,54 @@
+GameMode.Thinker = class({})
+local Thinker = GameMode.Thinker
+
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then
-		GameRules:GetGameModeEntity():SetThink( "VeryVeryOften", GameMode, 0 )
-		GameRules:GetGameModeEntity():SetThink( "VeryOften", GameMode, 0 )
-		GameRules:GetGameModeEntity():SetThink( "Often", GameMode, 0 )
-		GameRules:GetGameModeEntity():SetThink( "Regular", GameMode, 0 )
-		GameRules:GetGameModeEntity():SetThink( "Seldom", GameMode, 0 )
-		GameRules:GetGameModeEntity():SetThink( "DontForgetToSubscribe", GameMode, 20*60 )
-		GameRules:GetGameModeEntity():SetThink( "LateGame", GameMode, 30*60 )
+		GameRules:GetGameModeEntity():SetThink( "Minute00", Thinker, 0 )
+		GameRules:GetGameModeEntity():SetThink( "VeryVeryOften", Thinker, 0 )
+		GameRules:GetGameModeEntity():SetThink( "VeryOften", Thinker, 0 )
+		GameRules:GetGameModeEntity():SetThink( "Often", Thinker, 0 )
+		GameRules:GetGameModeEntity():SetThink( "Regular", Thinker, 0 )
+		GameRules:GetGameModeEntity():SetThink( "Seldom", Thinker, 0 )
+		GameRules:GetGameModeEntity():SetThink( "DontForgetToSubscribe", Thinker, 20*60 )
+		GameRules:GetGameModeEntity():SetThink( "LateGame", Thinker, 30*60 )
 	end
-end, self)
+end, GameMode)
 
-function GameMode:DontForgetToSubscribe()
+function Thinker:Minute00()
+	-- print("0:00")
+end
+
+function Thinker:DontForgetToSubscribe()
 	-- print("20 minutes")
-	return nil
+	return nil -- does not repeat
 end
 
-function GameMode:LateGame()
+function Thinker:LateGame()
 	-- print("30 minutes")
-	return nil
+	return nil -- does not repeat
 end
 
-function GameMode:VeryVeryOften()
+function Thinker:VeryVeryOften()
 	-- print("every 10 seconds")
 	return 10
 end
 
-function GameMode:VeryOften()
+function Thinker:VeryOften()
 	-- print("every minute")
 	return 1*60
 end
 
-function GameMode:Often()
+function Thinker:Often()
 	-- print("every 5 minutes")
 	return 5*60
 end
 
-function GameMode:Regular()
+function Thinker:Regular()
 	-- print("every 15 minutes")
 	return 15*60
 end
 
-function GameMode:Seldom()
+function Thinker:Seldom()
 	-- print("every 30 minutes")
 	return 30*60
 end
