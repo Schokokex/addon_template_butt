@@ -80,7 +80,7 @@ function Filters:ItemAddedToInventoryFilter(event)
 end
 
 function Filters:ModifierGainedFilter(event)
-	-- PrintTable(event)
+	PrintTable(event)
 	local name = event.name_const
 	local duration = event.duration -- can not get modified with local
 	local casterUnit = EntIndexToHScript(event.entindex_caster_const)

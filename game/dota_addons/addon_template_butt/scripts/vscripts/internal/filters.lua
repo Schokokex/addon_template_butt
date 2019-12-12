@@ -1,55 +1,59 @@
 require("settings_butt")
 
-local _Filters = class({})
+local InternalFilters = class({})
 
 
 ListenToGameEvent("init_game_mode",function()
-	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter( Dynamic_Wrap( _Filters, "AbilityTuningValueFilter" ), self )
-	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( _Filters, "BountyRunePickupFilter" ), self )
-	GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( _Filters, "DamageFilter" ), self )
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( _Filters, "ExecuteOrderFilter" ), self )
-	GameRules:GetGameModeEntity():SetHealingFilter( Dynamic_Wrap( _Filters, "HealingFilter" ), self )
-	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( _Filters, "ItemAddedToInventoryFilter" ), self )
-	GameRules:GetGameModeEntity():SetModifierGainedFilter( Dynamic_Wrap( _Filters, "ModifierGainedFilter" ), self )
-	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( _Filters, "ModifyExperienceFilter" ), self )
-	GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( _Filters, "ModifyGoldFilter" ), self )
-	GameRules:GetGameModeEntity():SetRuneSpawnFilter( Dynamic_Wrap( _Filters, "RuneSpawnFilter" ), self )
-	GameRules:GetGameModeEntity():SetTrackingProjectileFilter( Dynamic_Wrap( _Filters, "TrackingProjectileFilter" ), self )
+	print("sad")
+	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter( Dynamic_Wrap( InternalFilters, "AbilityTuningValueFilter" ), self )
+	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( InternalFilters, "BountyRunePickupFilter" ), self )
+	GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( InternalFilters, "DamageFilter" ), self )
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter( PrintTable, self )
+	GameRules:GetGameModeEntity():SetHealingFilter( Dynamic_Wrap( InternalFilters, "HealingFilter" ), self )
+	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( InternalFilters, "ItemAddedToInventoryFilter" ), self )
+	GameRules:GetGameModeEntity():SetModifierGainedFilter( Dynamic_Wrap( InternalFilters, "ModifierGainedFilter" ), self )
+	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( InternalFilters, "ModifyExperienceFilter" ), self )
+	GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( InternalFilters, "ModifyGoldFilter" ), self )
+	GameRules:GetGameModeEntity():SetRuneSpawnFilter( Dynamic_Wrap( InternalFilters, "RuneSpawnFilter" ), self )
+	GameRules:GetGameModeEntity():SetTrackingProjectileFilter( Dynamic_Wrap( InternalFilters, "TrackingProjectileFilter" ), self )
 end, GameRules.GameMode)
 
 
 
-function _Filters:AbilityTuningValueFilter(event)
+function InternalFilters:AbilityTuningValueFilter(event)
 	return Filters:AbilityTuningValueFilter(event)
 end
 
-function _Filters:BountyRunePickupFilter(event)
+function InternalFilters:BountyRunePickupFilter(event)
 	event.xp_bounty = event.xp_bounty * BUTTINGS.XP_GAIN_PERCENTAGE * 0.01
 	event.gold_bounty = event.gold_bounty * BUTTINGS.GOLD_GAIN_PERCENTAGE * 0.01
 	return Filters:BountyRunePickupFilter(event)
 end
 
-function _Filters:DamageFilter(event)
+function InternalFilters:DamageFilter(event)
+	print("DamageFilter")
 	return Filters:DamageFilter(event)
 end
 
-function _Filters:ExecuteOrderFilter(event)
+function InternalFilters:ExecuteOrderFilter(event)
+	print("ExecuteOrderFilter")
 	return Filters:ExecuteOrderFilter(event)
 end
 
-function _Filters:HealingFilter(event)
+function InternalFilters:HealingFilter(event)
 	return Filters:HealingFilter(event)
 end
 
-function _Filters:ItemAddedToInventoryFilter(event)
+function InternalFilters:ItemAddedToInventoryFilter(event)
 	return Filters:ItemAddedToInventoryFilter(event)
 end
 
-function _Filters:ModifierGainedFilter(event)
+function InternalFilters:ModifierGainedFilter(event)
+	print("ModifierGainedFilter")
 	return Filters:ModifierGainedFilter(event)
 end
 
-function _Filters:ModifyExperienceFilter(event)
+function InternalFilters:ModifyExperienceFilter(event)
 	event.experience = event.experience * BUTTINGS.XP_GAIN_PERCENTAGE * 0.01
 
 	-- ##
@@ -71,7 +75,7 @@ function _Filters:ModifyExperienceFilter(event)
 	return out
 end
 
-function _Filters:ModifyGoldFilter(event)
+function InternalFilters:ModifyGoldFilter(event)
 	event.gold = event.gold * BUTTINGS.GOLD_GAIN_PERCENTAGE * 0.01
 
 	-- ##
@@ -93,10 +97,10 @@ function _Filters:ModifyGoldFilter(event)
 	return out
 end
 
-function _Filters:RuneSpawnFilter(event)
+function InternalFilters:RuneSpawnFilter(event)
 	return Filters:RuneSpawnFilter(event)
 end
 
-function _Filters:TrackingProjectileFilter(event)
+function InternalFilters:TrackingProjectileFilter(event)
 	return Filters:TrackingProjectileFilter(event)
 end
