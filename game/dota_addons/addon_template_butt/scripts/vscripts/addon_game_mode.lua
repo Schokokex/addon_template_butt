@@ -51,7 +51,6 @@ function Activate()
 	FireGameEvent("init_game_mode",{})
 end
 
-ListenToGameEvent("init_game_mode",function()
+ListenToGameEvent("init_game_mode", function()
 	print( "Template addon is loaded." )
-	-- GameRules:GetGameModeEntity():SetThink(escapeInitFile, 1)
 end, GameRules.GameMode)

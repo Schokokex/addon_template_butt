@@ -1,24 +1,21 @@
 require("settings_butt")
+require("filters")
 
-local InternalFilters = class({})
-
+InternalFilters = class({})
 
 ListenToGameEvent("init_game_mode",function()
-	print("sad")
-	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter( Dynamic_Wrap( InternalFilters, "AbilityTuningValueFilter" ), self )
-	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( InternalFilters, "BountyRunePickupFilter" ), self )
-	GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( InternalFilters, "DamageFilter" ), self )
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter( PrintTable, self )
-	GameRules:GetGameModeEntity():SetHealingFilter( Dynamic_Wrap( InternalFilters, "HealingFilter" ), self )
-	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( InternalFilters, "ItemAddedToInventoryFilter" ), self )
-	GameRules:GetGameModeEntity():SetModifierGainedFilter( Dynamic_Wrap( InternalFilters, "ModifierGainedFilter" ), self )
-	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( InternalFilters, "ModifyExperienceFilter" ), self )
-	GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( InternalFilters, "ModifyGoldFilter" ), self )
-	GameRules:GetGameModeEntity():SetRuneSpawnFilter( Dynamic_Wrap( InternalFilters, "RuneSpawnFilter" ), self )
-	GameRules:GetGameModeEntity():SetTrackingProjectileFilter( Dynamic_Wrap( InternalFilters, "TrackingProjectileFilter" ), self )
+	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter( Dynamic_Wrap( InternalFilters, "AbilityTuningValueFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( InternalFilters, "BountyRunePickupFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( InternalFilters, "DamageFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( InternalFilters, "ExecuteOrderFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetHealingFilter( Dynamic_Wrap( InternalFilters, "HealingFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( Dynamic_Wrap( InternalFilters, "ItemAddedToInventoryFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetModifierGainedFilter( Dynamic_Wrap( InternalFilters, "ModifierGainedFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( InternalFilters, "ModifyExperienceFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( InternalFilters, "ModifyGoldFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetRuneSpawnFilter( Dynamic_Wrap( InternalFilters, "RuneSpawnFilter" ), GameRules.GameMode )
+	GameRules:GetGameModeEntity():SetTrackingProjectileFilter( Dynamic_Wrap( InternalFilters, "TrackingProjectileFilter" ), GameRules.GameMode )
 end, GameRules.GameMode)
-
-
 
 function InternalFilters:AbilityTuningValueFilter(event)
 	return Filters:AbilityTuningValueFilter(event)
@@ -27,16 +24,15 @@ end
 function InternalFilters:BountyRunePickupFilter(event)
 	event.xp_bounty = event.xp_bounty * BUTTINGS.XP_GAIN_PERCENTAGE * 0.01
 	event.gold_bounty = event.gold_bounty * BUTTINGS.GOLD_GAIN_PERCENTAGE * 0.01
+
 	return Filters:BountyRunePickupFilter(event)
 end
 
 function InternalFilters:DamageFilter(event)
-	print("DamageFilter")
 	return Filters:DamageFilter(event)
 end
 
 function InternalFilters:ExecuteOrderFilter(event)
-	print("ExecuteOrderFilter")
 	return Filters:ExecuteOrderFilter(event)
 end
 
@@ -49,13 +45,19 @@ function InternalFilters:ItemAddedToInventoryFilter(event)
 end
 
 function InternalFilters:ModifierGainedFilter(event)
-	print("ModifierGainedFilter")
 	return Filters:ModifierGainedFilter(event)
 end
 
 function InternalFilters:ModifyExperienceFilter(event)
 	event.experience = event.experience * BUTTINGS.XP_GAIN_PERCENTAGE * 0.01
 
+	-- PrintTable(event)
+	local playerID = event.player_id_const
+	local reason = event.reason_const
+	local xp = event.experience -- can not get modified with local
+
+	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
+	
 	-- ##
 	local out = Filters:ModifyExperienceFilter(event)
 	-- ##
@@ -78,10 +80,18 @@ end
 function InternalFilters:ModifyGoldFilter(event)
 	event.gold = event.gold * BUTTINGS.GOLD_GAIN_PERCENTAGE * 0.01
 
-	-- ##
-	local out = Filters:ModifyGoldFilter(event) 
-	-- ##
+	-- PrintTable(event) 
+	local playerID = event.player_id_const
+	local reason = event.reason_const
+	local gold = event.gold -- can not get modified with local
+	local reliable = event.reliable -- can not get modified with local
+	
+	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 
+	-- ##
+	local out = Filters:ModifyGoldFilter(event)
+	-- ##
+	
 	local teamPlayers = PlayerResourceButt:GetFriendlyPlayers(event.player_id_const)
 	teamPlayers[event.player_id_const] = nil
 	local count = length(teamPlayers)
@@ -93,11 +103,13 @@ function InternalFilters:ModifyGoldFilter(event)
 		event.gold = event.gold - singleAmt
 		PlayerResource:ModifyGold(tp,singleAmt,(1 == event.reliable),DOTA_ModifyGold_SharedGold)
 	end
-
 	return out
 end
 
+
 function InternalFilters:RuneSpawnFilter(event)
+	-- PrintTable(event)
+	-- maybe deprecated? 
 	return Filters:RuneSpawnFilter(event)
 end
 

@@ -1,6 +1,4 @@
-require("settings_butt")
-
-_G.Filters = class({})
+Filters = class({})
 
 -- called from internal/filters
 
@@ -41,7 +39,7 @@ function Filters:DamageFilter(event)
 end
 
 function Filters:ExecuteOrderFilter(event)
-	-- PrintTable(event)
+	PrintTable(event)
 	local ability = EntIndexToHScript(event.entindex_ability)
 	local targetUnit = EntIndexToHScript(event.entindex_target)
 	local playerID = event.issuer_player_id_const
@@ -80,7 +78,7 @@ function Filters:ItemAddedToInventoryFilter(event)
 end
 
 function Filters:ModifierGainedFilter(event)
-	PrintTable(event)
+	-- PrintTable(event)
 	local name = event.name_const
 	local duration = event.duration -- can not get modified with local
 	local casterUnit = EntIndexToHScript(event.entindex_caster_const)
@@ -96,7 +94,6 @@ function Filters:ModifyExperienceFilter(event)
 	local playerID = event.player_id_const
 	local reason = event.reason_const
 	local xp = event.experience -- can not get modified with local
-
 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 	
 	-- your stuff
@@ -105,13 +102,11 @@ function Filters:ModifyExperienceFilter(event)
 end
 
 function Filters:ModifyGoldFilter(event)
-
 	-- PrintTable(event) 
 	local playerID = event.player_id_const
 	local reason = event.reason_const
 	local gold = event.gold -- can not get modified with local
 	local reliable = event.reliable -- can not get modified with local
-	
 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 
 	--your stuff

@@ -1,5 +1,4 @@
-GameMode.Thinker = class({})
-local Thinker = GameMode.Thinker
+local Thinker = class({})
 
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then
