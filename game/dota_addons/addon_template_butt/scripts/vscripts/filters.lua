@@ -39,7 +39,7 @@ function Filters:DamageFilter(event)
 end
 
 function Filters:ExecuteOrderFilter(event)
-	PrintTable(event)
+	-- PrintTable(event)
 	local ability = EntIndexToHScript(event.entindex_ability)
 	local targetUnit = EntIndexToHScript(event.entindex_target)
 	local playerID = event.issuer_player_id_const

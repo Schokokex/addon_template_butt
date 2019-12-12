@@ -1,5 +1,6 @@
 require("settings_butt")
 require("filters")
+require("utils/courier")
 
 InternalFilters = class({})
 
@@ -33,6 +34,7 @@ function InternalFilters:DamageFilter(event)
 end
 
 function InternalFilters:ExecuteOrderFilter(event)
+	EditFilterToCourier(event)
 	return Filters:ExecuteOrderFilter(event)
 end
 
