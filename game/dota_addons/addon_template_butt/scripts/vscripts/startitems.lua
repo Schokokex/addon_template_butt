@@ -1,3 +1,6 @@
+require("utils/courier")
+require("utils/butt_api")
+
 local startitems = {
 	-- item_shivas_guard = { amt = 2, cast = true, cd = 10 },
 	-- item_travel_boots = {amt=20, cd= 100},
@@ -36,6 +39,8 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 	end
 
 	if (not hero:IsRealHero()) then return end
+
+	CreatePrivateCourier(hero:GetPlayerID(),hero,TeamResource:GetShop(hero:GetTeam()):GetAbsOrigin())
 	
 	-- Items
 

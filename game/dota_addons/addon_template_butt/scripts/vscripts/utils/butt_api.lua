@@ -232,6 +232,16 @@ function TeamResource:GetFountain(teamID)
 	return fountain
 end
 
+function TeamResource:GetShop(teamID)
+	local fountain = TeamResource:GetFountain(teamID)
+	for _,ent in pairs(Entities:FindAllInSphere(fountain:GetAbsOrigin(),1000)) do
+		if ("ent_dota_shop"==ent:GetClassname()) then
+			return ent
+		end
+	end
+	return fountain
+end
+
 --------------------------
 -- extend CDOTA_BaseNPC --
 --------------------------

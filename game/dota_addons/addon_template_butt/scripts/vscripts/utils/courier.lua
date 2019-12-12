@@ -1,5 +1,7 @@
+_G.personalCouriers = _G.personalCouriers or {}
 function CreatePrivateCourier(playerId, owner, pointToSpawn)
-	local courier_spawn = pointToSpawn + RandomVector(RandomFloat(100, 100))
+	if personalCouriers[playerId] then return end
+	local courier_spawn = pointToSpawn -- + RandomVector(RandomFloat(100, 100))
 
 	local team = owner:GetTeamNumber()
 
@@ -93,7 +95,7 @@ function SearchCorrectCourier(playerID, team)
 	return currentCourier
 end
 
-RegisterCustomEventListener("courier_custom_select", function(data)
+CustomGameEventManager:RegisterListener("courier_custom_select", function(_,data)
 	local playerID = data.PlayerID
 	if not playerID then return end
 
@@ -116,7 +118,7 @@ function unitMoveToPoint(unit, point)
 	})
 end
 
-RegisterCustomEventListener("courier_custom_select_deliever_items", function(data)
+CustomGameEventManager:RegisterListener("courier_custom_select_deliever_items", function(_,data)
 	local playerID = data.PlayerID
 	if not playerID then return end
 	local player = PlayerResource:GetPlayer(playerID)
