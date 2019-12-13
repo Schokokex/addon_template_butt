@@ -5,8 +5,9 @@ if IsInToolsMode() then
 
 	ListenToGameEvent("init_game_mode",function()
 		GameRules:GetGameModeEntity():SetThink(function()
+			local dotaFolder = ADDON_FOLDER:sub(0,-38)
 			if IsSchokokeks() then
-				copyFile("../../dota/maps/dota.vpk", ADDON_FOLDER .. "../../../content/dota_addons/content/maps/dota.vpk")
+				copyFile(dotaFolder.."content/dota/maps/dota.vmap", dotaFolder .. "content/dota_addons/addon_template_butt/maps/dota.vmap")
 				return
 			end
 			local agmStr = fileToString(ADDON_FOLDER .. "scripts/vscripts/addon_game_mode.lua")
