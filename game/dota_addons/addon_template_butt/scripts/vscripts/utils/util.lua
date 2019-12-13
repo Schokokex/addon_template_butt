@@ -23,11 +23,11 @@ function table.merge(weak, strong)
 end
 
 function copyFile(fromFile, toFile)
-	local infile = io.open(fromFile, "r")
+	local infile = io.open(fromFile, "rb")
 	instr = infile:read("*a")
 	infile:close()
 
-	local outfile = io.open(toFile, "w")
+	local outfile = io.open(toFile, "wb")
 	outfile:write(instr)
 	outfile:close()
 end
