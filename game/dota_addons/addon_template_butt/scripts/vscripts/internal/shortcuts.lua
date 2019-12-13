@@ -1,5 +1,7 @@
 if (not IsInToolsMode()) then return end
 
+require("utils/butt_api")
+
 local vUserIds = {}
 local cheatStart
 
@@ -19,31 +21,40 @@ ListenToGameEvent("player_chat", function(keys)
 	if ("-mods"==text) and (playerID) then
 		if (hero) then
 			for m,mod in pairs(hero:FindAllModifiers()) do
-				print(mod:GetName())
+				print("Modifier:",mod:GetName())
 			end
 		end
 	elseif ("-courier"==text) and (playerID) then
 		TeamList:GetFreeCouriers()
 	elseif ("-start"==text) and (playerID) then
 		cheatStart()
+	elseif ("-nearents"==text) and (playerID) then
+		for _,ent in pairs(Entities:FindAllInSphere(hero:GetAbsOrigin(),800)) do
+			print("Near Entities:",ent:GetClassname(),ent:GetName(),ent:entindex(),"Team",ent:GetTeam())
+		end
 	elseif ("-entities"==text) and (playerID) then
 		local iter = Entities:First()
 		while(iter) do
-			if (iter:GetName()~="") then print("Entities:",iter:GetName(),iter:entindex()) end
+			if (iter:GetName()~="") then print("Entities:",iter:GetClassname(),iter:GetName(),iter:entindex(),"Team",ent:GetTeam()) end
 			iter = Entities:Next(iter)
 		end
 	elseif ("-abils"==text) and (playerID) then
 		for k,v in pairs(hero:GetAllAbilities()) do
-			print(k,v,v:GetName())
+			print("Ability:",k,v,v:GetName())
 		end
 	elseif ("-entmods"==text) and (playerID) then
 		for _,ent in pairs(Entities:FindAllInSphere(hero:GetAbsOrigin(),800)) do
 			if ent.FindAllModifiers then
 				for _,mod in pairs(ent:FindAllModifiers()) do
-					print(ent:GetName(),mod:GetName())
+					print("Ent Modifiers:",ent:GetClassname(),ent:GetName(),mod:GetName())
+					-- PrintTable(mod)
 				end
 			end
 		end
+	elseif ("-outpost 1"==text) and (playerID) then
+		Butt:ProtectAllOutposts()
+	elseif ("-outpost 0"==text) and (playerID) then
+		Butt:UnProtectAllOutposts()
 	end
 end, nil)
 

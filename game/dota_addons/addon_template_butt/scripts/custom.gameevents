@@ -28,5 +28,8 @@
 	{
 		"gameModeEntity"	"local"
 	}
-
+	"init_game_mode"
+	{
+		
+	}
 }

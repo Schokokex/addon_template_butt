@@ -54,4 +54,10 @@
 		}
 	}
 	
+	"seasonal_decorate_tree"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AssociatedConsumable"			"0"
+	}
+
 }

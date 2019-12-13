@@ -15,7 +15,7 @@ function examplemodifier:IsDebuff() return false end 	-- make it red or green
 function examplemodifier:GetAttributes()
 	return 0
 		-- + MODIFIER_ATTRIBUTE_PERMANENT           -- Modifier passively remains until strictly removed. 
-		+ MODIFIER_ATTRIBUTE_MULTIPLE            -- Allows modifier to stack with itself. 
+		-- + MODIFIER_ATTRIBUTE_MULTIPLE            -- Allows modifier to stack with itself. 
 		-- + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE -- Allows modifier to be assigned to invulnerable entities. 
 end
 

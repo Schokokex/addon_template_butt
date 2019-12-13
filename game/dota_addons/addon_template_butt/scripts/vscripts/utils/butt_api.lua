@@ -1,3 +1,5 @@
+Butt = class({})
+
 -----------------------
 -- extend PlayerList --
 -----------------------
@@ -230,6 +232,16 @@ function TeamResource:GetFountain(teamID)
 	return fountain
 end
 
+function TeamResource:GetShop(teamID)
+	local fountain = TeamResource:GetFountain(teamID)
+	for _,ent in pairs(Entities:FindAllInSphere(fountain:GetAbsOrigin(),1000)) do
+		if ("ent_dota_shop"==ent:GetClassname()) then
+			return ent
+		end
+	end
+	return fountain
+end
+
 --------------------------
 -- extend CDOTA_BaseNPC --
 --------------------------
@@ -284,4 +296,28 @@ function CreateModifierThinkerButt( hCaster, hAbility, modifierName, paramTable,
 		LinkLuaModifier(modifierName, file, LUA_MODIFIER_MOTION_NONE)
 	end
 	CreateModifierThinker( hCaster, hAbility, modifierName, paramTable, vOrigin, nTeamNumber, bPhantomBlocker )
+end
+
+function Butt:Roshan()
+	return Entities:FindByClassname(nil, "npc_dota_roshan")
+end
+
+function Butt:AllOutposts()
+	return Entities:FindAllByClassname("npc_dota_watch_tower")
+end
+
+function Butt:UnProtectAllOutposts()
+	for u,unit in pairs(Butt:AllOutposts()) do
+		unit:RemoveModifierByName("modifier_watch_tower_invulnerable")
+		unit:RemoveModifierByName("modifier_watch_tower_invulnerable_butt")
+	end
+end
+
+function Butt:ProtectAllOutposts(duration)
+	if duration~=nil and "number"~=type(duration) then error("ProtectAllOutposts: number expected") end
+	require("internal/modifier_watch_tower_invulnerable_butt")
+	for u,unit in pairs(Butt:AllOutposts()) do
+		unit:AddNewModifierButt(unit, nil, "modifier_watch_tower_invulnerable_butt", {duration = 10})
+		unit:RemoveModifierByName("modifier_watch_tower_invulnerable")
+	end
 end
