@@ -22,6 +22,16 @@ function table.merge(weak, strong)
 	return weak
 end
 
+function copyFile(fromFile, toFile)
+	local infile = io.open(fromFile, "r")
+	instr = infile:read("*a")
+	infile:close()
+
+	local outfile = io.open(toFile, "w")
+	outfile:write(instr)
+	outfile:close()
+end
+
 function strToFile(str, filename)
 	local file = io.open(filename,"w")
 	file:write(str)
