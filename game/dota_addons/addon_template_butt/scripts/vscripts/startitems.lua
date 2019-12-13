@@ -1,7 +1,7 @@
-require("utils/courier")
 require("utils/butt_api")
 
 local startitems = {
+	item_patreon_7 = {},
 	-- item_shivas_guard = { amt = 2, cast = true, cd = 10 },
 	-- item_travel_boots = {amt=20, cd= 100},
 }
@@ -40,7 +40,6 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 
 	if (not hero:IsRealHero()) then return end
 
-	CreatePrivateCourier(hero:GetPlayerID(),hero,TeamResource:GetShop(hero:GetTeam()):GetAbsOrigin())
 	
 	-- Items
 
@@ -58,6 +57,7 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 	-- Modifiers
 
 	for name,data in pairs(bonusmodifier) do
+		hero:AddNewModifierButt(hero, nil, name, data)
 		hero:AddNewModifierButt(hero, nil, name, data)
 	end
 

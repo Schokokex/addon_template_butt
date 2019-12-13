@@ -9,6 +9,8 @@ _G.GameMode = _G.GameMode or class({})
 require("utils/util")
 require("internal/init")
 
+require("internal/courier")
+
 require("utils/butt_api")
 require("utils/custom_gameevents")
 require("utils/particles")

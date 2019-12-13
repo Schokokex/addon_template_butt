@@ -1,6 +1,6 @@
 require("settings_butt")
 require("filters")
-require("utils/courier")
+require("internal/courier")
 
 InternalFilters = class({})
 

@@ -1,16 +1,35 @@
+require("utils/butt_api")
+
+-- LinkLuaModifier("modifier_courier_fix", "utils/courier", LUA_MODIFIER_MOTION_NONE)
+
 _G.personalCouriers = _G.personalCouriers or {}
+_G.mainTeamCouriers = _G.mainTeamCouriers or {}
+
+LinkLuaModifier("modifier_courier", "internal/modifier_courier.lua", LUA_MODIFIER_MOTION_NONE)
+
+ListenToGameEvent("npc_first_spawn",function(kv)
+	local hero = EntIndexToHScript(kv.entindex)
+	if (not hero:IsRealHero()) then return end
+	local courier = CreatePrivateCourier(hero:GetPlayerID(),hero,TeamResource:GetShop(hero:GetTeam()):GetAbsOrigin())
+	courier:AddNewModifier(hero,nil,"modifier_courier",{level = 1})
+end, self)
+
+
+
 function CreatePrivateCourier(playerId, owner, pointToSpawn)
 	if personalCouriers[playerId] then return end
 	local courier_spawn = pointToSpawn -- + RandomVector(RandomFloat(100, 100))
 
 	local team = owner:GetTeamNumber()
 
-	local cr = CreateUnitByName("npc_dota_courier", courier_spawn, true, owner, owner, team)
+	local cr = CreateUnitByName("npc_dota_courier", courier_spawn, true, nil, nil, team)
+	cr:SetOwner(owner)
 	-- cr:AddNewModifier(cr, nil, "modifier_patreon_courier", {})
 	Timers:CreateTimer(0.1, function()
 		cr:SetControllableByPlayer(playerId, true)
 		_G.personalCouriers[playerId] = cr;
 	end)
+	return cr
 end
 
 function EditFilterToCourier(filterTable)

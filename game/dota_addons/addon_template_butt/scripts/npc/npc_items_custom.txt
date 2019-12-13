@@ -30,4 +30,30 @@
 		"ItemCastOnPickup"				"1"
 		"ItemKillable"					"0"
 	}
+    "item_patreon_7"
+    {
+        "BaseClass"	"item_datadriven"
+        "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE"
+		"AbilityCastAnimation"			"ACT_INVALID"
+        "Model"	"models/props_gameplay/red_box.vmdl"
+        "Effect"	"particles/generic_gameplay/dropped_item.vpcf"
+        "AbilityTextureName"	"custom/seasonal_decorate_tree"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+        "ItemPurchasable"	"0"
+        "AbilityCastRange"	"16500"
+        "AbilityCastPoint"	"0"
+        "AbilityCooldown"	"500"
+        "AbilityManaCost"	"0"
+        "ItemCost"	"0"
+        "OnSpellStart"
+        {
+            "RunScript"
+            {
+                "ScriptFile"	"utils/item_patreon.lua"
+                "Function"	    "OnSpellStart"
+                "Ability"       "seasonal_decorate_tree"
+            }
+        }
+    }
 }
