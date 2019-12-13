@@ -19,9 +19,9 @@ end, self)
 function CreatePrivateCourier(playerId, owner, pointToSpawn)
 	if personalCouriers[playerId] then return end
 	local courier_spawn = pointToSpawn -- + RandomVector(RandomFloat(100, 100))
-
+	
 	local team = owner:GetTeamNumber()
-
+	
 	local cr = CreateUnitByName("npc_dota_courier", courier_spawn, true, nil, nil, team)
 	cr:SetOwner(owner)
 	-- cr:AddNewModifier(cr, nil, "modifier_patreon_courier", {})
