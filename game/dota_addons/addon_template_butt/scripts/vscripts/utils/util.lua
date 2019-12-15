@@ -1,3 +1,12 @@
+
+function HUDError(message, playerID)
+	if ("number"==type(playerID)) then
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "dota_hud_error_message_player", {splitscreenplayer= 0, reason= 80, message= message})
+	else
+		CustomGameEventManager:Send_ServerToAllClients("dota_hud_error_message_player", {splitscreenplayer= 0, reason= 80, message= "All Players: "..message})
+	end
+end
+
 function say(...)
 	local str = ""
 	for i,v in ipairs({...}) do
