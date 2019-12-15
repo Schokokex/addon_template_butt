@@ -1,4 +1,5 @@
 require("utils/butt_api")
+require("settings_butt")
 
 -- LinkLuaModifier("modifier_courier_fix", "utils/courier", LUA_MODIFIER_MOTION_NONE)
 
@@ -8,6 +9,7 @@ _G.mainTeamCouriers = _G.mainTeamCouriers or {}
 LinkLuaModifier("modifier_courier", "internal/modifier_courier.lua", LUA_MODIFIER_MOTION_NONE)
 
 ListenToGameEvent("npc_first_spawn",function(kv)
+	if 1~=BUTTINGS.FREE_COURIER then return end
 	local hero = EntIndexToHScript(kv.entindex)
 	if (not hero:IsRealHero()) then return end
 	local courier = CreatePrivateCourier(hero:GetPlayerID(),hero,TeamResource:GetShop(hero:GetTeam()):GetAbsOrigin())

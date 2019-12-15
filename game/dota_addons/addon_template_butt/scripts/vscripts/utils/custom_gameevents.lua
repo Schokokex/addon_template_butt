@@ -21,3 +21,10 @@ end
 l1 = ListenToGameEvent("npc_spawned", fireGME, nil)
 l2 = ListenToGameEvent("game_rules_state_change", fireGME, nil) -- backup
 
+function HUDError(message, playerID)
+	if ("number"==type(playerID)) then
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "dota_hud_error_message_player", {splitscreenplayer= 0, reason= 80, message= message})
+	else
+		CustomGameEventManager:Send_ServerToAllClients("dota_hud_error_message_player", {splitscreenplayer= 0, reason= 80, message= "All Players: "..message})
+	end
+end

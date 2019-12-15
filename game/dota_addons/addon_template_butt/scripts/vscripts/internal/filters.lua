@@ -34,6 +34,23 @@ function InternalFilters:DamageFilter(event)
 end
 
 function InternalFilters:ExecuteOrderFilter(event)
+	for k,v in pairs(event) do
+		print("ExecuteOrderFilter",k,v)
+	end
+	PrintTable(event)
+	if 1==BUTTINGS.BUYBACK_RULES and DOTA_UNIT_ORDER_BUYBACK==event.order_type then
+		local iUnit = event.units and event.units["0"]
+		self.bbCount = self.bbCount or {}
+		self.bbCount[iUnit] = self.bbCount[iUnit] or BUTTINGS.BUYBACK_LIMIT
+		local hero = EntIndexToHScript(iUnit)
+		if self.bbCount[iUnit] <= 0 then
+			HUDError("No buybacks left", hero:GetPlayerOwnerID())
+			return false 
+		else
+			hero:SetThink(function() hero:SetBuybackCooldownTime(10) end, 0.2)
+			self.bbCount[iUnit] = self.bbCount[iUnit] - 1 
+		end
+	end
 	EditFilterToCourier(event)
 	return Filters:ExecuteOrderFilter(event)
 end
