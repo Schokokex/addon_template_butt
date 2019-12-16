@@ -7,7 +7,7 @@ BUTTINGS = {
 	ALLOW_SAME_HERO_SELECTION = 0,      -- 0 = everyone must pick a different hero, 1 = can pick same
 	HERO_BANNING = 1,                   -- 0 = no banning, 1 = banning phase
 	USE_BOTS = 0, -- TODO
-	MAX_LEVEL = 25,                     -- (default = 25) the max level a hero can reach
+	MAX_LEVEL = 30,                     -- (default = 25) the max level a hero can reach
 
 	UNIVERSAL_SHOP_MODE = 1,            -- 0 = normal, 1 = you can buy every item in every shop (secret/side/base).
 	COOLDOWN_PERCENTAGE = 100,          -- (default = 100) factor for all cooldowns
