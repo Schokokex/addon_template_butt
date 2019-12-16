@@ -2,15 +2,7 @@
 Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me know (on Github or Steam).
 
 
-# VOLVO PLS FIX
-
-## Test with working couriers
-<br/><sub><b>To have working couriers in the workshop tools you have to use the map from `content/dota/maps/dota.vmap`</b></sub><br/>
-<img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/DotaMaps.png" />
-<br/>Anyway, couriers still don't work online #icefrog.
-
-##
-
+# Valve Stuff
 Since the Steam interface recently changed, the Workshop Tools are harder to find. Open Dota Settings-> DLCs.
 <img src="https://raw.githubusercontent.com/Jochnickel/addon_template_butt/images/game/dota_addons/addon_template_butt/Properties.png" />
 <br/><sub><b>Finding the necessary Dota Workhop DLC</b></sub><br/>
