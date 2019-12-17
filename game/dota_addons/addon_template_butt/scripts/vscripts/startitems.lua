@@ -1,4 +1,4 @@
-require("utils/butt_api")
+require("internal/utils/butt_api")
 
 local startitems = {
 	item_patreon_7 = {},
@@ -57,7 +57,6 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 	-- Modifiers
 
 	for name,data in pairs(bonusmodifier) do
-		hero:AddNewModifierButt(hero, nil, name, data)
 		hero:AddNewModifierButt(hero, nil, name, data)
 	end
 

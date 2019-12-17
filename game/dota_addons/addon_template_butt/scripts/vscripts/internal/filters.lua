@@ -34,10 +34,6 @@ function InternalFilters:DamageFilter(event)
 end
 
 function InternalFilters:ExecuteOrderFilter(event)
-	for k,v in pairs(event) do
-		print("ExecuteOrderFilter",k,v)
-	end
-	PrintTable(event)
 	if 1==BUTTINGS.BUYBACK_RULES and DOTA_UNIT_ORDER_BUYBACK==event.order_type then
 		local iUnit = event.units and event.units["0"]
 		self.bbCount = self.bbCount or {}

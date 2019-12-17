@@ -1,5 +1,5 @@
 require("settings_butt")
-require("utils/butt_api")
+require("internal/utils/butt_api")
 
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_HERO_SELECTION) then

@@ -1,5 +1,5 @@
 require("settings_butt")
-require("utils/butt_api")
+require("internal/utils/butt_api")
 
 _Thinker = class({})
 

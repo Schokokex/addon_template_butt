@@ -1,7 +1,6 @@
-function init()
+ListenToGameEvent("created_game_mode_entity",function()
 	local gameModeEnt = GameRules:GetGameModeEntity()
-	if (not gameModeEnt) then return Timers:CreateTimer({ useGameTime = false, endTime = 0.1, callback = init }) end
-
+	
 	GameRules:SetFirstBloodActive( true )						-- Sets whether First Blood should give bonus gold. 
 	GameRules:SetHeroRespawnEnabled( true )						-- Control if the normal DOTA hero respawn rules apply. 
 	GameRules:SetHeroSelectionTime( 90 )						-- Sets the amount of time players have to pick their hero. 
@@ -61,5 +60,4 @@ function init()
 		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_7, 199, 228, 13 )	--	Olive
 		SetTeamCustomHealthbarColor(DOTA_TEAM_CUSTOM_8, 140, 42, 244 )	--	Purple
 	end
-end
-init()
+end, nil)
