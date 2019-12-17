@@ -32,6 +32,7 @@ function table.merge(weak, strong)
 end
 
 function copyFile(fromFile, toFile)
+	if not io then return false end
 	local infile = io.open(fromFile, "rb")
 	instr = infile:read("*a")
 	infile:close()
@@ -39,12 +40,15 @@ function copyFile(fromFile, toFile)
 	local outfile = io.open(toFile, "wb")
 	outfile:write(instr)
 	outfile:close()
+	return true
 end
 
 function strToFile(str, filename)
+	if not io then return false end
 	local file = io.open(filename,"w")
 	file:write(str)
 	io.close(file)
+	return true
 end
 
 function kvToFile(kv, filename)
@@ -52,6 +56,7 @@ function kvToFile(kv, filename)
 end
 
 function fileToString(filename)
+	if not io then return nil end
 	local file = io.open(filename, "r")
 	local out = file:read("*all")
 	io.close(file)
