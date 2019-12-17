@@ -1,6 +1,6 @@
 if (not IsInToolsMode()) then return end
 
-require("utils/butt_api")
+require("internal/utils/butt_api")
 
 local vUserIds = {}
 local cheatStart

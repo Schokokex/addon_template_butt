@@ -1,13 +1,13 @@
 BUTTINGS = {
 	-- These will be the default settings shown on the Team Select screen.
 
-	GAME_TITLE = WORKSHOP_TITLE or "Dota 2 but...",
+	GAME_TITLE = WORKSHOP_TITLE,
 
 	GAME_MODE = "AP",                   -- "AR" "AP" All Random/ All Pick
 	ALLOW_SAME_HERO_SELECTION = 0,      -- 0 = everyone must pick a different hero, 1 = can pick same
 	HERO_BANNING = 1,                   -- 0 = no banning, 1 = banning phase
 	USE_BOTS = 0, -- TODO
-	MAX_LEVEL = 30,                     -- (default = 25) the max level a hero can reach
+	MAX_LEVEL = MAX_LEVEL,              -- (default = 30) the max level a hero can reach
 
 	UNIVERSAL_SHOP_MODE = 1,            -- 0 = normal, 1 = you can buy every item in every shop (secret/side/base).
 	COOLDOWN_PERCENTAGE = 100,          -- (default = 100) factor for all cooldowns
@@ -40,33 +40,38 @@ BUTTINGS = {
 
 }
 
-function BUTTINGS.ALTERNATIVE_XP_TABLE()	-- xp values if MAX_LEVEL is different than 25
+function BUTTINGS.ALTERNATIVE_XP_TABLE()	-- xp values if MAX_LEVEL is different than 30
 	local ALTERNATIVE_XP_TABLE = {		
 		0,
-		240,
+		230,
 		600,
 		1080,
-		1680,
-		2300,
-		2940,
-		3600,
-		4280,
-		5080,
-		5900,
-		6740,
-		7640,
-		8865,
-		10115,
-		11390,
-		12690,
-		14015,
-		15415,
-		16905,
-		18505,
-		20405,
-		22605,
-		25105,
-		27800,
+		1660,
+		2260,
+		2980,
+		3730,
+		4510,
+		5320,
+		6160,
+		7030,
+		7930,
+		9155,
+		10405,
+		11680,
+		12980,
+		14305,
+		15805,
+		17395,
+		18995,
+		20845,
+		22945,
+		25295,
+		27895,
+		31395,
+		35895,
+		41395,
+		47895,
+		55395,
 	} for i = #ALTERNATIVE_XP_TABLE + 1, BUTTINGS.MAX_LEVEL do ALTERNATIVE_XP_TABLE[i] = ALTERNATIVE_XP_TABLE[i - 1] + (300 * ( i - 15 )) end
 	return ALTERNATIVE_XP_TABLE
 end

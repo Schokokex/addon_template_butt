@@ -14,6 +14,8 @@ function XPModifier:AllowIllusionDuplicate() return true end
 
 if (IsClient()) then return end
 
+-----------------------------------------------------------------------------------------
+
 require("settings_butt")
 
 function XPModifier:GetAttributes() 
@@ -41,8 +43,8 @@ function XPModifier:OnDeath(event)
 	local unit = event.unit
 	local level = unit and unit.GetLevel and unit:GetLevel()
 
-	-- fix for > lvl 25 cuz volvo
-	if self:GetParent()==unit and level>25 and IsServer() then
+	-- fix for > lvl 30 cuz volvo
+	if self:GetParent()==unit and level>MAX_LEVEL and IsServer() then
 		-- print("#### OnDeath xp_modifier")
 		-- PrintTable(event)
 		GameRules:GetGameModeEntity():SetThink(function ( ... )

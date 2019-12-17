@@ -30,6 +30,8 @@
 	}
 	"init_game_mode"
 	{
-		
+	}
+	"game_rules_state_game_in_progress"
+	{
 	}
 }

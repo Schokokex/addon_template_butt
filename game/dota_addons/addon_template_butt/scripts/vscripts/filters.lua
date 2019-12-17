@@ -1,6 +1,6 @@
+-- called from internal/filters
 Filters = class({})
 
--- called from internal/filters
 
 function Filters:AbilityTuningValueFilter(event)
 	-- called on most abilities for each value
