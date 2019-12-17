@@ -41,10 +41,9 @@ rm .gitignore
 wget "https://raw.githubusercontent.com/Jochnickel/addon_template_butt/gitignore_master/.gitignore"
 rm -r game/
 rm -r content/
-cd ..
-cp -r game_nerd/ addon_template_butt/game/
-cp -r content_nerd/ addon_template_butt/content/
-rm -r game_nerd/
-rm -r content_nerd/
+cp -r ../game_nerd/ game/
+cp -r ../content_nerd/ content/
+rm -r ../game_nerd/
+rm -r ../content_nerd/
 git add .
 git commit -m "Auto-Commit generated from https://github.com/Jochnickel/addon_template_butt/tree/nerd"
