@@ -58,7 +58,6 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 
 	for name,data in pairs(bonusmodifier) do
 		hero:AddNewModifierButt(hero, nil, name, data)
-		hero:AddNewModifierButt(hero, nil, name, data)
 	end
 
 	-- Talents
