@@ -20,3 +20,10 @@ local function fireGME()
 end
 l1 = ListenToGameEvent("npc_spawned", fireGME, nil)
 l2 = ListenToGameEvent("game_rules_state_change", fireGME, nil) -- backup
+
+
+ListenToGameEvent("game_rules_state_change", function()
+	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then
+		FireGameEvent("game_rules_state_game_in_progress", {})
+	end
+end, nil)

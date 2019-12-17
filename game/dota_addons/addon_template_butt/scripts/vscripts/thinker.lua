@@ -1,7 +1,6 @@
 local Thinker = class({})
 
-ListenToGameEvent("game_rules_state_change", function()
-	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then
+ListenToGameEvent("game_rules_state_game_in_progress", function()
 		GameRules:GetGameModeEntity():SetThink( "Minute00", Thinker, 0 )
 		GameRules:GetGameModeEntity():SetThink( "VeryVeryOften", Thinker, 0 )
 		GameRules:GetGameModeEntity():SetThink( "VeryOften", Thinker, 0 )
@@ -10,11 +9,11 @@ ListenToGameEvent("game_rules_state_change", function()
 		GameRules:GetGameModeEntity():SetThink( "Seldom", Thinker, 0 )
 		GameRules:GetGameModeEntity():SetThink( "DontForgetToSubscribe", Thinker, 20*60 )
 		GameRules:GetGameModeEntity():SetThink( "LateGame", Thinker, 30*60 )
-	end
 end, GameMode)
 
 function Thinker:Minute00()
-	-- print("0:00")
+	print("The Game begins!")
+	return nil -- does not repeat
 end
 
 function Thinker:DontForgetToSubscribe()
