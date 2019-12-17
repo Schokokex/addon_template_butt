@@ -1,4 +1,4 @@
-require("utils/butt_api")
+require("internal/utils/butt_api")
 
 local startitems = {
 	item_patreon_7 = {},

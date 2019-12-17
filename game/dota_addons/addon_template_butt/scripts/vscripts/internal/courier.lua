@@ -1,4 +1,4 @@
-require("utils/butt_api")
+require("internal/utils/butt_api")
 require("settings_butt")
 
 -- LinkLuaModifier("modifier_courier_fix", "utils/courier", LUA_MODIFIER_MOTION_NONE)

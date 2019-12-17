@@ -14,6 +14,8 @@ function XPModifier:AllowIllusionDuplicate() return true end
 
 if (IsClient()) then return end
 
+-----------------------------------------------------------------------------------------
+
 require("settings_butt")
 
 function XPModifier:GetAttributes() 

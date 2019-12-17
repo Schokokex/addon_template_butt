@@ -6,16 +6,16 @@ end
 
 _G.GameMode = _G.GameMode or class({})
 
-require("utils/util")
+require("internal/utils/util")
 require("internal/init")
 
 require("internal/courier")
 
-require("utils/butt_api")
-require("utils/custom_gameevents")
-require("utils/particles")
-require("utils/timers")
--- require("utils/notifications") -- will test it tomorrow
+require("internal/utils/butt_api")
+require("internal/utils/custom_gameevents")
+require("internal/utils/particles")
+require("internal/utils/timers")
+-- require("internal/utils/notifications") -- will test it tomorrow
 
 require("internal/events")
 require("internal/filters")
@@ -42,14 +42,18 @@ function Precache( context )
 	]]
 end
 
--- Create the game mode when we activate
-function Activate()
-	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(true)
-	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(true)
+function Spawn()
+	local gmE = GameRules:GetGameModeEntity()
+
+	gmE:SetUseDefaultDOTARuneSpawnLogic(true)
+	gmE:SetTowerBackdoorProtectionEnabled(true)
 	GameRules:SetShowcaseTime(0)
-	
+
+	FireGameEvent("created_game_mode_entity",{gameModeEntity = gmE})
+end
+
+function Activate()
 	GameRules.GameMode = GameMode()
-	-- GameRules.AddonTemplate:InitGameMode()
 	FireGameEvent("init_game_mode",{})
 end
 
