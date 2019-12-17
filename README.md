@@ -16,8 +16,6 @@ After that you can start the game inside Hammer just by clicking the "Game Contr
 ## Use it Automatically
 If you paste the template into the steam/dota folder, you can automatically create templates by clicking "Create New Addon From Existing Addon".
 
-HOWEVER, if you auto-generate a mod, you still have to manually copy `addoninfo.txt` (or add the line `"maps" "dota"` into the curly braces). Otherwise it will be online with 26 different maps, of which half are not playable.
-
 To make it readonly you have to copy the `readonly_tools_asset_info.bin` file from `game/addon_template` to `game/addon_template_butt`.
 
 <br/><sub><b>Using the template just by doubleclicking (when its readonly)</b></sub><br/>
