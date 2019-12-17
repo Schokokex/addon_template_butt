@@ -1,4 +1,8 @@
 -- called from internal/filters
+
+-- Filters allow you to do some code on specific events.
+-- Whats special about it: you can manipulate some values here.
+
 Filters = class({})
 
 
@@ -9,6 +13,9 @@ function Filters:AbilityTuningValueFilter(event)
 	local casterUnit = EntIndexToHScript(event.entindex_caster_const)
 	local valueName = event.value_name_const -- e.g. duration or area_of_affect
 	local value = event.value -- can not get modified with local
+
+	-- --  example
+		-- event.value = 10
 
 	return true
 end
@@ -21,7 +28,9 @@ function Filters:BountyRunePickupFilter(event)
 
 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 
-	-- your stuff
+	-- --  example
+		-- event.gold_bounty = 10
+		-- event.xp_bounty = 10
 
 	return true
 end
@@ -33,7 +42,8 @@ function Filters:DamageFilter(event)
 	local damageType = event.damagetype_const
 	local damage = event.damage -- can not get modified with local
 
-	-- your stuff
+	-- --  example
+		-- event.damage = 10
 
 	return true
 end
@@ -50,7 +60,8 @@ function Filters:ExecuteOrderFilter(event)
 	local units = event.units
 	local unit = units and units["0"] and EntIndexToHScript(units["0"])
 
-	-- your stuff
+	-- --  example
+		-- if pos._len()<2000 then return false end
 
 	return true
 end
@@ -60,7 +71,8 @@ function Filters:HealingFilter(event)
 	local targetUnit = EntIndexToHScript(event.entindex_target_const)
 	local heal = event.heal -- can not get modified with local
 
-	-- your stuff
+	-- --  example
+		-- event.heal = event.heal*RandomInt(0,2)
 	
 	return true
 end
@@ -72,7 +84,8 @@ function Filters:ItemAddedToInventoryFilter(event)
 	local itemParent = EntIndexToHScript(event.item_parent_entindex_const)
 	local sugg = event.suggested_slot
 
-	-- your stuff
+	-- --  example
+	-- --  dunno
 	
 	return true
 end
@@ -84,7 +97,8 @@ function Filters:ModifierGainedFilter(event)
 	local casterUnit = EntIndexToHScript(event.entindex_caster_const)
 	local parentUnit = EntIndexToHScript(event.entindex_parent_const)
 
-	-- your stuff
+	-- --  example
+		-- event.duration = duration*RandomFloat(0,2)
 	
 	return true
 end
@@ -96,7 +110,8 @@ function Filters:ModifyExperienceFilter(event)
 	local xp = event.experience -- can not get modified with local
 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 	
-	-- your stuff
+	-- --  example
+		-- event.experience = xp*RandomFloat(0,2)
 
 	return true
 end
@@ -109,7 +124,8 @@ function Filters:ModifyGoldFilter(event)
 	local reliable = event.reliable -- can not get modified with local
 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 
-	--your stuff
+	-- --  example
+		-- event.gold = gold*RandomFloat(0,2)
 
 	return true
 end
@@ -131,6 +147,9 @@ function Filters:TrackingProjectileFilter(event)
 	local isAttack = (1==event.is_attack)
 	local maxImpactTime = event.max_impact_time
 	local moveSpeed = event.move_speed -- can not get modified with local
+
+	-- --  example
+		-- event.move_speed = moveSpeed*RandomFloat(0,2)
 
 	return true
 end
