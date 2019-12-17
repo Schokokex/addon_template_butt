@@ -1,7 +1,7 @@
 BUTTINGS = {
 	-- These will be the default settings shown on the Team Select screen.
 
-	GAME_TITLE = WORKSHOP_TITLE or "Dota 2 but...",
+	GAME_TITLE = WORKSHOP_TITLE,
 
 	GAME_MODE = "AP",                   -- "AR" "AP" All Random/ All Pick
 	ALLOW_SAME_HERO_SELECTION = 0,      -- 0 = everyone must pick a different hero, 1 = can pick same

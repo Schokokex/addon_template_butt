@@ -1,8 +1,6 @@
 _G.ADDON_FOLDER = debug.getinfo(1,"S").source:sub(2,-37)
-if not IsInToolsMode() then
-	_G.PUBLISH_DATA = LoadKeyValues(ADDON_FOLDER:sub(5,-16).."publish_data.txt")
-	_G.WORKSHOP_TITLE = PUBLISH_DATA.title -- LoadKeyValues(debug.getinfo(1,"S").source:sub(7,-53).."publish_data.txt").title 
-end
+_G.PUBLISH_DATA = LoadKeyValues(ADDON_FOLDER:sub(5,-16).."publish_data.txt") or {}
+_G.WORKSHOP_TITLE = PUBLISH_DATA.title or "Dota 2 but..."-- LoadKeyValues(debug.getinfo(1,"S").source:sub(7,-53).."publish_data.txt").title 
 _G.MAX_LEVEL = 30
 
 _G.GameMode = _G.GameMode or class({})
