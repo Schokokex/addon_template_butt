@@ -50,7 +50,7 @@
         {
             "RunScript"
             {
-                "ScriptFile"	"utils/item_patreon.lua"
+                "ScriptFile"	"internal/utils/item_patreon.lua"
                 "Function"	    "OnSpellStart"
                 "Ability"       "seasonal_decorate_tree"
             }
