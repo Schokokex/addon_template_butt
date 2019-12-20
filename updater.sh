@@ -47,3 +47,4 @@ rm -r ../game_nerd/
 rm -r ../content_nerd/
 git add .
 git commit -m "Auto-Commit generated from https://github.com/Jochnickel/addon_template_butt/tree/nerd"
+git push
