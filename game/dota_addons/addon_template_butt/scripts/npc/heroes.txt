@@ -1,4 +1,4 @@
-// Dota Heroes File test
+// Dota Heroes File
 "DOTAHeroes"
 {
 	"Version"		"1"
