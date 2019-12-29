@@ -1,3 +1,4 @@
+print("[ Loading Schokokeks courier fix ]")
 require("internal/utils/butt_api")
 require("settings_butt")
 
@@ -35,6 +36,7 @@ function CreatePrivateCourier(playerId, owner, pointToSpawn)
 end
 
 function EditFilterToCourier(filterTable)
+	if 1~=BUTTINGS.FREE_COURIER then return end
 	local unit
 	local orderType = filterTable.order_type
 	local target = filterTable.entindex_target ~= 0 and EntIndexToHScript(filterTable.entindex_target) or nil

@@ -1,6 +1,5 @@
 require("settings_butt")
 require("filters")
-require("internal/courier")
 
 InternalFilters = class({})
 
@@ -47,7 +46,9 @@ function InternalFilters:ExecuteOrderFilter(event)
 			self.bbCount[iUnit] = self.bbCount[iUnit] - 1 
 		end
 	end
-	EditFilterToCourier(event)
+	if EditFilterToCourier and false==EditFilterToCourier(event) then
+		return false
+	end
 	return Filters:ExecuteOrderFilter(event)
 end
 
