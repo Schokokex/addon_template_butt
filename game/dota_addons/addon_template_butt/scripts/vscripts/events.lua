@@ -37,8 +37,9 @@ end, nil)
 ListenToGameEvent("dota_player_gained_level", function(keys)
 	-- for k,v in pairs(keys) do print("dota_player_gained_level",k,v) end
 	local newLevel = keys.level
-	local playerID = keys.player - 1 -- i guess
-	local heroUnit = PlayerResource:GetSelectedHeroEntity(playerID)
+	local playerEntindex = keys.player
+	local playerUnit = EntIndexToHScript(playerEntindex)
+	local heroUnit = playerUnit:GetAssignedHero()
 	
 end, nil)
 
