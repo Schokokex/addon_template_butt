@@ -5,11 +5,11 @@ _Thinker = class({})
 
 ListenToGameEvent("game_rules_state_change", function()
 	if (GameRules:State_Get()==DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then
-		GameRules:GetGameModeEntity():SetThink( "ComebackXP", _Thinker, BUTTINGS.COMEBACK_TIMER*60 )
-		GameRules:GetGameModeEntity():SetThink( "ComebackGold", _Thinker, BUTTINGS.COMEBACK_TIMER*60 )
-		GameRules:GetGameModeEntity():SetThink( "XPThinker", _Thinker, 0 )
-		GameRules:GetGameModeEntity():SetThink( "Outpost", _Thinker, 0 )
-		GameRules:GetGameModeEntity():SetThink( "WinThinker", _Thinker, BUTTINGS.ALT_TIME_LIMIT*60 )
+		Timers:CreateTimer( BUTTINGS.COMEBACK_TIMER*60, _Thinker.ComebackXP )
+		Timers:CreateTimer( BUTTINGS.COMEBACK_TIMER*60, _Thinker.ComebackGold )
+		Timers:CreateTimer( BUTTINGS.ALT_TIME_LIMIT*60, _Thinker.WinThinker )
+		Timers:CreateTimer( _Thinker.XPThinker )
+		Timers:CreateTimer( _Thinker.Outpost )
 	end
 end, self)
 
