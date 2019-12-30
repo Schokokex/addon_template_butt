@@ -34,6 +34,7 @@ end
 function copyFile(fromFile, toFile)
 	if not io then return false end
 	local infile = io.open(fromFile, "rb")
+	-- local fromSize = infile:seek("end")
 	instr = infile:read("*a")
 	infile:close()
 
