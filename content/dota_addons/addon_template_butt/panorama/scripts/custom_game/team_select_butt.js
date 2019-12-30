@@ -114,8 +114,11 @@ function onPanelChange(name) {
 	if (!IsHost) {
 		return;
 	}
-	let panel = $("#"+name);
-	let panelType = panel.paneltype;
+	const panel = $("#"+name);
+	if (!panel) {
+		return;
+	}
+	const panelType = panel.paneltype;
 	let val = undefined;
 
 	if ("DropDown"===panelType) {
