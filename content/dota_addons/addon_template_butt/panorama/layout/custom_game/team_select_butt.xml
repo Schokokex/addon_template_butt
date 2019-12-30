@@ -83,6 +83,8 @@
 																	onactivate="onPanelChange('FREE_COURIER')"/> 
 										<ToggleButton id="CLASSIC_ARMOR" class="SettingsItem" text="Classic Armor Formula"
 																	onactivate="onPanelChange('CLASSIC_ARMOR')"/>
+										<ToggleButton id="MAGIC_RES_CAP" class="SettingsItem" text="Cap Magic Resistance"
+																	onactivate="onPanelChange('MAGIC_RES_CAP')"/>
 										<ToggleButton id="NO_UPHILL_MISS" class="SettingsItem" text="No Uphill Miss"
 																	onactivate="onPanelChange('NO_UPHILL_MISS')"/>
 										<ToggleButton id="TOMBSTONE" class="SettingsItem" text="Revival Tombstone"
