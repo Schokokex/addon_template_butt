@@ -33,8 +33,13 @@ end
 
 function copyFile(fromFile, toFile)
 	if not io then return false end
+	local replacingFile = io.open(toFile, "rb")
+	local replacingSize = replacingFile:seek("end")
+	replacingFile:close()
+
 	local infile = io.open(fromFile, "rb")
-	-- local fromSize = infile:seek("end")
+	local fromSize = infile:seek("end")
+	if replacingSize==fromSize then infile:close() return false end
 	instr = infile:read("*a")
 	infile:close()
 
