@@ -17,6 +17,7 @@ BUTTINGS = {
 	XP_GAIN_PERCENTAGE = 100,           -- (default = 100) factor for xp income
 
 	TOMBSTONE = 0,                      -- 0 = normal, 1 = You spawn a tombstone when you die. Teammates can ressurect you by channeling it.
+	MAGIC_RES_CAP = 0,                  -- 0 = normal, 1 = Keeps Magic Resistance <100%
 	CLASSIC_ARMOR = 0,                  -- 0 = normal, 1 = Old armor formula (pre 7.20)
 	                                    -- set this to 1, if your game mode will feature high amounts of armor or agility
 	                                    -- otherwise the physical resistance can go to 100% making things immune to physical damage

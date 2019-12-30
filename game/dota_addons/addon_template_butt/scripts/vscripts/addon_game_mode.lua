@@ -8,7 +8,7 @@ _G.GameMode = _G.GameMode or class({})
 require("internal/utils/util")
 require("internal/init")
 
-require("internal/courier")
+require("internal/courier") -- EditFilterToCourier called from internal/filters
 
 require("internal/utils/butt_api")
 require("internal/utils/custom_gameevents")

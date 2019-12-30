@@ -29,6 +29,7 @@ function XPModifier:DeclareFunctions() --we want to use these functions in this 
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,
 		MODIFIER_EVENT_ON_ATTACK_FAIL,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_EVENT_ON_TAKEDAMAGE, -- OnTakeDamage 
 		MODIFIER_EVENT_ON_DEATH,
 	}
 
@@ -98,6 +99,35 @@ if IsServer() then
 	end
 end
 
+-- avoid 100% magic resistance
+function XPModifier:OnTakeDamage(event)
+	if (1~=BUTTINGS.MAGIC_RES_CAP) then
+		return 0
+	end
+	local victim = event.unit
+	if self:GetParent()~=victim then return end
+	local attacker = event.attacker
+	local damageType = event.damage_type
+	local damage = event.damage
+	local originalDamage = event.original_damage	
+	local inflictor = event.inflictor
+	local damageFlags = event.damage_flags
+
+	if (damageType == DAMAGE_TYPE_MAGICAL) and (0 == bit.band(DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR, damageFlags)) then
+		local armor = victim:GetMagicalArmorValue()
+		local betterDamageMultiplier = 1 - math.exp( -armor )
+		local extraDamage = originalDamage * betterDamageMultiplier - damage
+
+		ApplyDamage({
+						victim = victim,
+						attacker = attacker,
+						damage = extraDamage,
+						damage_type = DAMAGE_TYPE_MAGICAL,
+						damage_flags = DOTA_DAMAGE_FLAG_IGNORES_MAGIC_ARMOR, -- Optional, more can be added with + .. No flags = 0.
+						ability = inflictor	-- Optional, but we have an ability here (=self)
+					}) -- deal damage
+	end
+end
 
 function XPModifier:CheckState()
 	return {

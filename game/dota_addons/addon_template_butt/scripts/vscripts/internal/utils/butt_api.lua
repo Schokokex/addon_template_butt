@@ -317,7 +317,7 @@ function Butt:ProtectAllOutposts(duration)
 	if duration~=nil and "number"~=type(duration) then error("ProtectAllOutposts: number expected") end
 	require("internal/modifier_watch_tower_invulnerable_butt")
 	for u,unit in pairs(Butt:AllOutposts()) do
-		unit:AddNewModifierButt(unit, nil, "modifier_watch_tower_invulnerable_butt", {duration = 10})
+		unit:AddNewModifierButt(unit, nil, "modifier_watch_tower_invulnerable_butt", {duration = duration})
 		unit:RemoveModifierByName("modifier_watch_tower_invulnerable")
 	end
 end
