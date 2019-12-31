@@ -28,10 +28,16 @@
 	{
 		"gameModeEntity"	"local"
 	}
-	"init_game_mode"
+	"game_rules_state_game_in_progress"
 	{
 	}
-	"game_rules_state_game_in_progress"
+	"addon_game_mode_precache"
+	{
+	}
+	"addon_game_mode_spawn"
+	{
+	}
+	"addon_game_mode_activate"
 	{
 	}
 }

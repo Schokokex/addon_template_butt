@@ -3,7 +3,7 @@ if IsInToolsMode() then
 		return tostring(PlayerResource:GetSteamID(0))=="76561198007073158"
 	end
 
-	ListenToGameEvent("init_game_mode",function()
+	ListenToGameEvent("addon_game_mode_activate",function()
 		GameRules:GetGameModeEntity():SetThink(function()
 			local dotaFolder = ADDON_FOLDER:sub(0,-38)
 			if IsSchokokeks() then
