@@ -14,7 +14,7 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 	local hero = EntIndexToHScript(kv.entindex)
 	if (not hero:IsRealHero()) then return end
 	local courier = CreatePrivateCourier(hero:GetPlayerID(),hero,TeamResource:GetShop(hero:GetTeam()):GetAbsOrigin())
-	courier:AddNewModifier(hero,nil,"modifier_courier",{level = 1})
+	if courier then courier:AddNewModifier(hero,nil,"modifier_courier",{level = 1}) end
 end, self)
 
 
