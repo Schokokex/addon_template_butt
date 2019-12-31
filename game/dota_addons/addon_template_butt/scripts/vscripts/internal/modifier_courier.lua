@@ -47,15 +47,16 @@ end
 
 
 function modifier_courier:OnCreated(event)
-	self.level = event.level or 1
-	self.flying = (self.level>=5)
+	self.startlevel = event.level or 1
+	self.level = startlevel
+	self.flying = (self.startlevel>=5)
 
 	-- local self = self
 	self.levelListener = ListenToGameEvent("dota_player_gained_level", function(self,event) -- for k,v in pairs(event) do			print("mod dota_player_gained_level",IsClient(),event,k,v)		end
 		local hero = EntIndexToHScript(event.hero_entindex)
 		if (self:GetCaster()~=hero) then return end
 		local courier = self:GetParent()
-		self.level = event.level
+		self.level = self.startlevel - 1 + event.level
 		if IsServer() then 
 			courier:SetDeathXP( self.level * 20 + 15 ) 
 			courier:SetMaximumGoldBounty( self.level * 5 + 20 ) 

@@ -32,6 +32,7 @@ require("startitems")
 require("thinker")
 
 function Precache( context )
+	FireGameEvent("addon_game_mode_precache",nil)
 	PrecacheResource("soundfile", "soundevents/custom_sounds.vsndevts", context)
 	--[[
 		Precache things we know we'll use.  Possible file types include (but not limited to):
@@ -42,6 +43,7 @@ function Precache( context )
 end
 
 function Spawn()
+	FireGameEvent("addon_game_mode_spawn",nil)
 	local gmE = GameRules:GetGameModeEntity()
 
 	gmE:SetUseDefaultDOTARuneSpawnLogic(true)
@@ -52,10 +54,11 @@ function Spawn()
 end
 
 function Activate()
-	GameRules.GameMode = GameMode()
-	FireGameEvent("init_game_mode",{})
+	FireGameEvent("addon_game_mode_activate",nil)
+	-- GameRules.GameMode = GameMode()
+	-- FireGameEvent("init_game_mode",{})
 end
 
-ListenToGameEvent("init_game_mode", function()
-	print( "Template addon is loaded." )
-end, GameRules.GameMode)
+ListenToGameEvent("addon_game_mode_activate", function()
+	print( "Dota Butt Template is loaded." )
+end, nil)

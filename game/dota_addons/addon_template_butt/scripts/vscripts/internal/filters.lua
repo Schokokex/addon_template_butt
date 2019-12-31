@@ -3,7 +3,7 @@ require("filters")
 
 InternalFilters = class({})
 
-ListenToGameEvent("init_game_mode",function()
+ListenToGameEvent("addon_game_mode_activate",function()
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter( Dynamic_Wrap( InternalFilters, "AbilityTuningValueFilter" ), GameRules.GameMode )
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( InternalFilters, "BountyRunePickupFilter" ), GameRules.GameMode )
 	GameRules:GetGameModeEntity():SetDamageFilter( Dynamic_Wrap( InternalFilters, "DamageFilter" ), GameRules.GameMode )

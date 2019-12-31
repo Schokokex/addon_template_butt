@@ -8,18 +8,18 @@ ListenToGameEvent("npc_spawned", function(keys)
 	end
 end, nil)
 
-local l1 = 0
-local l2 = 0
-local function fireGME()
-	local gME = GameRules:GetGameModeEntity()
-	if (gME) then 									-- comes with the first Buildings
-		FireGameEvent("created_game_mode_entity", {gameModeEntity = gME})
-		StopListeningToGameEvent(l1)
-		StopListeningToGameEvent(l2)
-	end
-end
-l1 = ListenToGameEvent("npc_spawned", fireGME, nil)
-l2 = ListenToGameEvent("game_rules_state_change", fireGME, nil) -- backup
+-- local l1 = 0
+-- local l2 = 0
+-- local function fireGME()
+-- 	local gME = GameRules:GetGameModeEntity()
+-- 	if (gME) then 									-- comes with the first Buildings
+-- 		FireGameEvent("created_game_mode_entity", {gameModeEntity = gME})
+-- 		StopListeningToGameEvent(l1)
+-- 		StopListeningToGameEvent(l2)
+-- 	end
+-- end
+-- l1 = ListenToGameEvent("npc_spawned", fireGME, nil)
+-- l2 = ListenToGameEvent("game_rules_state_change", fireGME, nil) -- backup
 
 
 ListenToGameEvent("game_rules_state_change", function()
