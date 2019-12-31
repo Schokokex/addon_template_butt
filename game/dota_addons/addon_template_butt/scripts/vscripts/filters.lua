@@ -9,8 +9,8 @@ Filters = class({})
 function Filters:AbilityTuningValueFilter(event)
 	-- called on most abilities for each value
 	-- PrintTable(event)
-	local ability = EntIndexToHScript(event.entindex_ability_const)
-	local casterUnit = EntIndexToHScript(event.entindex_caster_const)
+	local ability = event.entindex_ability_const and EntIndexToHScript(event.entindex_ability_const)
+	local casterUnit = event.entindex_caster_const and EntIndexToHScript(event.entindex_caster_const)
 	local valueName = event.value_name_const -- e.g. duration or area_of_affect
 	local value = event.value -- can not get modified with local
 
@@ -37,8 +37,8 @@ end
 
 function Filters:DamageFilter(event)
 	-- PrintTable(event)
-	local attackerUnit = EntIndexToHScript(event.entindex_attacker_const)
-	local victimUnit = EntIndexToHScript(event.entindex_victim_const)
+	local attackerUnit = event.entindex_attacker_const and EntIndexToHScript(event.entindex_attacker_const)
+	local victimUnit = event.entindex_victim_const and EntIndexToHScript(event.entindex_victim_const)
 	local damageType = event.damagetype_const
 	local damage = event.damage -- can not get modified with local
 
@@ -50,8 +50,8 @@ end
 
 function Filters:ExecuteOrderFilter(event)
 	-- PrintTable(event)
-	local ability = EntIndexToHScript(event.entindex_ability)
-	local targetUnit = EntIndexToHScript(event.entindex_target)
+	local ability = event.entindex_ability and EntIndexToHScript(event.entindex_ability)
+	local targetUnit = event.entindex_target and EntIndexToHScript(event.entindex_target)
 	local playerID = event.issuer_player_id_const
 	local orderType = event.order_type
 	local pos = Vector(event.position_x,event.position_y,event.position_z)
@@ -68,7 +68,7 @@ end
 
 function Filters:HealingFilter(event)
 	-- PrintTable(event)
-	local targetUnit = EntIndexToHScript(event.entindex_target_const)
+	local targetUnit = event.entindex_target_const and EntIndexToHScript(event.entindex_target_const)
 	local heal = event.heal -- can not get modified with local
 
 	-- --  example
@@ -79,9 +79,9 @@ end
 
 function Filters:ItemAddedToInventoryFilter(event)
 	-- PrintTable(event)
-	local inventory = EntIndexToHScript(event.inventory_parent_entindex_const)
-	local item = EntIndexToHScript(event.item_entindex_const)
-	local itemParent = EntIndexToHScript(event.item_parent_entindex_const)
+	local inventory = event.inventory_parent_entindex_const and EntIndexToHScript(event.inventory_parent_entindex_const)
+	local item = event.item_entindex_const and EntIndexToHScript(event.item_entindex_const)
+	local itemParent = event.item_parent_entindex_const and EntIndexToHScript(event.item_parent_entindex_const)
 	local sugg = event.suggested_slot
 
 	-- --  example
@@ -94,8 +94,8 @@ function Filters:ModifierGainedFilter(event)
 	-- PrintTable(event)
 	local name = event.name_const
 	local duration = event.duration -- can not get modified with local
-	local casterUnit = EntIndexToHScript(event.entindex_caster_const)
-	local parentUnit = EntIndexToHScript(event.entindex_parent_const)
+	local casterUnit = event.entindex_caster_const and EntIndexToHScript(event.entindex_caster_const)
+	local parentUnit = event.entindex_parent_const and EntIndexToHScript(event.entindex_parent_const)
 
 	-- --  example
 		-- event.duration = duration*RandomFloat(0,2)
@@ -140,9 +140,9 @@ end
 function Filters:TrackingProjectileFilter(event)
 	-- PrintTable(event)
 	local dodgeable = event.dodgeable
-	local ability = EntIndexToHScript(event.entindex_ability_const)
-	local attackerUnit = EntIndexToHScript(event.entindex_source_const)
-	local targetUnit = EntIndexToHScript(event.entindex_target_const)
+	local ability = event.entindex_ability_const and EntIndexToHScript(event.entindex_ability_const)
+	local attackerUnit = event.entindex_source_const and EntIndexToHScript(event.entindex_source_const)
+	local targetUnit = event.entindex_target_const and EntIndexToHScript(event.entindex_target_const)
 	local expireTime = event.expire_time
 	local isAttack = (1==event.is_attack)
 	local maxImpactTime = event.max_impact_time
