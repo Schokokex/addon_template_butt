@@ -15,8 +15,9 @@ ListenToGameEvent("npc_first_spawn",function(kv)
 	local hero = EntIndexToHScript(kv.entindex)
 	if (not hero:IsRealHero()) then return end
 	local courier = CreatePrivateCourier(hero:GetPlayerID(),hero,TeamResource:GetShop(hero:GetTeam()):GetAbsOrigin())
-	if courier then 
-		courier:AddNewModifier(hero,nil,"modifier_courier",{ level = 1 })
+	if courier then
+		local kv = LoadKeyValues(ADDON_FOLDER.."scripts/npc/npc_units_custom.txt").npc_dota_courier
+		courier:AddNewModifier(hero,nil,"modifier_courier",{ level = kv.Level })
 		hero:AddNewModifier(hero,nil,"modifier_passive_gold",{ gold_per_tick = 1, gold_tick_time = (60/BUTTINGS.GOLD_PER_MINUTE), courier_entindex = courier:entindex(), always_gold = BUTTINGS.ALWAYS_PASSIVE_GOLD })
 	end
 end, self)
