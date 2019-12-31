@@ -10,6 +10,7 @@ BUTTINGS = {
 	MAX_LEVEL = MAX_LEVEL,              -- (default = 30) the max level a hero can reach
 
 	UNIVERSAL_SHOP_MODE = 1,            -- 0 = normal, 1 = you can buy every item in every shop (secret/side/base).
+	ALWAYS_PASSIVE_GOLD = 0,			-- 0 = normal, 1 = courier dead doesnt affect passive gold
 	COOLDOWN_PERCENTAGE = 100,          -- (default = 100) factor for all cooldowns
 	GOLD_GAIN_PERCENTAGE = 100,         -- (default = 100) factor for gold income
 	GOLD_PER_MINUTE = 90,               -- (default =  90) passive gold

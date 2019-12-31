@@ -80,7 +80,9 @@
 								<Panel class="SettingsGroup w-31">
 										<Label class="SettingsGroupTitle" text="Butt Exclusive"/>
 										<ToggleButton class="SettingsItem" id="FREE_COURIER" text="Fix Courier"
-																	onactivate="onPanelChange('FREE_COURIER')"/> 
+																	onactivate="onPanelChange('FREE_COURIER')"/>
+										<ToggleButton class="SettingsItem" id="ALWAYS_PASSIVE_GOLD" text="Always Passive Gold"
+																	onactivate="onPanelChange('ALWAYS_PASSIVE_GOLD')"/>
 										<ToggleButton id="CLASSIC_ARMOR" class="SettingsItem" text="Classic Armor Formula"
 																	onactivate="onPanelChange('CLASSIC_ARMOR')"/>
 										<ToggleButton id="MAGIC_RES_CAP" class="SettingsItem" text="Cap Magic Resistance"
