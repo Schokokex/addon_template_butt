@@ -48,7 +48,7 @@ end
 
 function modifier_courier:OnCreated(event)
 	self.startlevel = event.level or 1
-	self.level = startlevel
+	self.level = self.startlevel
 	self.flying = (self.startlevel>=5)
 
 	-- local self = self
