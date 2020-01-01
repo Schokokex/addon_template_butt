@@ -1,18 +1,24 @@
 
-function HUDError(message, playerID)
-	if ("number"==type(playerID)) then
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "dota_hud_error_message_player", {splitscreenplayer= 0, reason= 80, message= message})
-	else
-		CustomGameEventManager:Send_ServerToAllClients("dota_hud_error_message_player", {splitscreenplayer= 0, reason= 80, message= "All Players: "..message})
-	end
-end
+-------------------------- TABLE FUNCTIONS -----------------------------
 
-function say(...)
-	local str = ""
-	for i,v in ipairs({...}) do
-		str = str..tostring(v).." "
+function table.compare(table1, table2)
+	if "table"~=type(table1) then error("1st argument of table.compare() is not a table") end
+	if "table"~=type(table2) then error("2nd argument of table.compare() is not a table") end
+
+	for k, v1 in pairs(table1) do
+		local v2 = table2[k]
+		if "table"==type(v1) and "table"==type(v2) then
+			if not table.compare(v1,v2) then return false end
+		else
+			if v1~=v2 then return false end
+		end
 	end
-	Say(nil,str,true)
+	for k, _ in pairs(table2) do
+		local v1 = table1[k]
+		if v1==nil then return false end
+	end
+
+	return true
 end
 
 function table.merge(weak, strong)
@@ -30,6 +36,26 @@ function table.merge(weak, strong)
 	end
 	return weak
 end
+
+function table.copy(tabel)
+	if ("table"~=type(tabel)) then error("Argument of table.copy() is not a table") end
+	local out = {}
+	for k,v in pairs(tabel) do
+		out[k]=v
+	end
+	return out
+end
+
+function table.length(t)
+	if ("table"~=type(t)) then error("Argument of table.length() is not a table") end
+	local len = 0
+	for _,_ in pairs(t) do
+		len = len + 1
+	end
+	return len
+end
+
+-------------------------- FILE COPY FUNCTIONS -------------------------
 
 function copyFile(fromFile, toFile)
 	if not io then return false end
@@ -111,26 +137,7 @@ function globalsToString()
 	return out
 end
 
-function length(t)
-	if (type(t) == "table") then
-		local len = 0
-		for _,_ in pairs(t) do
-			len = len + 1
-		end
-		return len
-	else
-		print(t, "is not a table")
-	end
-end
-
-function table.copy(tabel)
-	if ("table"~=type(tabel)) then return nil end
-	local out = {}
-	for k,v in pairs(tabel) do
-		out[k]=v
-	end
-	return out
-end
+-------------------------- BAREBONES STUFF -------------------------
 
 function DebugPrint(...)
 	local spew = Convars:GetInt('barebones_spew') or -1
