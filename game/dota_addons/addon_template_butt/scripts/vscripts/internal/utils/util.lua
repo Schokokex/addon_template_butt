@@ -1,3 +1,22 @@
+function table.compare(table1, table2)
+	if "table"~=type(table1) then error("1st argument of table.equals() is not a table") end
+	if "table"~=type(table2) then error("2nd argument of table.equals() is not a table") end
+
+	for k, v1 in pairs(table1) do
+		local v2 = table2[k]
+		if "table"==type(v1) and "table"==type(v2) then
+			if not table.compare(v1,v2) then return false end
+		else
+			if v1~=v2 then return false end
+		end
+	end
+	for k, _ in pairs(table2) do
+		local v1 = table1[k]
+		if v1==nil then return false end
+	end
+
+	return true
+end
 
 function HUDError(message, playerID)
 	if ("number"==type(playerID)) then
