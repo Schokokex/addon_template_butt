@@ -1,4 +1,4 @@
-require("settings_butt")
+BUTTINGS = BUTTINGS or {}
 
 local PATHS = {
 	default = {
@@ -25,7 +25,9 @@ local TABLE_NAMES = {
 }
 
 
-CustomNetTables:SetTableValue("butt_settings", "default", BUTTINGS)
+ListenToGameEvent("addon_game_mode_spawn", function()
+	CustomNetTables:SetTableValue("butt_settings", "default", BUTTINGS)
+end, nil)
 
 local l0 = CustomGameEventManager:RegisterListener("butt_setting_changed", function(_,kv)
 	BUTTINGS[kv.setting] = kv.value

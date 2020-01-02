@@ -1,4 +1,5 @@
-require("settings_butt")
+BUTTINGS = BUTTINGS or {}
+
 require("internal/utils/butt_api")
 
 ListenToGameEvent("game_rules_state_change", function()
@@ -45,16 +46,16 @@ end, nil)
 ListenToGameEvent("dota_player_pick_hero", function(keys)
 end, self)
 
-if (1==BUTTINGS.ALT_WINNING) then
-	ListenToGameEvent("dota_player_killed",function(kv)
+ListenToGameEvent("dota_player_killed",function(kv)
+	if (1==BUTTINGS.ALT_WINNING) then
 		-- local unit = PlayerResource:GetSelectedHeroEntity(kv.PlayerID)
 		for _,t in ipairs(TeamList:GetPlayableTeams()) do
 			if (PlayerResource:GetTeamKills(t)>=BUTTINGS.ALT_KILL_LIMIT) then
 				GameRules:SetGameWinner(t)
 			end
 		end
-	end, nil)
 end
+end, nil)
 
 ListenToGameEvent("entity_killed", function(keys)
 	local killedUnit = EntIndexToHScript(keys.entindex_killed)
