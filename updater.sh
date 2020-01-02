@@ -28,13 +28,6 @@ git add herolist.txt -f
 git commit -m "Auto-Update from https://github.com/SteamDatabase/GameTracking-Dota2"
 git push
 
-cd ~/butt/addon_template_butt/
-git checkout master_nomap
-git merge master
-git rm *dota.vmap
-git commit -m "nomap"
-git push
-
 cd ~/butt/
 rm -r game_nerd/
 rm -r content_nerd/
@@ -54,4 +47,11 @@ rm -r ../game_nerd/
 rm -r ../content_nerd/
 git add .
 git commit -m "Auto-Commit generated from https://github.com/Jochnickel/addon_template_butt/tree/nerd"
+git push
+
+cd ~/butt/addon_template_butt/
+git checkout master_nomap
+git merge master
+git rm *dota.vmap
+git commit -m "nomap"
 git push
