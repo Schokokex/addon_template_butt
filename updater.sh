@@ -53,7 +53,7 @@ cd ~/butt/addon_template_butt/
 git checkout master_nomap -f
 git reset --hard
 git pull
-git merge master -m "silent"
+git merge master -m "merged master into master_nomap"
 git rm *dota.vmap
 git commit -m "nomap"
 git push
