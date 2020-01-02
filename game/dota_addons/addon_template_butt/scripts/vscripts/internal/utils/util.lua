@@ -1,4 +1,14 @@
 
+function _G.softRequire(r)
+	_G.dummyEnt = dummyEnt or Entities:CreateByClassname("info_target")
+	local a,b = pcall(require,r)
+	if not a then
+		dummyEnt:SetThink(function()
+			error(b)
+		end)
+	end
+end
+
 -------------------------- TABLE FUNCTIONS -----------------------------
 
 function table.compare(table1, table2)
