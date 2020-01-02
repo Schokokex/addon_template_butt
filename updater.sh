@@ -27,6 +27,7 @@ git add units.txt -f
 git add herolist.txt -f
 git commit -m "Auto-Update from https://github.com/SteamDatabase/GameTracking-Dota2"
 git push
+cd ~/butt/addon_template_butt/
 git branch master_nomap
 git checkout master_nomap
 git rm *dota.vmap
