@@ -29,11 +29,11 @@ git commit -m "Auto-Update from https://github.com/SteamDatabase/GameTracking-Do
 git push
 
 cd ~/butt/addon_template_butt/
-git branch master_nomap
 git checkout master_nomap
+git merge master
 git rm *dota.vmap
 git commit -m "nomap"
-git push --set-upstream origin master_nomap
+git push
 
 cd ~/butt/
 rm -r game_nerd/
