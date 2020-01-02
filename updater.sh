@@ -50,7 +50,7 @@ git commit -m "Auto-Commit generated from https://github.com/Jochnickel/addon_te
 git push
 
 cd ~/butt/addon_template_butt/
-git checkout master_nomap
+git checkout master_nomap -f
 git merge master
 git rm *dota.vmap
 git commit -m "nomap"
