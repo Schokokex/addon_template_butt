@@ -1,6 +1,6 @@
 print("[ Loading Schokokeks courier fix ]")
 require("internal/utils/butt_api")
-require("settings_butt")
+BUTTINGS = BUTTINGS or {}
 
 -- LinkLuaModifier("modifier_courier_fix", "utils/courier", LUA_MODIFIER_MOTION_NONE)
 

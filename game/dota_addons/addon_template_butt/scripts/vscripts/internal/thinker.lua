@@ -1,4 +1,4 @@
-require("settings_butt")
+BUTTINGS = BUTTINGS or {}
 require("internal/utils/butt_api")
 
 _Thinker = class({})
