@@ -5,9 +5,9 @@ if IsInToolsMode() then
 
 	ListenToGameEvent("addon_game_mode_activate",function()
 		GameRules:GetGameModeEntity():SetThink(function()
-			local dotaFolder = ADDON_FOLDER:sub(0,-38)
-			if IsSchokokeks() then
-				copyFile(dotaFolder.."content/dota/maps/dota.vmap", dotaFolder .. "content/dota_addons/addon_template_butt/maps/dota.vmap")
+			if IsSchokokeks() then -- just works in addon_template_butt folder
+				local dotaFolder = ADDON_FOLDER:sub(0,-38)
+				pcall(copyFile, dotaFolder.."content/dota/maps/dota.vmap", dotaFolder .. "content/dota_addons/addon_template_butt/maps/dota.vmap")
 				return
 			end
 			local agmStr = fileToString(ADDON_FOLDER .. "scripts/vscripts/addon_game_mode.lua")

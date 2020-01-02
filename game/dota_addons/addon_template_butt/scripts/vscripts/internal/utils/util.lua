@@ -1,10 +1,10 @@
 
-function _G.softRequire(r)
+function _G.softRequire(file)
 	_G.dummyEnt = dummyEnt or Entities:CreateByClassname("info_target")
-	local a,b = pcall(require,r)
-	if not a then
+	local happy,msg = pcall(require,file)
+	if not happy then
 		dummyEnt:SetThink(function()
-			error(b)
+			error(msg)
 		end)
 	end
 end
@@ -31,9 +31,9 @@ function table.compare(table1, table2)
 	return true
 end
 
-TABLE_COMPARE_STRICT = 0
-TABLE_COMPARE_IGNORE_KEYS = 1
-TABLE_COMPARE_IGNORE_KEYS_AND_DUPLICATES = 2
+_G.TABLE_COMPARE_STRICT = 0
+_G.TABLE_COMPARE_IGNORE_KEYS = 1
+_G.TABLE_COMPARE_IGNORE_KEYS_AND_DUPLICATES = 2
 
 -- not tested yet. careful.
 
@@ -179,8 +179,10 @@ end
 function copyFile(fromFile, toFile)
 	if not io then return false end
 	local replacingFile = io.open(toFile, "rb")
-	local replacingSize = replacingFile:seek("end")
-	replacingFile:close()
+	if replacingFile then
+		local replacingSize = replacingFile:seek("end")
+		replacingFile:close()
+	end
 
 	local infile = io.open(fromFile, "rb")
 	local fromSize = infile:seek("end")
