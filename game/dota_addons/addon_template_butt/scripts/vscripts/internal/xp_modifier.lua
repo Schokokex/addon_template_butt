@@ -16,7 +16,7 @@ if (IsClient()) then return end
 
 -----------------------------------------------------------------------------------------
 
-require("settings_butt")
+BUTTINGS = BUTTINGS or {}
 
 function XPModifier:GetAttributes() 
 	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
