@@ -48,12 +48,3 @@ rm -r ../content_nerd/
 git add .
 git commit -m "Auto-Commit generated from https://github.com/Jochnickel/addon_template_butt/tree/nerd"
 git push
-
-cd ~/butt/addon_template_butt/
-git checkout master_nomap -f
-git reset --hard
-git pull
-git merge master -m "merged master into master_nomap"
-git rm *dota.vmap
-git commit -m "nomap"
-git push
