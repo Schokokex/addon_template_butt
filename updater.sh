@@ -27,6 +27,10 @@ git add units.txt -f
 git add herolist.txt -f
 git commit -m "Auto-Update from https://github.com/SteamDatabase/GameTracking-Dota2"
 git push
+git branch master_nomap
+git checkout master_nomap
+git rm *dota.vmap
+git push --set-upstream origin master_nomap
 
 cd ~/butt/
 rm -r game_nerd/
