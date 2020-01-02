@@ -21,6 +21,115 @@ function table.compare(table1, table2)
 	return true
 end
 
+TABLE_COMPARE_STRICT = 0
+TABLE_COMPARE_IGNORE_KEYS = 1
+TABLE_COMPARE_IGNORE_KEYS_AND_DUPLICATES = 2
+
+-- not tested yet. careful.
+
+function table.compare_dev(table1, table2, flags)
+	if "table"~=type(table1) then error("1st argument of table.compare() is not a table") end
+	if "table"~=type(table2) then error("2nd argument of table.compare() is not a table") end
+	if nil==flags or TABLE_COMPARE_STRICT==flags then
+		for k, v1 in pairs(table1) do
+			local v2 = table2[k]
+			if "table"==type(v1) and "table"==type(v2) then
+				if not table.compare(v1,v2) then return false end
+			else
+				if v1~=v2 then return false end
+			end
+		end
+		for k, _ in pairs(table2) do
+			local v1 = table1[k]
+			if v1==nil then return false end
+		end
+	elseif TABLE_COMPARE_IGNORE_KEYS==flags then
+		local arr1 = {}
+		for _, v1 in pairs(table1) do
+			table.insert(arr1,v1)
+		end
+		-- arr1 is array with all table1 values
+		for _, v2 in pairs(table2) do
+			--checking every table2 value
+			local foundV1 = false
+			for k1, v1 in pairs(arr1) do
+				if v2==v1
+				or "table"==type(v1) and "table"==type(v2) and table.compare(v1,v2, flags)
+				then
+					-- found the counterpart in arr1
+					foundV1 = true
+					arr1[k1] = nil
+					break
+				end
+			end
+			if not foundV1 then
+				-- no arr1 counterpart found
+				return false
+			end
+		end
+		for _ in pairs(arr1) do
+			--  arr1 value is left with no table2 counterpart
+			return false
+		end
+	elseif TABLE_COMPARE_IGNORE_KEYS_AND_DUPLICATES==flags then
+		local values = {}
+		local tabValues1 = {}
+		for _, v1 in pairs(table1) do
+			if "table"==type(v1) then
+				-- v1 is a table
+				local tableAlreadyListed = false
+				for v0 in pairs(tabValues1) do
+					if table.compare(v1,v0,flags) then
+						tableAlreadyListed = true
+						break
+					end
+				end
+				if not tableAlreadyListed then
+					tabValues1[v1] = v1
+					values[v1] = 1
+				end
+			else
+				-- v1 is a normal value, not table
+				values[v1] = 1
+			end
+		end
+		-- so now all table1 values are stored as keys in values	{12 = 1, "1a5" = 1,...}
+		-- also tabValues1 contains all different tables 			{table51 = table51, table32 = table32, ...}
+		-- for every tabValue1 there is an entry in values 			{..., "1a5" = 1, table51 = 1, ...}
+		for k2, v2 in pairs(table2) do
+			if "table"==type(v2) then
+				local foundV1 = false
+				for v1 in pairs(tabValues1) do
+					if table.compare(v1,v2,flags) then
+						foundV1 = true
+						values[v1] = 2
+						break
+					end
+				end
+				if not foundV1 then return false end
+			else
+				-- v2 is a normal value, not table
+				if nil==values[v2] then
+					-- lonely value2
+					return false
+				end
+				values[v2] = 2
+			end
+		end
+		-- now all 1 inside values should have turned into 2
+		-- values[normal values] == 2 now if they appeared in the 2nd table
+		-- values[tables] == 2 if there was a similar (sub)table in table2
+		for k,v in pairs(values) do
+			if 1==v then
+				-- lonely value1
+				return false
+			end
+		end
+	end
+	return true
+end
+
+
 function table.merge(weak, strong)
 	if (type(weak) ~= "table") then error("1st argument of table.merge() is not a table") end
 	if (type(strong) == "table") then
