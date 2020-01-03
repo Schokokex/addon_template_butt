@@ -111,6 +111,8 @@ If you get errors inside a modifier function, try to set `if IsClient() then ret
 
 Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and get teleported to the spawn after.
 
+If you should start working with GameEvents, notice that tables (defined as `local`) are converted to a string.
+
 # Links
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
 
