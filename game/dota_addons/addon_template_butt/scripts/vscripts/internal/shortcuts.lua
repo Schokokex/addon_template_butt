@@ -35,7 +35,7 @@ ListenToGameEvent("player_chat", function(keys)
 	elseif ("-entities"==text) and (playerID) then
 		local iter = Entities:First()
 		while(iter) do
-			if (iter:GetName()~="") then print("Entities:",iter:GetClassname(),iter:GetName(),iter:entindex(),"Team",ent:GetTeam()) end
+			if (iter:GetName()~="") then print("Entities:",iter:GetClassname(),iter:GetName(),iter:entindex(),"Team",iter:GetTeam()) end
 			iter = Entities:Next(iter)
 		end
 	elseif ("-abils"==text) and (playerID) then
