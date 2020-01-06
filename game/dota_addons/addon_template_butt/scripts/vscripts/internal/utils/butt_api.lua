@@ -330,7 +330,7 @@ function Butt:UnProtectAllOutposts()
 end
 
 function Butt:ProtectAllOutposts(duration)
-	if duration~=nil and "number"~=type(duration) then error("ProtectAllOutposts: number expected") end
+	if duration~=nil and "number"~=type(duration) then error("ProtectAllOutposts: number expected",2) end
 	require("internal/modifier_watch_tower_invulnerable_butt")
 	for u,unit in pairs(Butt:AllOutposts()) do
 		unit:AddNewModifierButt(unit, nil, "modifier_watch_tower_invulnerable_butt", {duration = duration})

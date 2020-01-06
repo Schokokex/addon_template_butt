@@ -68,7 +68,7 @@ function _Thinker:Outpost()
 	local units = LoadKeyValues(ADDON_FOLDER.."scripts/npc/npc_units_custom.txt")
 	local delay = units.npc_dota_watch_tower and units.npc_dota_watch_tower.StartingTime
 	if nil==delay then return end
-	if "number"~=type(delay) then error("npc_dota_watch_tower.StartingTime is not a number") end
+	if "number"~=type(delay) then error("npc_dota_watch_tower.StartingTime is not a number",2) end
 	Butt:ProtectAllOutposts(delay) -- protects all Outposts until 10:00
 	-- refresh at 10:00 or new modifier
 end
