@@ -4,7 +4,7 @@ function _G.softRequire(file)
 	local happy,msg = pcall(require,file)
 	if not happy then
 		dummyEnt:SetThink(function()
-			error(msg)
+			error(msg,2)
 		end)
 	end
 end
@@ -12,8 +12,8 @@ end
 -------------------------- TABLE FUNCTIONS -----------------------------
 
 function table.compare(table1, table2)
-	if "table"~=type(table1) then error("1st argument of table.compare() is not a table") end
-	if "table"~=type(table2) then error("2nd argument of table.compare() is not a table") end
+	if "table"~=type(table1) then error("1st argument of table.compare() is not a table",2) end
+	if "table"~=type(table2) then error("2nd argument of table.compare() is not a table",2) end
 
 	for k, v1 in pairs(table1) do
 		local v2 = table2[k]
@@ -38,8 +38,8 @@ _G.TABLE_COMPARE_IGNORE_KEYS_AND_DUPLICATES = 2
 -- not tested yet. careful.
 
 function table.compare_dev(table1, table2, flags)
-	if "table"~=type(table1) then error("1st argument of table.compare() is not a table") end
-	if "table"~=type(table2) then error("2nd argument of table.compare() is not a table") end
+	if "table"~=type(table1) then error("1st argument of table.compare() is not a table",2) end
+	if "table"~=type(table2) then error("2nd argument of table.compare() is not a table",2) end
 	if nil==flags or TABLE_COMPARE_STRICT==flags then
 		for k, v1 in pairs(table1) do
 			local v2 = table2[k]
@@ -141,7 +141,7 @@ end
 
 
 function table.merge(weak, strong)
-	if (type(weak) ~= "table") then error("1st argument of table.merge() is not a table") end
+	if (type(weak) ~= "table") then error("1st argument of table.merge() is not a table",2) end
 	if (type(strong) == "table") then
 		for k,v in pairs(strong) do
 			if type(v)=="table" then
@@ -157,7 +157,7 @@ function table.merge(weak, strong)
 end
 
 function table.copy(tabel)
-	if ("table"~=type(tabel)) then error("Argument of table.copy() is not a table") end
+	if ("table"~=type(tabel)) then error("Argument of table.copy() is not a table",2) end
 	local out = {}
 	for k,v in pairs(tabel) do
 		out[k]=v
@@ -166,7 +166,7 @@ function table.copy(tabel)
 end
 
 function table.length(t)
-	if ("table"~=type(t)) then error("Argument of table.length() is not a table") end
+	if ("table"~=type(t)) then error("Argument of table.length() is not a table",2) end
 	local len = 0
 	for _,_ in pairs(t) do
 		len = len + 1
