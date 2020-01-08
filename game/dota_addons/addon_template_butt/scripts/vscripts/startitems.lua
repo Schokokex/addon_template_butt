@@ -1,7 +1,7 @@
 require("internal/utils/butt_api")
 
 local startitems = {
-	item_patreon_7 = {},
+	-- item_patreon_7 = {},
 	-- item_shivas_guard = { amt = 2, cast = true, cd = 10 },
 	-- item_travel_boots = {amt=20, cd= 100},
 }
