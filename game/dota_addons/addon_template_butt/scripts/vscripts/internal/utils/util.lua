@@ -9,6 +9,17 @@ function _G.softRequire(file)
 	end
 end
 
+function argSorter(o,order,must) -- o: toSort args, order: {"function","string",..}, must:{true,false...}
+ local out = {}
+ for i,v in ipairs(order) do
+  for _,v in pairs(o) do
+   if order[i]==type(v) then out[i] = v break end
+  end
+  if nil==out[i] and must[i] then error(string.format("required %s not found",order[i]),3) end
+ end
+ return out[1],out[2],out[3] -- unpack fails if out[1]==nil
+end
+
 -------------------------- TABLE FUNCTIONS -----------------------------
 
 function table.compare(table1, table2)
