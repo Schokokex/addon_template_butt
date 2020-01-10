@@ -1,35 +1,36 @@
 BUTTINGS = BUTTINGS or {}
 
 InternalFilters = class({})
+Filters = class({})
+
+local filterTables = {}
+local filterLabels = {}
+
+local filterNames = {"BountyRunePickup", "AbilityTuningValue", "Damage", "ExecuteOrder", "RuneSpawn", "Healing", "ItemAdedToInventory", "ModifierGained", "ModifyExperience", "ModifyGold", "TrackingProjectile"}
 
 ListenToGameEvent("addon_game_mode_activate",function()
 	local contxt = {}
-	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter( InternalFilters.AbilityTuningValueFilter, contxt )
-	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( InternalFilters.BountyRunePickupFilter, contxt )
-	GameRules:GetGameModeEntity():SetDamageFilter( InternalFilters.DamageFilter, contxt )
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter( InternalFilters.ExecuteOrderFilter, contxt )
-	GameRules:GetGameModeEntity():SetHealingFilter( InternalFilters.HealingFilter, contxt )
-	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter( InternalFilters.ItemAddedToInventoryFilter, contxt )
-	GameRules:GetGameModeEntity():SetModifierGainedFilter( InternalFilters.ModifierGainedFilter, contxt )
-	GameRules:GetGameModeEntity():SetModifyExperienceFilter( InternalFilters.ModifyExperienceFilter, contxt )
-	GameRules:GetGameModeEntity():SetModifyGoldFilter( InternalFilters.ModifyGoldFilter, contxt )
-	GameRules:GetGameModeEntity():SetRuneSpawnFilter( InternalFilters.RuneSpawnFilter, contxt )
-	GameRules:GetGameModeEntity():SetTrackingProjectileFilter( InternalFilters.TrackingProjectileFilter, contxt )
+	local gEnt = GameRules:GetGameModeEntity()
+	for _,fName in pairs(filterNames) do
+		gEnt["Set"..fName.."Filter"](gEnt, InternalFilters[fName.."Filter"], contxt)
+	end
 end, nil)
 
+
+
 function InternalFilters:AbilityTuningValueFilter(event)
-	return Filters:AbilityTuningValueFilter(event)
+	return Filters:ApplyAllAbilityTuningValueFilters(event)
 end
 
 function InternalFilters:BountyRunePickupFilter(event)
 	event.xp_bounty = event.xp_bounty * BUTTINGS.XP_GAIN_PERCENTAGE * 0.01
 	event.gold_bounty = event.gold_bounty * BUTTINGS.GOLD_GAIN_PERCENTAGE * 0.01
 
-	return Filters:BountyRunePickupFilter(event)
+	return Filters:ApplyAllBountyRunePickupFilters(event)
 end
 
 function InternalFilters:DamageFilter(event)
-	return Filters:DamageFilter(event)
+	return Filters:ApplyAllDamageFilters(event)
 end
 
 function InternalFilters:ExecuteOrderFilter(event)
@@ -49,19 +50,19 @@ function InternalFilters:ExecuteOrderFilter(event)
 	if EditFilterToCourier and false==EditFilterToCourier(event) then
 		return false
 	end
-	return Filters:ExecuteOrderFilter(event)
+	return Filters:ApplyAllExecuteOrderFilters(event)
 end
 
 function InternalFilters:HealingFilter(event)
-	return Filters:HealingFilter(event)
+	return Filters:ApplyAllHealingFilters(event)
 end
 
 function InternalFilters:ItemAddedToInventoryFilter(event)
-	return Filters:ItemAddedToInventoryFilter(event)
+	return Filters:ApplyAllItemAddedToInventoryFilters(event)
 end
 
 function InternalFilters:ModifierGainedFilter(event)
-	return Filters:ModifierGainedFilter(event)
+	return Filters:ApplyAllModifierGainedFilters(event)
 end
 
 function InternalFilters:ModifyExperienceFilter(event)
@@ -75,7 +76,7 @@ function InternalFilters:ModifyExperienceFilter(event)
 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 	
 	-- ##
-	local out = Filters:ModifyExperienceFilter(event)
+	local out = Filters:ApplyAllModifyExperienceFilters(event)
 	-- ##
 
 	local teamHeroes = PlayerResourceButt:GetMainFriendlyHeroes(event.player_id_const)
@@ -105,7 +106,7 @@ function InternalFilters:ModifyGoldFilter(event)
 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 
 	-- ##
-	local out = Filters:ModifyGoldFilter(event)
+	local out = Filters:ApplyAllModifyGoldFilters(event)
 	-- ##
 	
 	local teamPlayers = PlayerResourceButt:GetFriendlyPlayers(event.player_id_const)
@@ -126,9 +127,45 @@ end
 function InternalFilters:RuneSpawnFilter(event)
 	-- PrintTable(event)
 	-- maybe deprecated? 
-	return Filters:RuneSpawnFilter(event)
+	return Filters:ApplyAllRuneSpawnFilters(event)
 end
 
 function InternalFilters:TrackingProjectileFilter(event)
-	return Filters:TrackingProjectileFilter(event)
+	return Filters:ApplyAllTrackingProjectileFilters(event)
+end
+
+---- new update ----
+
+for _,fName in pairs(filterNames) do
+  filterTables[fName] = {}
+  filterLabels[fName] = {}
+  local xFilterTable = filterTables[fName]
+  local xFilterLabelTable = filterLabels[fName]
+  Filters[fName.."Filter"] = function (self,num, func, str)
+    local pos,f,s = argSorter({num,func,str},{"number","function","string"},{[2]=true})
+    pos = pos and math.clamp(math.ceil(pos),#xFilterTable+1,1) or #xFilterTable +1
+    table.insert(xFilterTable ,pos,f)
+    table.insert(xFilterLabelTable ,pos, s or tostring(f))
+    return pos
+  end
+
+  Filters["Get"..fName.."Filters"] = function(self)
+     return table.pack(table.unpack(xFilterLabelTable))
+   end
+
+  Filters["Remove"..fName.."Filter"] = function(self,pos)
+    table.remove(xFilterTable,pos)
+    table.remove(xFilterLabelTable,pos)
+   end
+
+  Filters["RemoveAll"..fName.."Filters"] = function(self)
+   xFilterTable = {}
+   xFilterLabelTable = {}
+  end
+				
+  Filters["ApplyAll"..fName.."Filters"] = function(self,event)
+   for _,f in ipairs(xFilterTable) do
+     if not f(event) then return false end
+   end
+  end
 end
