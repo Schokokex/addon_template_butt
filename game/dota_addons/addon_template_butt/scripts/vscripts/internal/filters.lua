@@ -141,6 +141,7 @@ for _,fName in pairs(filterNames) do
 	filterLabels[fName] = {}
 	local xFilterTable = filterTables[fName]
 	local xFilterLabelTable = filterLabels[fName]
+	
 	Filters[fName.."Filter"] = function (self,num, func, str)
 		local pos,f,s = argSorter({num,func,str},{"number","function","string"},{[2]=true})
 		pos = pos and math.clamp(math.ceil(pos),#xFilterTable+1,1) or #xFilterTable +1
