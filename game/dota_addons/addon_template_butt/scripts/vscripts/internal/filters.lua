@@ -142,29 +142,30 @@ for _,fName in pairs(filterNames) do
 	local xFilterTable = filterTables[fName]
 	local xFilterLabelTable = filterLabels[fName]
 	Filters[fName.."Filter"] = function (self,num, func, str)
-	local pos,f,s = argSorter({num,func,str},{"number","function","string"},{[2]=true})
-	pos = pos and math.clamp(math.ceil(pos),#xFilterTable+1,1) or #xFilterTable +1
-	table.insert(xFilterTable ,pos,f)
-	table.insert(xFilterLabelTable ,pos, s or tostring(f))
-	return pos
-end
+		local pos,f,s = argSorter({num,func,str},{"number","function","string"},{[2]=true})
+		pos = pos and math.clamp(math.ceil(pos),#xFilterTable+1,1) or #xFilterTable +1
+		table.insert(xFilterTable ,pos,f)
+		table.insert(xFilterLabelTable ,pos, s or tostring(f))
+		return pos
+	end
 
-Filters["Get"..fName.."Filters"] = function(self)
-	return table.pack(table.unpack(xFilterLabelTable))
-end
+	Filters["Get"..fName.."Filters"] = function(self)
+		return table.pack(table.unpack(xFilterLabelTable))
+	end
 
-Filters["Remove"..fName.."Filter"] = function(self,pos)
-	table.remove(xFilterTable,pos)
-	table.remove(xFilterLabelTable,pos)
-end
+	Filters["Remove"..fName.."Filter"] = function(self,pos)
+		table.remove(xFilterTable,pos)
+		table.remove(xFilterLabelTable,pos)
+	end
 
-Filters["RemoveAll"..fName.."Filters"] = function(self)
-	xFilterTable = {}
-	xFilterLabelTable = {}
-end
+	Filters["RemoveAll"..fName.."Filters"] = function(self)
+		xFilterTable = {}
+		xFilterLabelTable = {}
+	end
 
-Filters["ApplyAll"..fName.."Filters"] = function(self,event)
-	for _,f in ipairs(xFilterTable) do
-		if not f(event) then return false end
+	Filters["ApplyAll"..fName.."Filters"] = function(self,event)
+		for _,f in ipairs(xFilterTable) do
+			if not f(event) then return false end
+		end
 	end
 end
