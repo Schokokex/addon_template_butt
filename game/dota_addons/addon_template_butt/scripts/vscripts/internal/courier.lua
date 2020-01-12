@@ -15,6 +15,8 @@ ListenToGameEvent("npc_first_spawn",function(event)
 	if 1~=BUTTINGS.FREE_COURIER then return end
 	local hero = EntIndexToHScript(event.entindex)
 	if (not hero:IsRealHero()) then return end
+	-- courier_spawn[2] = Entities:FindByClassname(nil, "info_courier_spawn_radiant")
+	-- courier_spawn[3] = Entities:FindByClassname(nil, "info_courier_spawn_dire")
 	local courier = CreatePrivateCourier(hero:GetPlayerID(),hero,TeamResource:GetShop(hero:GetTeam()):GetAbsOrigin())
 	if courier then
 		local kv = LoadKeyValues(ADDON_FOLDER.."scripts/npc/npc_units_custom.txt").npc_dota_courier
