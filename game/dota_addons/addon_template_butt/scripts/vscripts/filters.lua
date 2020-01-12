@@ -17,7 +17,7 @@
 -- -> returns all Filter labels of a type
 
 
-function Filters:AbilityTuningValueFilter(function(event)
+Filters:AbilityTuningValueFilter(function(event)
 	-- called on most abilities for each value
 	-- PrintTable(event)
 	local ability = event.entindex_ability_const and EntIndexToHScript(event.entindex_ability_const)
@@ -31,7 +31,7 @@ function Filters:AbilityTuningValueFilter(function(event)
 	return true
 end)
 	
-function Filters:BountyRunePickupFilter(1,"demoBauntiFilter",function(event) -- orderNumber and label are optional
+Filters:BountyRunePickupFilter(1,"demoBauntiFilter",function(event) -- orderNumber and label are optional
 	-- PrintTable(event)
 	local playerID = event.player_id_const
 	local xp = event.xp_bounty -- can not get modified with local
@@ -49,7 +49,7 @@ end)
 -- for k,v in pairs(Filters:GetBountyRunePickupFilters()) do print(k,v) end
 -- -- 1 - demoBauntiFilter
 
-function Filters:DamageFilter(function(event)
+Filters:DamageFilter(function(event)
 	-- PrintTable(event)
 	local attackerUnit = event.entindex_attacker_const and EntIndexToHScript(event.entindex_attacker_const)
 	local victimUnit = event.entindex_victim_const and EntIndexToHScript(event.entindex_victim_const)
@@ -62,7 +62,7 @@ function Filters:DamageFilter(function(event)
 	return true
 end)
 
-function Filters:ExecuteOrderFilter(function(event)
+Filters:ExecuteOrderFilter(function(event)
 	-- PrintTable(event)
 	local ability = event.entindex_ability and EntIndexToHScript(event.entindex_ability)
 	local targetUnit = event.entindex_target and EntIndexToHScript(event.entindex_target)
@@ -80,7 +80,7 @@ function Filters:ExecuteOrderFilter(function(event)
 	return true
 end)
 
-function Filters:HealingFilter(function(event)
+Filters:HealingFilter(function(event)
 	-- PrintTable(event)
 	local targetUnit = event.entindex_target_const and EntIndexToHScript(event.entindex_target_const)
 	local heal = event.heal -- can not get modified with local
@@ -91,7 +91,7 @@ function Filters:HealingFilter(function(event)
 	return true
 end)
 
-function Filters:ItemAddedToInventoryFilter(function(event)
+Filters:ItemAddedToInventoryFilter(function(event)
 	-- PrintTable(event)
 	local inventory = event.inventory_parent_entindex_const and EntIndexToHScript(event.inventory_parent_entindex_const)
 	local item = event.item_entindex_const and EntIndexToHScript(event.item_entindex_const)
@@ -104,7 +104,7 @@ function Filters:ItemAddedToInventoryFilter(function(event)
 	return true
 end)
 
-function Filters:ModifierGainedFilter(function(event)
+Filters:ModifierGainedFilter(function(event)
 	-- PrintTable(event)
 	local name = event.name_const
 	local duration = event.duration -- can not get modified with local
@@ -117,7 +117,7 @@ function Filters:ModifierGainedFilter(function(event)
 	return true
 end)
 
-function Filters:ModifyExperienceFilter(function(event)
+Filters:ModifyExperienceFilter(function(event)
 	-- PrintTable(event)
 	local playerID = event.player_id_const
 	local reason = event.reason_const
@@ -130,7 +130,7 @@ function Filters:ModifyExperienceFilter(function(event)
 	return true
 end)
 
-function Filters:ModifyGoldFilter(function(event)
+Filters:ModifyGoldFilter(function(event)
 	-- PrintTable(event) 
 	local playerID = event.player_id_const
 	local reason = event.reason_const
@@ -145,13 +145,13 @@ function Filters:ModifyGoldFilter(function(event)
 end)
 
 
-function Filters:RuneSpawnFilter(function(event)
+Filters:RuneSpawnFilter(function(event)
 	-- PrintTable(event)
 	-- maybe deprecated? 
 	return true
 end)
 
-function Filters:TrackingProjectileFilter(function(event)
+Filters:TrackingProjectileFilter(function(event)
 	-- PrintTable(event)
 	local dodgeable = event.dodgeable
 	local ability = event.entindex_ability_const and EntIndexToHScript(event.entindex_ability_const)
