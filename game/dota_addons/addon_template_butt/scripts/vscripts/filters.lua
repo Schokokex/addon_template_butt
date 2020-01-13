@@ -1,35 +1,35 @@
--- MAKE SURE TO RETURN FALSE OR TRUE :)
+-- -- MAKE SURE TO RETURN FALSE OR TRUE :)
 
--- Filters allow you to do some code on specific events.
--- Whats special about it: you can manipulate some values here.
-
-
--- Filters:<<NAME>>Filter((orderNumber), (labelString), function) returns orderNumber
--- -> adds a new Filter
-
--- Filters:Remove<<NAME>>Filter(orderNumber)
--- -> removes one Filter by the number
-
--- Filters:RemoveAll<<NAME>>Filters()
--- -> Removes all Filters of a type
-
--- Filters:Get<<NAME>>Filters() returns {..}
--- -> returns all Filter labels of a type
+-- -- Filters allow you to do some code on specific events.
+-- -- Whats special about it: you can manipulate some values here.
 
 
-Filters:AbilityTuningValueFilter(function(event)
-	-- called on most abilities for each value
-	-- PrintTable(event)
-	local ability = event.entindex_ability_const and EntIndexToHScript(event.entindex_ability_const)
-	local casterUnit = event.entindex_caster_const and EntIndexToHScript(event.entindex_caster_const)
-	local valueName = event.value_name_const -- e.g. duration or area_of_affect
-	local value = event.value -- can not get modified with local
+-- -- Filters:<<NAME>>Filter((orderNumber), (labelString), function) returns orderNumber
+-- -- -> adds a new Filter
 
-	-- --  example
-		-- event.value = 10
+-- -- Filters:Remove<<NAME>>Filter(orderNumber)
+-- -- -> removes one Filter by the number
 
-	return true
-end)
+-- -- Filters:RemoveAll<<NAME>>Filters()
+-- -- -> Removes all Filters of a type
+
+-- -- Filters:Get<<NAME>>Filters() returns {..}
+-- -- -> returns all Filter labels of a type
+
+
+-- Filters:AbilityTuningValueFilter(function(event)
+-- 	-- called on most abilities for each value
+-- 	-- PrintTable(event)
+-- 	local ability = event.entindex_ability_const and EntIndexToHScript(event.entindex_ability_const)
+-- 	local casterUnit = event.entindex_caster_const and EntIndexToHScript(event.entindex_caster_const)
+-- 	local valueName = event.value_name_const -- e.g. duration or area_of_affect
+-- 	local value = event.value -- can not get modified with local
+
+-- 	-- --  example
+-- 		-- event.value = 10
+
+-- 	return true
+-- end)
 	
 Filters:BountyRunePickupFilter(1,"demoBauntiFilter",function(event) -- orderNumber and label are optional
 	-- PrintTable(event)
@@ -80,90 +80,90 @@ Filters:ExecuteOrderFilter(function(event)
 	return true
 end)
 
-Filters:HealingFilter(function(event)
-	-- PrintTable(event)
-	local targetUnit = event.entindex_target_const and EntIndexToHScript(event.entindex_target_const)
-	local heal = event.heal -- can not get modified with local
+-- Filters:HealingFilter(function(event)
+-- 	-- PrintTable(event)
+-- 	local targetUnit = event.entindex_target_const and EntIndexToHScript(event.entindex_target_const)
+-- 	local heal = event.heal -- can not get modified with local
 
-	-- --  example
-		-- event.heal = event.heal*RandomInt(0,2)
+-- 	-- --  example
+-- 		-- event.heal = event.heal*RandomInt(0,2)
 	
-	return true
-end)
+-- 	return true
+-- end)
 
-Filters:ItemAddedToInventoryFilter(function(event)
-	-- PrintTable(event)
-	local inventory = event.inventory_parent_entindex_const and EntIndexToHScript(event.inventory_parent_entindex_const)
-	local item = event.item_entindex_const and EntIndexToHScript(event.item_entindex_const)
-	local itemParent = event.item_parent_entindex_const and EntIndexToHScript(event.item_parent_entindex_const)
-	local sugg = event.suggested_slot
+-- Filters:ItemAddedToInventoryFilter(function(event)
+-- 	-- PrintTable(event)
+-- 	local inventory = event.inventory_parent_entindex_const and EntIndexToHScript(event.inventory_parent_entindex_const)
+-- 	local item = event.item_entindex_const and EntIndexToHScript(event.item_entindex_const)
+-- 	local itemParent = event.item_parent_entindex_const and EntIndexToHScript(event.item_parent_entindex_const)
+-- 	local sugg = event.suggested_slot
 
-	-- --  example
-	-- --  dunno
+-- 	-- --  example
+-- 	-- --  dunno
 	
-	return true
-end)
+-- 	return true
+-- end)
 
-Filters:ModifierGainedFilter(function(event)
-	-- PrintTable(event)
-	local name = event.name_const
-	local duration = event.duration -- can not get modified with local
-	local casterUnit = event.entindex_caster_const and EntIndexToHScript(event.entindex_caster_const)
-	local parentUnit = event.entindex_parent_const and EntIndexToHScript(event.entindex_parent_const)
+-- Filters:ModifierGainedFilter(function(event)
+-- 	-- PrintTable(event)
+-- 	local name = event.name_const
+-- 	local duration = event.duration -- can not get modified with local
+-- 	local casterUnit = event.entindex_caster_const and EntIndexToHScript(event.entindex_caster_const)
+-- 	local parentUnit = event.entindex_parent_const and EntIndexToHScript(event.entindex_parent_const)
 
-	-- --  example
-		-- event.duration = duration*RandomFloat(0,2)
+-- 	-- --  example
+-- 		-- event.duration = duration*RandomFloat(0,2)
 	
-	return true
-end)
+-- 	return true
+-- end)
 
-Filters:ModifyExperienceFilter(function(event)
-	-- PrintTable(event)
-	local playerID = event.player_id_const
-	local reason = event.reason_const
-	local xp = event.experience -- can not get modified with local
-	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
+-- Filters:ModifyExperienceFilter(function(event)
+-- 	-- PrintTable(event)
+-- 	local playerID = event.player_id_const
+-- 	local reason = event.reason_const
+-- 	local xp = event.experience -- can not get modified with local
+-- 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 	
-	-- --  example
-		-- event.experience = xp*RandomFloat(0,2)
+-- 	-- --  example
+-- 		-- event.experience = xp*RandomFloat(0,2)
 
-	return true
-end)
+-- 	return true
+-- end)
 
-Filters:ModifyGoldFilter(function(event)
-	-- PrintTable(event) 
-	local playerID = event.player_id_const
-	local reason = event.reason_const
-	local gold = event.gold -- can not get modified with local
-	local reliable = event.reliable -- can not get modified with local
-	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
+-- Filters:ModifyGoldFilter(function(event)
+-- 	-- PrintTable(event) 
+-- 	local playerID = event.player_id_const
+-- 	local reason = event.reason_const
+-- 	local gold = event.gold -- can not get modified with local
+-- 	local reliable = event.reliable -- can not get modified with local
+-- 	local heroUnit = playerID and PlayerResource:GetSelectedHeroEntity(playerID)
 
-	-- --  example
-		-- event.gold = gold*RandomFloat(0,2)
+-- 	-- --  example
+-- 		-- event.gold = gold*RandomFloat(0,2)
 
-	return true
-end)
+-- 	return true
+-- end)
 
 
-Filters:RuneSpawnFilter(function(event)
-	-- PrintTable(event)
-	-- maybe deprecated? 
-	return true
-end)
+-- Filters:RuneSpawnFilter(function(event)
+-- 	-- PrintTable(event)
+-- 	-- maybe deprecated? 
+-- 	return true
+-- end)
 
-Filters:TrackingProjectileFilter(function(event)
-	-- PrintTable(event)
-	local dodgeable = event.dodgeable
-	local ability = event.entindex_ability_const and EntIndexToHScript(event.entindex_ability_const)
-	local attackerUnit = event.entindex_source_const and EntIndexToHScript(event.entindex_source_const)
-	local targetUnit = event.entindex_target_const and EntIndexToHScript(event.entindex_target_const)
-	local expireTime = event.expire_time
-	local isAttack = (1==event.is_attack)
-	local maxImpactTime = event.max_impact_time
-	local moveSpeed = event.move_speed -- can not get modified with local
+-- Filters:TrackingProjectileFilter(function(event)
+-- 	-- PrintTable(event)
+-- 	local dodgeable = event.dodgeable
+-- 	local ability = event.entindex_ability_const and EntIndexToHScript(event.entindex_ability_const)
+-- 	local attackerUnit = event.entindex_source_const and EntIndexToHScript(event.entindex_source_const)
+-- 	local targetUnit = event.entindex_target_const and EntIndexToHScript(event.entindex_target_const)
+-- 	local expireTime = event.expire_time
+-- 	local isAttack = (1==event.is_attack)
+-- 	local maxImpactTime = event.max_impact_time
+-- 	local moveSpeed = event.move_speed -- can not get modified with local
 
-	-- --  example
-		-- event.move_speed = moveSpeed*RandomFloat(0,2)
+-- 	-- --  example
+-- 		-- event.move_speed = moveSpeed*RandomFloat(0,2)
 
-	return true
-end)
+-- 	return true
+-- end)

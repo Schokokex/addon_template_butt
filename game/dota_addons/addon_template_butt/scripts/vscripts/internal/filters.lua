@@ -3,10 +3,7 @@ BUTTINGS = BUTTINGS or {}
 InternalFilters = class({})
 Filters = class({})
 
-local filterTables = {}
-local filterLabels = {}
-
-local filterNames = {"BountyRunePickup", "AbilityTuningValue", "Damage", "ExecuteOrder", "RuneSpawn", "Healing", "ItemAdedToInventory", "ModifierGained", "ModifyExperience", "ModifyGold", "TrackingProjectile"}
+local filterNames = {"BountyRunePickup", "AbilityTuningValue", "Damage", "ExecuteOrder", "RuneSpawn", "Healing", "ItemAddedToInventory", "ModifierGained", "ModifyExperience", "ModifyGold", "TrackingProjectile"}
 
 ListenToGameEvent("addon_game_mode_activate",function()
 	local contxt = {}
@@ -137,10 +134,8 @@ end
 ---- new update ----
 
 for _,fName in pairs(filterNames) do
-	filterTables[fName] = {}
-	filterLabels[fName] = {}
-	local xFilterTable = filterTables[fName]
-	local xFilterLabelTable = filterLabels[fName]
+	local xFilterTable = {}
+	local xFilterLabelTable = {}
 	
 	Filters[fName.."Filter"] = function (self,num, func, str)
 		local pos,f,s = argSorter({num,func,str},{"number","function","string"},{[2]=true})
@@ -168,5 +163,6 @@ for _,fName in pairs(filterNames) do
 		for _,f in ipairs(xFilterTable) do
 			if not f(event) then return false end
 		end
+		return true
 	end
 end
