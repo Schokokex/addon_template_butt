@@ -16,12 +16,18 @@ ListenToGameEvent("game_rules_state_change", function()
 		GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(BUTTINGS.MAX_LEVEL)
 
 		if ("AR"==BUTTINGS.GAME_MODE) then
-			local time = (BUTTINGS.HERO_BANNING) and 16 or 0
+			local time = (BUTTINGS.HERO_BANNING)*16 or 0
 			GameRules:GetGameModeEntity():SetThink( function()
 				for p,player in pairs(PlayerList:GetValidTeamPlayers()) do
 					player:MakeRandomHeroSelection()
 				end
 			end, time)
+		end
+
+		if (BUTTINGS.HERO_BANNING==0) then
+			GameRules:GetGameModeEntity():SetDraftingBanningTimeOverride( 0 )
+		else
+			GameRules:GetGameModeEntity():SetDraftingBanningTimeOverride( 16 )
 		end
 	-- elseif (GameRules:State_Get()>=DOTA_GAMERULES_STATE_PRE_GAME) then
 		-- GameRules:GetGameModeEntity():SetThink( function(asd)
