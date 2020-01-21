@@ -23,6 +23,12 @@ ListenToGameEvent("game_rules_state_change", function()
 				end
 			end, time)
 		end
+		
+		if ( 0 == BUTTINGS.HERO_BANNING ) then
+			GameRules:GetGameModeEntity():SetDraftingBanningTimeOverride( 0 )
+		else
+			GameRules:GetGameModeEntity():SetDraftingBanningTimeOverride( 16 )
+		end
 	-- elseif (GameRules:State_Get()>=DOTA_GAMERULES_STATE_PRE_GAME) then
 		-- GameRules:GetGameModeEntity():SetThink( function(asd)
 		-- 	if (1==BUTTINGS.FREE_COURIER) then TeamList:GetFreeCouriers() end
