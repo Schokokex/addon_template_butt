@@ -2,6 +2,8 @@ cd ~/butt/addon_template_butt/
 git checkout nerd -f
 git reset --hard
 git pull
+date > game/dota_addons/addon_template_butt/version.txt
+git add game/dota_addons/addon_template_butt/version.txt
 cd ~/butt/addon_template_butt/game/dota_addons/addon_template_butt/scripts/npc/
 rm items.txt
 rm neutral_items.txt
@@ -45,7 +47,6 @@ cp -r ../game_nerd/ game/
 cp -r ../content_nerd/ content/
 rm -r ../game_nerd/
 rm -r ../content_nerd/
-date > game/dota_addons/addon_template_butt/version.txt
 git add .
 git commit -m "Auto-Commit generated from https://github.com/Jochnickel/addon_template_butt/tree/nerd"
 git push
