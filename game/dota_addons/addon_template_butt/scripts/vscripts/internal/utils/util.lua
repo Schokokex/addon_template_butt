@@ -9,6 +9,16 @@ function _G.softRequire(file)
 	end
 end
 
+-------------------------- MATH FUNCTIONS -----------------------------
+
+function math.clamp(val,min,max)
+	if "number"~=type(val) or "number"~=type(min) or "number"~=type(max) then error("math.clamp:  args #1, #2 #3 must be numbers",2) end
+	if min>max then min,max = max,min end
+	if val>=max then return max end
+	if val<=min then return min end
+	return val
+end
+
 -------------------------- TABLE FUNCTIONS -----------------------------
 
 function table.compare(table1, table2)
