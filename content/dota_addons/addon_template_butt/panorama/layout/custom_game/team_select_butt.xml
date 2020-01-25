@@ -79,6 +79,8 @@
 								</Panel>
 								<Panel class="SettingsGroup w-31">
 										<Label class="SettingsGroupTitle" text="Butt Exclusive"/>
+										<ToggleButton class="SettingsItem" id="SIDE_SHOP" text="Side Shops at Outposts"
+																	onactivate="onPanelChange('SIDE_SHOP')"/>
 										<ToggleButton class="SettingsItem" id="FREE_COURIER" text="Fix Courier"
 																	onactivate="onPanelChange('FREE_COURIER')"/>
 										<ToggleButton class="SettingsItem" id="ALWAYS_PASSIVE_GOLD" text="Always Passive Gold"

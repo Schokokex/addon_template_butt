@@ -29,6 +29,24 @@ ListenToGameEvent("game_rules_state_change", function()
 		else
 			GameRules:GetGameModeEntity():SetDraftingBanningTimeOverride( 16 )
 		end
+
+		if ( 1 == BUTTINGS.SIDE_SHOP ) then
+			for op,outpost in pairs(Butt:AllOutposts()) do
+				CreateUnitByNameAsync(
+					"ent_dota_shop",
+					outpost:GetAbsOrigin(),
+					true,  -- bFindClearSpace,
+					nil,
+					nil,
+					5,
+					function(shop)
+						shop:SetShopType(DOTA_SHOP_SIDE)
+					end
+				)
+				SpawnDOTAShopTriggerRadiusApproximate(outpost:GetAbsOrigin(),600):SetShopType(DOTA_SHOP_SIDE)
+			end
+		end
+
 	-- elseif (GameRules:State_Get()>=DOTA_GAMERULES_STATE_PRE_GAME) then
 		-- GameRules:GetGameModeEntity():SetThink( function(asd)
 		-- 	if (1==BUTTINGS.FREE_COURIER) then TeamList:GetFreeCouriers() end

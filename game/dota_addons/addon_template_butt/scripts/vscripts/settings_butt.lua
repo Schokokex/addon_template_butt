@@ -24,6 +24,7 @@ BUTTINGS = {
 	                                    -- otherwise the physical resistance can go to 100% making things immune to physical damage
 	
 	NO_UPHILL_MISS = 0,                 -- 0 = normal, 1 = 0% uphill muss chance
+	SIDE_SHOP = 0,                      -- 0 = normal, 1 = bring back sideshops
 	 FREE_COURIER = 1,                  -- 0 = buggy volvo, 1 = courier fix
 	XP_PER_MINUTE = 0,                  -- (normal dota = 0) everyone gets passive experience (like the passive gold)
 	COMEBACK_TIMER = 30,                -- timer (minutes) to start comeback XP / gold 
