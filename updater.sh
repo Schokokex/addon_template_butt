@@ -45,6 +45,7 @@ cp -r ../game_nerd/ game/
 cp -r ../content_nerd/ content/
 rm -r ../game_nerd/
 rm -r ../content_nerd/
+date > game/dota_addons/addon_template_butt/version.txt
 git add .
 git commit -m "Auto-Commit generated from https://github.com/Jochnickel/addon_template_butt/tree/nerd"
 git push
