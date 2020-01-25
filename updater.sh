@@ -2,8 +2,6 @@ cd ~/butt/addon_template_butt/
 git checkout nerd -f
 git reset --hard
 git pull
-date > game/dota_addons/addon_template_butt/version.txt
-git add game/dota_addons/addon_template_butt/version.txt
 cd ~/butt/addon_template_butt/game/dota_addons/addon_template_butt/scripts/npc/
 rm items.txt
 rm neutral_items.txt
