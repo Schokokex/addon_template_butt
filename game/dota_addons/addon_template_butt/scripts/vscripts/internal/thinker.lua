@@ -9,7 +9,7 @@ ListenToGameEvent("game_rules_state_change", function()
 		Timers:CreateTimer( BUTTINGS.COMEBACK_TIMER*60, _Thinker.ComebackGold )
 		Timers:CreateTimer( BUTTINGS.ALT_TIME_LIMIT*60, _Thinker.WinThinker )
 		Timers:CreateTimer( _Thinker.XPThinker )
-		Timers:CreateTimer( _Thinker.Outpost )
+		-- Timers:CreateTimer( _Thinker.Outpost )
 	end
 end, self)
 
