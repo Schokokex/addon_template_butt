@@ -516,6 +516,7 @@ DOTAHUDShop.ShowSecretShop #SecretShopButton:hover
 
 .ShopItemsCategory
 {
+	overflow: squish scroll; //JJ
 	flow-children: down;
 	horizontal-align: center;
 	width: 100%;
@@ -1437,7 +1438,6 @@ DOTAHUDShop.ShopHotkeyMode:not(.DOTA_SHOP_CATEGORY_NONE) #GridRowHotkeys
 
 .TeamNeutralItems
 {
-	overflow: scroll; //JJ
 	flow-children: down;
 	width: 100%;
 	//padding: 10px;
