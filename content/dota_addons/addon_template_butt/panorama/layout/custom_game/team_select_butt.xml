@@ -14,6 +14,12 @@
 						<!-- <Panel class="SplitThree"> -->
 						<Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">
 								<Panel class="SettingsGroup w-31">
+										<Button id="RESET" class="SettingsItem ButtonBevel" onactivate="onPanelChange('RESET')">
+												<Label text="Reset"/>
+												<!-- <Image src="file://{images}/control_icons/shuffle.psd" /> -->
+										</Button>
+								</Panel>
+								<Panel class="SettingsGroup w-31">
 										<Label class="SettingsGroupTitle" text="Gamemode"/>
 										<!-- <Label class="SettingsItem" text="Ban"/>
 										<DropDown id="BanList" class="SettingsItem" oninputsubmit="OnDropDownChanged()">
@@ -164,15 +170,8 @@
 												<Label text="Cooldown" class="TextEntryLabel"/>
 										</Panel>
 								</Panel>
-								<Panel class="SettingsGroup w-31">
-										<!-- <Button id="CHEAT_QUICK" class="SettingsItem ButtonBevel" onactivate="onPanelChange('CHEAT_QUICK')"><Label text="Quick Start" /></Button> -->
-										<Button id="RESET" class="SettingsItem ButtonBevel" onactivate="onPanelChange('RESET')">
-												<Label text="Reset"/>
-												<!-- <Image src="file://{images}/control_icons/shuffle.psd" /> -->
-										</Button>
-								</Panel>
 								<Panel id="toolsModeGroup" class="SettingsGroup w-31 v-coll">
-										<Label class="SettingsGroupTitle" text="Edit KV files"/>
+										<Label class="SettingsGroupTitle" text="Tools Mode"/>
 										<Button id="NEUTRALITEMEDITOR" class="InToolsMode SettingsItem ButtonBevel" onactivate="openItemEditor('neutralItems')">
 												<Label text="Neutrals Item Editor"/>
 												<!-- <Image src="file://{images}/control_icons/shuffle.psd" /> -->
@@ -193,6 +192,7 @@
 												<Label text="Unit Editor"/>
 												<!-- <Image src="file://{images}/control_icons/shuffle.psd" /> -->
 										</Button>
+										<Button id="CHEAT_QUICK" class="InToolsMode SettingsItem ButtonBevel" onactivate="onPanelChange('CHEAT_QUICK')"><Label text="Quick Start" /></Button>
 								</Panel>
 								<!-- <Panel class="SettingsElement"> -->
 								<!-- <Label class="SettingsElementTitle" text="Bots?"/> -->

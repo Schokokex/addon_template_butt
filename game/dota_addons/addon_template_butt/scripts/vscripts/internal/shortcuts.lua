@@ -26,7 +26,7 @@ ListenToGameEvent("player_chat", function(keys)
 		end
 	elseif ("-courier"==text) and (playerID) then
 		TeamList:GetFreeCouriers()
-	elseif ("-start"==text) and (playerID) then
+	elseif ("-quick"==text) and (playerID) then
 		cheatStart()
 	elseif ("-nearents"==text) and (playerID) then
 		for _,ent in pairs(Entities:FindAllInSphere(hero:GetAbsOrigin(),800)) do
@@ -66,24 +66,19 @@ local l2 = CustomGameEventManager:RegisterListener("butt_on_clicked", function(_
 end)
 
 function cheatStart()
-	GameRules:SetStrategyTime(0)
-	GameRules:SetShowcaseTime(0)
-	GameRules:GetGameModeEntity():SetCustomGameForceHero("npc_dota_hero_furion")
 	Tutorial:SelectHero("npc_dota_hero_furion")
-	PlayerResource:SetGold(0, 9876, true)
-	GameRules:ResetToHeroSelection()
 	Tutorial:ForceGameStart()
-	GameRules:GetGameModeEntity():SetThink(
-		(function()
-			local hero = PlayerResource:GetSelectedHeroEntity(0)
-			if (not hero) then return 0.3 end
-			hero:GetAbilityByIndex(0):SetLevel(1)
-			hero:GetAbilityByIndex(1):SetLevel(1)
-			hero:GetAbilityByIndex(2):SetLevel(1)
-			hero:GetAbilityByIndex(5):SetLevel(1)
-			hero:SetAbilityPoints(-3)
-			hero:AddItemByName("item_courier"):CastAbility()
-			return nil
-		end), 0
-	)
+	PlayerResource:SetGold(0, 9876, true)
+	GameRules:GetGameModeEntity():SetCameraDistanceOverride(1500)
+	-- GameRules:GetGameModeEntity():SetThink(function()
+	-- 	print("asd")
+	-- 	local hero = PlayerResource:GetSelectedHeroEntity(0)
+	-- 	if (not hero) then return 0.3 end
+	-- 	hero:GetAbilityByIndex(0):SetLevel(1)
+	-- 	hero:GetAbilityByIndex(1):SetLevel(1)
+	-- 	hero:GetAbilityByIndex(2):SetLevel(1)
+	-- 	hero:GetAbilityByIndex(5):SetLevel(1)
+	-- 	hero:SetAbilityPoints(-3)
+	-- 	return nil
+	-- end, 0.1)
 end
