@@ -1,5 +1,5 @@
 # Hi
-Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me know (on Github or Steam).
+Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me know (on Github or Steam). Don't be afraid to create an issue on github.
 
 
 # Valve Stuff
