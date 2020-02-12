@@ -337,3 +337,22 @@ function Butt:ProtectAllOutposts(duration)
 		unit:RemoveModifierByName("modifier_watch_tower_invulnerable")
 	end
 end
+
+function Butt:OldSideshopLocations()
+	return {Vector(7500,-4128,256),Vector(-7400,4440,256)}
+end
+
+function Butt:CreateSideShop(location)
+	CreateUnitByNameAsync(
+		"ent_dota_shop",
+		location,
+		true,  -- bFindClearSpace,
+		nil,
+		nil,
+		5,
+		function(shop)
+			shop:SetShopType(DOTA_SHOP_SIDE)
+		end
+	)
+	SpawnDOTAShopTriggerRadiusApproximate(location,600):SetShopType(DOTA_SHOP_SIDE)
+end
