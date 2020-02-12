@@ -31,19 +31,13 @@ ListenToGameEvent("game_rules_state_change", function()
 		end
 
 		if ( 1 == BUTTINGS.SIDE_SHOP ) then
-			for op,outpost in pairs(Butt:AllOutposts()) do
-				CreateUnitByNameAsync(
-					"ent_dota_shop",
-					outpost:GetAbsOrigin(),
-					true,  -- bFindClearSpace,
-					nil,
-					nil,
-					5,
-					function(shop)
-						shop:SetShopType(DOTA_SHOP_SIDE)
-					end
-				)
-				SpawnDOTAShopTriggerRadiusApproximate(outpost:GetAbsOrigin(),600):SetShopType(DOTA_SHOP_SIDE)
+			for _,pos in pairs(Butt:OldSideshopLocations()) do
+				Butt:CreateSideShop(pos)
+			end
+		end
+		if ( 1 == BUTTINGS.OUTPOST_SHOP ) then
+			for o,outpost in pairs(Butt:AllOutposts()) do
+				Butt:CreateSideShop(outpost:GetAbsOrigin())
 			end
 		end
 

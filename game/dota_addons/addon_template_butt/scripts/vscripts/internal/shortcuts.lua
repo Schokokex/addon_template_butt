@@ -51,6 +51,8 @@ ListenToGameEvent("player_chat", function(keys)
 				end
 			end
 		end
+	elseif ("-pos"==text) and (playerID) then
+		say("Position: "..tostring(hero:GetAbsOrigin()))
 	elseif ("-outpost 1"==text) and (playerID) then
 		Butt:ProtectAllOutposts()
 	elseif ("-outpost 0"==text) and (playerID) then
