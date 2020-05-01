@@ -1,5 +1,5 @@
 # Hi
-Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me know (on Github or Steam). Don't be afraid to create an issue on github.
+Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me know (on Github or Steam).
 
 
 # Valve Stuff
@@ -15,6 +15,8 @@ After that you can start the game inside Hammer just by clicking the "Game Contr
 
 ## Use it Automatically
 If you paste the template into the steam/dota folder, you can automatically create templates by clicking "Create New Addon From Existing Addon".
+
+HOWEVER, if you auto-generate a mod, you still have to manually copy `addoninfo.txt` (or add the line `"maps" "dota"` into the curly braces). Otherwise it will be online with 26 different maps, of which half are not playable.
 
 To make it readonly you have to copy the `readonly_tools_asset_info.bin` file from `game/addon_template` to `game/addon_template_butt`.
 
@@ -110,8 +112,6 @@ This `hero:GetLevel()` equals to `hero.GetLevel(hero)`. `if (hero.GetLevel) then
 If you get errors inside a modifier function, try to set `if IsClient() then return end` as the first line inside the function.
 
 Creeps actually dont spawn at 00:00, 00:30 and so on, they spawn earlier and get teleported to the spawn after.
-
-If you should start working with GameEvents, notice that tables (defined as `local`) are converted to a string.
 
 # Links
 Lua API : https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API
