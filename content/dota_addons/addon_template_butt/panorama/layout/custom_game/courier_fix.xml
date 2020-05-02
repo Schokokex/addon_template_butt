@@ -1,5 +1,0 @@
-<root>
-	<scripts>
-		<include src="file://{resources}/scripts/custom_game/courier_fix.js" />
-	</scripts>
-</root>
