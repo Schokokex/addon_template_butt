@@ -11,8 +11,8 @@ ListenToGameEvent("game_rules_state_change", function()
 
 		
 		GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( BUTTINGS.ALTERNATIVE_XP_TABLE() )
-		GameRules:GetGameModeEntity():SetUseCustomHeroLevels(BUTTINGS.MAX_LEVEL~=25)
-		GameRules:SetUseCustomHeroXPValues(BUTTINGS.MAX_LEVEL~=25)
+		GameRules:GetGameModeEntity():SetUseCustomHeroLevels(true)
+		GameRules:SetUseCustomHeroXPValues(true)
 		GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(BUTTINGS.MAX_LEVEL)
 
 		if ("AR"==BUTTINGS.GAME_MODE) then
