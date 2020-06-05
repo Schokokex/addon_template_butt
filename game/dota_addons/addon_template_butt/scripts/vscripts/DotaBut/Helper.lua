@@ -1,0 +1,2 @@
+-- This file is meant to provide helpful functions, e.g. getFountainPosition
+-- Optional
