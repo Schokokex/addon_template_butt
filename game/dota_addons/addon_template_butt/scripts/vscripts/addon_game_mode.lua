@@ -12,6 +12,7 @@
 -- TODO:
 -- require "Butt.Core"
 -- softRequire "Butt.Helper"
+-- softRequire "GameMode.lua"
 
 
 function Precache( context )
