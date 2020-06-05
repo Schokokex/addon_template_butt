@@ -10,8 +10,8 @@
 
 
 -- TODO:
--- require "Butt.Core"
--- softRequire "Butt.Helper"
+-- require "DotaBut.Core"
+-- softRequire "DotaBut.Helper"
 -- softRequire "GameMode.lua"
 
 
