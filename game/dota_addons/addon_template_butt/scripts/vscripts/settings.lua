@@ -1,0 +1,3 @@
+return {
+  "ExpFactor" = 100
+}
