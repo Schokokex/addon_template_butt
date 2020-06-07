@@ -1,3 +1,3 @@
 return {
-  "ExpFactor" = 100
+  "ExpFactor" = 1.00
 }
