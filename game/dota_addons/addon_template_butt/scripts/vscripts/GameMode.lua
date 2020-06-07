@@ -1,8 +1,9 @@
 -- Hi there, use me!
 
 
+
 -- SetUseLoadScreen(true)
--- SetLoadScreenOptions("default")
+-- DotaBut.AddSettings(reqire "Settings")
 
 
 -- AddFilter
