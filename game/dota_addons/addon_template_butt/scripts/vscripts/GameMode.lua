@@ -2,7 +2,7 @@
 
 
 
--- SetUseLoadScreen(true)
+-- DotaBut.SetUseLoadScreen(true)
 -- DotaBut.AddSettings(reqire "Settings")
 
 
