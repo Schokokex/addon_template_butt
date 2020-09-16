@@ -1,6 +1,9 @@
 # Hi
 Hey, im Schokokeksrepublik, if you want some features, if you find a bug, let me know (on Github or Steam).
 
+# Bugs and Updates
+Feel free to contribute with pull requests.
+Also check out https://github.com/BOTRaiquia/dota2buttemplate_fixed
 
 # Valve Stuff
 Since the Steam interface recently changed, the Workshop Tools are harder to find. Open Dota Settings-> DLCs.
